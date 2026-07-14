@@ -38,12 +38,12 @@ class EMAStrategy:
 
         if above_both and ema_slope_bull and near_slow:
             if prev['Close'] <= prev['EMA_SLOW'] * 1.005 and last['Close'] > last['EMA_SLOW']:
-                if last['RSI'] > 50 and last['RSI'] < 70:
+                if last['RSI'] > 55 and last['RSI'] < 70:
                     signals.append({
                         'type': 'BUY',
                         'price': round(last['Close'], 2),
                         'target': round(last['Close'] * 1.04, 2),
-                        'stop': round(last['Close'] * 0.98, 2),
+                        'stop': round(last['Close'] * 0.985, 2),
                         'reason': f"Trend pullback bounce at {slow} EMA (slope up), RSI {last['RSI']:.0f}",
                         'rsi': round(last['RSI'], 1),
                         'volume_ratio': round(last['VOL_RATIO'], 1),

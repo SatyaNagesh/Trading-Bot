@@ -36,26 +36,30 @@ class MACDStrategy:
         above_trend = pd.isna(last['SMA_200']) or last['Close'] > last['SMA_200']
         below_trend = pd.isna(last['SMA_200']) or last['Close'] < last['SMA_200']
 
+        macd_below_zero_bars = (df['MACD'].iloc[-10:] < 0).sum() if len(df) >= 10 else 0
+
         if above_trend and prev['MACD'] <= 0 and last['MACD'] > 0:
-            if hist_rising and last['RSI'] > 45 and last['RSI'] < 70 and ema50_slope > 0:
+            if hist_rising and last['RSI'] > 50 and last['RSI'] < 70 and ema50_slope > 0 and macd_below_zero_bars >= 3:
                 signals.append({
                     'type': 'BUY',
                     'price': round(last['Close'], 2),
                     'target': round(last['Close'] * 1.04, 2),
-                    'stop': round(last['Close'] * 0.98, 2),
+                    'stop': round(last['Close'] * 0.985, 2),
                     'reason': f"MACD crossed above zero + hist rising, RSI {last['RSI']:.0f}",
                     'rsi': round(last['RSI'], 1),
                     'volume_ratio': 0,
                     'strategy': self.name,
                 })
 
+        macd_above_zero_bars = (df['MACD'].iloc[-10:] > 0).sum() if len(df) >= 10 else 0
+
         elif below_trend and prev['MACD'] >= 0 and last['MACD'] < 0:
-            if last['MACD_HIST'] < prev['MACD_HIST'] and last['RSI'] < 55 and last['RSI'] > 30 and ema50_slope < 0:
+            if last['MACD_HIST'] < prev['MACD_HIST'] and last['RSI'] < 50 and last['RSI'] > 30 and ema50_slope < 0 and macd_above_zero_bars >= 3:
                 signals.append({
                     'type': 'SELL',
                     'price': round(last['Close'], 2),
                     'target': round(last['Close'] * 0.96, 2),
-                    'stop': round(last['Close'] * 1.02, 2),
+                    'stop': round(last['Close'] * 1.015, 2),
                     'reason': f"MACD crossed below zero + hist falling, RSI {last['RSI']:.0f}",
                     'rsi': round(last['RSI'], 1),
                     'volume_ratio': 0,
