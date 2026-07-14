@@ -22,26 +22,22 @@ class MACDStrategy:
         df['MACD_HIST'] = df['MACD'] - df['MACD_SIGNAL']
         df['RSI'] = ta.rsi(df['Close'], length=params['rsi_period'])
         df['SMA_200'] = df['Close'].rolling(window=200).mean()
-
-        adx = ta.adx(df['High'], df['Low'], df['Close'], length=adx_p)
-        if adx is not None:
-            df['ADX'] = adx[f'ADX_{adx_p}']
+        df['EMA_50'] = ta.ema(df['Close'], length=50)
 
         signals = []
         last = df.iloc[-1]
         prev = df.iloc[-2]
-        p3 = df.iloc[-3]
 
         if pd.isna(last['MACD']) or pd.isna(last['MACD_SIGNAL']):
             return []
 
+        ema50_slope = (last['EMA_50'] - df['EMA_50'].iloc[-5]) / df['EMA_50'].iloc[-5] if len(df) >= 5 else 0
         hist_rising = last['MACD_HIST'] > prev['MACD_HIST']
         above_trend = pd.isna(last['SMA_200']) or last['Close'] > last['SMA_200']
-
         below_trend = pd.isna(last['SMA_200']) or last['Close'] < last['SMA_200']
 
         if above_trend and prev['MACD'] <= 0 and last['MACD'] > 0:
-            if hist_rising and last['RSI'] < 70:
+            if hist_rising and last['RSI'] > 45 and last['RSI'] < 70 and ema50_slope > 0:
                 signals.append({
                     'type': 'BUY',
                     'price': round(last['Close'], 2),
@@ -54,7 +50,7 @@ class MACDStrategy:
                 })
 
         elif below_trend and prev['MACD'] >= 0 and last['MACD'] < 0:
-            if last['MACD_HIST'] < prev['MACD_HIST'] and last['RSI'] > 30:
+            if last['MACD_HIST'] < prev['MACD_HIST'] and last['RSI'] < 55 and last['RSI'] > 30 and ema50_slope < 0:
                 signals.append({
                     'type': 'SELL',
                     'price': round(last['Close'], 2),

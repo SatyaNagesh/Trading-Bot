@@ -26,6 +26,7 @@ class BollingerStrategy:
 
         df['HIGH_20'] = df['Close'].rolling(window=20).max()
         df['LOW_20'] = df['Close'].rolling(window=20).min()
+        df['EMA_50'] = ta.ema(df['Close'], length=50)
 
         signals = []
         last = df.iloc[-1]
@@ -37,8 +38,9 @@ class BollingerStrategy:
         above_trend = pd.isna(last['SMA_200']) or last['Close'] > last['SMA_200']
         below_trend = pd.isna(last['SMA_200']) or last['Close'] < last['SMA_200']
         high_vol = last['VOL_RATIO'] > vol_thresh
+        ema50_slope = (last['EMA_50'] - df['EMA_50'].iloc[-5]) / df['EMA_50'].iloc[-5] if len(df) >= 5 else 0
 
-        if above_trend and high_vol and last['Close'] > last['HIGH_20'] * 0.99:
+        if above_trend and high_vol and ema50_slope > 0 and last['Close'] > last['HIGH_20'] * 0.99:
             if prev['Close'] <= prev['HIGH_20'] * 0.99:
                 if last['RSI'] < 75:
                     signals.append({
@@ -52,7 +54,7 @@ class BollingerStrategy:
                         'strategy': self.name,
                     })
 
-        elif below_trend and high_vol and last['Close'] < last['LOW_20'] * 1.01:
+        elif below_trend and high_vol and ema50_slope < 0 and last['Close'] < last['LOW_20'] * 1.01:
             if prev['Close'] >= prev['LOW_20'] * 1.01:
                 if last['RSI'] > 25:
                     signals.append({
