@@ -1,5 +1,4 @@
 import pandas as pd
-import pandas_ta as ta
 
 
 class MACDStrategy:
@@ -14,12 +13,11 @@ class MACDStrategy:
         ms = params['macd_slow']
         msig = params['macd_signal']
 
-        macd = ta.macd(df['Close'], fast=mf, slow=ms, signal=msig)
-        if macd is None:
-            return []
-        df['MACD'] = macd[f'MACD_{mf}_{ms}_{msig}']
-        df['MACD_SIGNAL'] = macd[f'MACDs_{mf}_{ms}_{msig}']
-        df['MACD_HIST'] = macd[f'MACDh_{mf}_{ms}_{msig}']
+        exp_fast = df['Close'].ewm(span=mf, adjust=False).mean()
+        exp_slow = df['Close'].ewm(span=ms, adjust=False).mean()
+        df['MACD'] = exp_fast - exp_slow
+        df['MACD_SIGNAL'] = df['MACD'].ewm(span=msig, adjust=False).mean()
+        df['MACD_HIST'] = df['MACD'] - df['MACD_SIGNAL']
 
         df['RSI'] = ta.rsi(df['Close'], length=params['rsi_period'])
 

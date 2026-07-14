@@ -13,13 +13,11 @@ class BollingerStrategy:
         bb_p = params['bb_period']
         bb_s = params['bb_std']
 
-        bb = ta.bbands(df['Close'], length=bb_p, std=bb_s)
-        if bb is None:
-            return []
-
-        df['BB_UPPER'] = bb[f'BBU_{bb_p}_{bb_s}']
-        df['BB_MID'] = bb[f'BBM_{bb_p}_{bb_s}']
-        df['BB_LOWER'] = bb[f'BBL_{bb_p}_{bb_s}']
+        mid = df['Close'].rolling(bb_p).mean()
+        std = df['Close'].rolling(bb_p).std(ddof=0)
+        df['BB_UPPER'] = mid + bb_s * std
+        df['BB_MID'] = mid
+        df['BB_LOWER'] = mid - bb_s * std
         df['BB_WIDTH'] = (df['BB_UPPER'] - df['BB_LOWER']) / df['BB_MID']
         df['BB_PCT'] = (df['Close'] - df['BB_LOWER']) / (df['BB_UPPER'] - df['BB_LOWER'])
 
