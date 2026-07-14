@@ -22,6 +22,7 @@ class MACDStrategy:
         df['MACD_HIST'] = df['MACD'] - df['MACD_SIGNAL']
         df['RSI'] = ta.rsi(df['Close'], length=params['rsi_period'])
         df['SMA_200'] = df['Close'].rolling(window=200).mean()
+        df['EMA_20'] = ta.ema(df['Close'], length=20)
         df['EMA_50'] = ta.ema(df['Close'], length=50)
 
         signals = []
@@ -35,8 +36,10 @@ class MACDStrategy:
         hist_rising = last['MACD_HIST'] > prev['MACD_HIST']
         above_trend = pd.isna(last['SMA_200']) or last['Close'] > last['SMA_200']
         below_trend = pd.isna(last['SMA_200']) or last['Close'] < last['SMA_200']
+        above_20ema = last['Close'] > last['EMA_20']
+        below_20ema = last['Close'] < last['EMA_20']
 
-        if above_trend and prev['MACD'] <= 0 and last['MACD'] > 0:
+        if above_trend and above_20ema and prev['MACD'] <= 0 and last['MACD'] > 0:
             if hist_rising and last['RSI'] > 50 and last['RSI'] < 70 and ema50_slope > 0:
                 signals.append({
                     'type': 'BUY',
@@ -49,7 +52,7 @@ class MACDStrategy:
                     'strategy': self.name,
                 })
 
-        elif below_trend and prev['MACD'] >= 0 and last['MACD'] < 0:
+        elif below_trend and below_20ema and prev['MACD'] >= 0 and last['MACD'] < 0:
             if last['MACD_HIST'] < prev['MACD_HIST'] and last['RSI'] < 50 and last['RSI'] > 30 and ema50_slope < 0:
                 signals.append({
                     'type': 'SELL',

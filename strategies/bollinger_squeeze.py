@@ -26,6 +26,7 @@ class BollingerStrategy:
 
         df['HIGH_20'] = df['Close'].rolling(window=20).max()
         df['LOW_20'] = df['Close'].rolling(window=20).min()
+        df['EMA_20'] = ta.ema(df['Close'], length=20)
         df['EMA_50'] = ta.ema(df['Close'], length=50)
 
         signals = []
@@ -37,35 +38,41 @@ class BollingerStrategy:
 
         above_trend = pd.isna(last['SMA_200']) or last['Close'] > last['SMA_200']
         below_trend = pd.isna(last['SMA_200']) or last['Close'] < last['SMA_200']
+        above_20ema = last['Close'] > last['EMA_20']
+        below_20ema = last['Close'] < last['EMA_20']
         high_vol = last['VOL_RATIO'] > vol_thresh
-        ema50_slope = (last['EMA_50'] - df['EMA_50'].iloc[-5]) / df['EMA_50'].iloc[-5] if len(df) >= 5 else 0
+        ema20_slope = (last['EMA_20'] - df['EMA_20'].iloc[-5]) / df['EMA_20'].iloc[-5] if len(df) >= 5 else 0
 
-        if above_trend and high_vol and ema50_slope > 0 and last['Close'] > last['HIGH_20'] * 0.99:
-            if prev['Close'] <= prev['HIGH_20'] * 0.99:
-                if last['RSI'] < 75:
-                    signals.append({
-                        'type': 'BUY',
-                        'price': round(last['Close'], 2),
-                        'target': round(last['Close'] + last['ATR'] * 2, 2),
-                        'stop': round(last['Close'] - last['ATR'] * 0.8, 2),
-                        'reason': f"Volume {last['VOL_RATIO']:.1f}x breakout above 20d range",
-                        'rsi': round(last['RSI'], 1),
-                        'volume_ratio': round(last['VOL_RATIO'], 1),
-                        'strategy': self.name,
-                    })
+        max_stop_pct = 0.02
 
-        elif below_trend and high_vol and ema50_slope < 0 and last['Close'] < last['LOW_20'] * 1.01:
-            if prev['Close'] >= prev['LOW_20'] * 1.01:
-                if last['RSI'] > 25:
-                    signals.append({
-                        'type': 'SELL',
-                        'price': round(last['Close'], 2),
-                        'target': round(last['Close'] - last['ATR'] * 2, 2),
-                        'stop': round(last['Close'] + last['ATR'] * 0.8, 2),
-                        'reason': f"Volume {last['VOL_RATIO']:.1f}x breakdown below 20d range",
-                        'rsi': round(last['RSI'], 1),
-                        'volume_ratio': round(last['VOL_RATIO'], 1),
-                        'strategy': self.name,
-                    })
+        if above_trend and above_20ema and high_vol and ema20_slope > 0 and last['Close'] > last['HIGH_20']:
+            if last['RSI'] < 70:
+                atr_stop = last['ATR'] * 1.0
+                stop_pct = min(atr_stop / last['Close'], max_stop_pct)
+                signals.append({
+                    'type': 'BUY',
+                    'price': round(last['Close'], 2),
+                    'target': round(last['Close'] * 1.04, 2),
+                    'stop': round(last['Close'] * (1 - stop_pct), 2),
+                    'reason': f"Volume {last['VOL_RATIO']:.1f}x breakout above 20d range",
+                    'rsi': round(last['RSI'], 1),
+                    'volume_ratio': round(last['VOL_RATIO'], 1),
+                    'strategy': self.name,
+                })
+
+        elif below_trend and below_20ema and high_vol and ema20_slope < 0 and last['Close'] < last['LOW_20']:
+            if last['RSI'] > 30:
+                atr_stop = last['ATR'] * 1.0
+                stop_pct = min(atr_stop / last['Close'], max_stop_pct)
+                signals.append({
+                    'type': 'SELL',
+                    'price': round(last['Close'], 2),
+                    'target': round(last['Close'] * 0.96, 2),
+                    'stop': round(last['Close'] * (1 + stop_pct), 2),
+                    'reason': f"Volume {last['VOL_RATIO']:.1f}x breakdown below 20d range",
+                    'rsi': round(last['RSI'], 1),
+                    'volume_ratio': round(last['VOL_RATIO'], 1),
+                    'strategy': self.name,
+                })
 
         return signals
