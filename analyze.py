@@ -2,7 +2,7 @@ import yfinance as yf
 import sys
 from datetime import datetime, timezone
 
-from config import WATCHLIST, INDICATOR_PARAMS, DISCORD_WEBHOOK_URL
+from config import WATCHLIST, INDICATOR_PARAMS, ENSEMBLE_PARAMS, DISCORD_WEBHOOK_URL
 from config import REGIME_PARAMS
 from regime import detect_regime
 from ensemble import vote
@@ -46,7 +46,7 @@ def main():
         confidence = regime_confidence(hist, regime)
         print(f"  {ticker_name}: regime={regime} (confidence={confidence:.0%})")
 
-        ensemble_signals = vote(hist, {}, regime=regime)
+        ensemble_signals = vote(hist, ENSEMBLE_PARAMS, regime=regime)
 
         if not ensemble_signals:
             print(f"  {ticker_name}: no ensemble signal")

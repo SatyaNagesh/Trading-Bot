@@ -1,5 +1,6 @@
 import pandas as pd
 
+from config import INDICATOR_PARAMS
 from strategies import STRATEGIES, STRATEGY_REGIMES
 
 
@@ -13,7 +14,7 @@ def vote(df: pd.DataFrame, params: dict, regime: str = None) -> list[dict]:
             allowed = STRATEGY_REGIMES.get(name, [])
             if regime not in allowed:
                 continue
-        signals = strategy.run(df, {})
+        signals = strategy.run(df, INDICATOR_PARAMS)
         all_signals.extend(signals)
 
     buy_signals = [s for s in all_signals if s['type'] == 'BUY']
@@ -44,9 +45,10 @@ def vote(df: pd.DataFrame, params: dict, regime: str = None) -> list[dict]:
     return [r for r in results if r['votes'] >= min_votes]
 
 
-def run_all_strategies(df: pd.DataFrame, params: dict) -> list[dict]:
+def run_all_strategies(df: pd.DataFrame, params: dict = None) -> list[dict]:
     all_signals = []
+    p = params or INDICATOR_PARAMS
     for name, strategy in STRATEGIES.items():
-        signals = strategy.run(df, {})
+        signals = strategy.run(df, p)
         all_signals.extend(signals)
     return all_signals
