@@ -156,4 +156,32 @@ By contributing to QuantLab AI, I pledge to:
 
 ---
 
+## Article VI: Architecture Review & RFC Process
+
+### Section 1: Architecture Review Findings
+
+The Prompt 1 Architecture Review identified gaps and contradictions across the 35 spec documents. These are documented as RFCs in `docs/rfcs/`.
+
+### Section 2: Active RFCs
+
+| RFC | Title | Status |
+|-----|-------|--------|
+| 001 | Execution Engine Specification | Draft |
+| 002 | Engine Count & Organization | Draft |
+| 003 | Position Sizing Unification | Draft |
+| 004 | Knowledge Graph Schema Definition | Draft |
+| 005 | API Gateway, Auth & Rate Limiting | Draft |
+| 006 | Agent→Engine Transport Protocol | Draft |
+| 007 | Error Handling & Resilience Strategy | Draft |
+| 008 | Cross-Engine Interface Contracts | Draft |
+
+### Section 3: Amendment Process
+
+1. Each RFC must be reviewed and approved (Accepted/Rejected/Merged) before Prompt 2 execution
+2. Approved RFCs result in updates to affected specification documents
+3. Rejected RFCs are archived with rationale
+4. New RFCs can be proposed by any contributor following the RFC template
+
+---
+
 *This Constitution is a living document. It evolves as we learn.*
