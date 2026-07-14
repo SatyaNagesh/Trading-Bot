@@ -18,6 +18,7 @@ class BollingerStrategy:
         df['RSI'] = ta.rsi(df['Close'], length=params['rsi_period'])
         df['SMA_200'] = df['Close'].rolling(window=200).mean()
         df['ATR'] = (df['High'] - df['Low']).rolling(window=14).mean()
+        df['ATR_5'] = (df['High'] - df['Low']).rolling(window=5).mean()
 
         mid = df['Close'].rolling(20).mean()
         std = df['Close'].rolling(20).std(ddof=0)
@@ -43,9 +44,10 @@ class BollingerStrategy:
         high_vol = last['VOL_RATIO'] > vol_thresh
         ema20_slope = (last['EMA_20'] - df['EMA_20'].iloc[-5]) / df['EMA_20'].iloc[-5] if len(df) >= 5 else 0
 
+        atr_ratio = last['ATR_5'] / last['ATR'] if last['ATR'] > 0 else 0
         max_stop_pct = 0.02
 
-        if above_trend and above_20ema and high_vol and ema20_slope > 0 and last['Close'] >= last['HIGH_20'] * 0.995:
+        if above_trend and above_20ema and high_vol and ema20_slope > 0.001 and last['RSI'] > 50 and atr_ratio < 1.5 and last['Close'] >= last['HIGH_20'] * 0.995:
             if last['RSI'] < 70:
                 atr_stop = last['ATR'] * 1.0
                 stop_pct = min(atr_stop / last['Close'], max_stop_pct)
@@ -60,7 +62,7 @@ class BollingerStrategy:
                     'strategy': self.name,
                 })
 
-        elif below_trend and below_20ema and high_vol and ema20_slope < 0 and last['Close'] <= last['LOW_20'] * 1.005:
+        elif below_trend and below_20ema and high_vol and ema20_slope < 0 and atr_ratio < 1.5 and last['Close'] <= last['LOW_20'] * 1.005:
             if last['RSI'] > 30:
                 atr_stop = last['ATR'] * 1.0
                 stop_pct = min(atr_stop / last['Close'], max_stop_pct)
