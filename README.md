@@ -20,7 +20,7 @@ services/       — Business logic engines
 packages/       — Shared libraries
 agents/         — AI agent definitions
 plugins/        — Extensible plugin system
-docs/           — Full specification (30 documents)
+docs/           — Full specification (35 documents)
 ```
 
 ## Quick Start
@@ -44,7 +44,7 @@ poetry run uvicorn apps.api.main:app --reload --port 8000
 
 ## Documentation
 
-All 30 specification documents are in `docs/`:
+All 35 specification documents are in `docs/`:
 
 | # | Document | Description |
 |---|----------|-------------|
@@ -79,6 +79,11 @@ All 30 specification documents are in `docs/`:
 | 28 | Broker Integration | Connecting to markets |
 | 29 | Data Pipeline | Data flow |
 | 30 | Research Engine | The scientific heart |
+| 31 | Strategy Engine | Converting research into strategies |
+| 32 | Risk Engine | Protecting capital |
+| 33 | Backtest Engine | Simulating markets |
+| 34 | Portfolio Engine | Managing the whole |
+| 35 | Operating System | The document that ties everything together |
 
 ## License
 
