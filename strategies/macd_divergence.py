@@ -38,8 +38,10 @@ class MACDStrategy:
         below_trend = pd.isna(last['SMA_200']) or last['Close'] < last['SMA_200']
         above_20ema = last['Close'] > last['EMA_20']
         below_20ema = last['Close'] < last['EMA_20']
+        above_50ema = last['Close'] > last['EMA_50']
+        below_50ema = last['Close'] < last['EMA_50']
 
-        if above_trend and above_20ema and prev['MACD'] <= 0 and last['MACD'] > 0:
+        if above_trend and above_20ema and above_50ema and prev['MACD'] <= 0 and last['MACD'] > 0:
             if hist_rising and last['RSI'] > 50 and last['RSI'] < 70 and ema50_slope > 0:
                 signals.append({
                     'type': 'BUY',
@@ -52,7 +54,7 @@ class MACDStrategy:
                     'strategy': self.name,
                 })
 
-        elif below_trend and below_20ema and prev['MACD'] >= 0 and last['MACD'] < 0:
+        elif below_trend and below_20ema and below_50ema and prev['MACD'] >= 0 and last['MACD'] < 0:
             if last['MACD_HIST'] < prev['MACD_HIST'] and last['RSI'] < 50 and last['RSI'] > 30 and ema50_slope < 0:
                 signals.append({
                     'type': 'SELL',
