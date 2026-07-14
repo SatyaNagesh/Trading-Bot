@@ -42,6 +42,8 @@ INDICATOR_PARAMS = {
     'volume_threshold': 1.3,
     'adx_period': 14,
     'adx_threshold': 25,
+    'alphatrend_period': 14,
+    'alphatrend_multiplier': 1.0,
 }
 
 RISK_PARAMS = {
@@ -53,11 +55,11 @@ RISK_PARAMS = {
 }
 
 PER_STOCK_STRATEGIES = {
-    'RELIANCE.NS': ['bollinger_squeeze', 'rsi_reversal'],
-    'TCS.NS': ['macd_divergence', 'bollinger_squeeze'],
-    'WIPRO.NS': ['macd_divergence', 'bollinger_squeeze', 'rsi_reversal'],
-    'HCLTECH.NS': ['macd_divergence', 'bollinger_squeeze', 'rsi_reversal'],
-    'TECHM.NS': ['bollinger_squeeze', 'rsi_reversal'],
+    'RELIANCE.NS': ['bollinger_squeeze', 'rsi_reversal', 'alphatrend'],
+    'TCS.NS': ['macd_divergence', 'bollinger_squeeze', 'alphatrend'],
+    'WIPRO.NS': ['macd_divergence', 'bollinger_squeeze', 'rsi_reversal', 'alphatrend'],
+    'HCLTECH.NS': ['macd_divergence', 'bollinger_squeeze', 'rsi_reversal', 'alphatrend'],
+    'TECHM.NS': ['bollinger_squeeze', 'rsi_reversal', 'alphatrend'],
 }
 
 REGIME_PARAMS = {
