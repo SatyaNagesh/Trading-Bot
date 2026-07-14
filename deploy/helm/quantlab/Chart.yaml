@@ -1,0 +1,21 @@
+apiVersion: v2
+name: quantlab
+description: QuantLab AI — AI-powered quantitative research platform
+version: 0.1.0
+appVersion: "1.0"
+icon: https://raw.githubusercontent.com/SatyaNagesh/Trading-Bot/main/docs/logo.png
+type: application
+
+dependencies:
+- name: postgresql
+  version: "~15.0"
+  repository: https://charts.bitnami.com/bitnami
+  condition: postgresql.enabled
+- name: redis
+  version: "~19.0"
+  repository: https://charts.bitnami.com/bitnami
+  condition: redis.enabled
+- name: rabbitmq
+  version: "~14.0"
+  repository: https://charts.bitnami.com/bitnami
+  condition: rabbitmq.enabled

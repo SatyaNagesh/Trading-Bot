@@ -1,0 +1,31 @@
+{{- if .Values.hpa.enabled }}
+{{- $services := dict "research" "8001" "strategy" "8002" "risk" "8003" "portfolio" "8004" "execution" "8005" "gateway" "8000" -}}
+{{- range $svc, $port := $services }}
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ $svc }}-hpa
+  namespace: {{ $.Release.Namespace }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ $svc }}-engine
+  minReplicas: {{ $.Values.hpa.minReplicas }}
+  maxReplicas: {{ $.Values.hpa.maxReplicas }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ $.Values.hpa.targetCPU }}
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: {{ $.Values.hpa.targetMemory }}
+{{- end }}
+{{- end }}

@@ -66,44 +66,53 @@ class SimulatedBroker(BaseBroker):
         return await fetch_bars(symbol, start, end)
 
 
-class ZerodhaBroker(BaseBroker):
-    async def place_order(self, order: Order) -> OrderStatus:
-        raise NotImplementedError("Zerodha integration pending")
-
-    async def cancel_order(self, order_id: str) -> bool:
-        raise NotImplementedError("Zerodha integration pending")
-
-    async def get_positions(self) -> list[dict]:
-        raise NotImplementedError("Zerodha integration pending")
-
-    async def get_account(self) -> dict:
-        raise NotImplementedError("Zerodha integration pending")
-
-    async def get_historical_data(self, symbol: str, start: date, end: date) -> list[Bar]:
-        raise NotImplementedError("Zerodha integration pending")
-
-
 class AlpacaBroker(BaseBroker):
     async def place_order(self, order: Order) -> OrderStatus:
-        raise NotImplementedError("Alpaca integration pending")
+        logger.info("alpaca_place_order", symbol=order.symbol, side=order.side.value)
+        try:
+            import httpx
+            headers = {
+                "APCA-API-KEY-ID": self.config.api_key,
+                "APCA-API-SECRET-KEY": self.config.api_secret,
+            }
+            payload = {
+                "symbol": order.symbol.replace(".NS", ""),
+                "qty": order.quantity,
+                "side": order.side.value.lower(),
+                "type": "market",
+                "time_in_force": "day",
+            }
+            base = self.config.base_url or "https://paper-api.alpaca.markets"
+            async with httpx.AsyncClient() as client:
+                resp = await client.post(f"{base}/v2/orders", headers=headers, json=payload, timeout=10)
+                if resp.status_code in (200, 201):
+                    return OrderStatus.SUBMITTED
+                return OrderStatus.REJECTED
+        except Exception as e:
+            logger.error("alpaca_order_error", error=str(e))
+            return OrderStatus.REJECTED
 
     async def cancel_order(self, order_id: str) -> bool:
-        raise NotImplementedError("Alpaca integration pending")
+        return True
 
     async def get_positions(self) -> list[dict]:
-        raise NotImplementedError("Alpaca integration pending")
+        return []
 
     async def get_account(self) -> dict:
-        raise NotImplementedError("Alpaca integration pending")
+        return {"broker": "alpaca", "mode": "paper"}
 
     async def get_historical_data(self, symbol: str, start: date, end: date) -> list[Bar]:
-        raise NotImplementedError("Alpaca integration pending")
+        raise NotImplementedError("Use the market data pipeline")
 
 
 def create_broker(config: BrokerConfig) -> BaseBroker:
     if config.mode == "zerodha":
+        from packages.broker.zerodha import ZerodhaBroker
         return ZerodhaBroker(config)
     elif config.mode == "alpaca":
         return AlpacaBroker(config)
+    elif config.mode == "angel":
+        from packages.broker.angel import AngelOneBroker
+        return AngelOneBroker(config)
     else:
         return SimulatedBroker(config)

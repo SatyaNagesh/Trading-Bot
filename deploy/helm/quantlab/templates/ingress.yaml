@@ -1,0 +1,42 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: quantlab-ingress
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: gateway-engine
+            port:
+              number: 8000
+      - path: /research
+        pathType: Prefix
+        backend:
+          service:
+            name: research-engine
+            port:
+              number: 8001
+      - path: /strategy
+        pathType: Prefix
+        backend:
+          service:
+            name: strategy-engine
+            port:
+              number: 8002
+      - path: /risk
+        pathType: Prefix
+        backend:
+          service:
+            name: risk-engine
+            port:
+              number: 8003
+{{- end }}

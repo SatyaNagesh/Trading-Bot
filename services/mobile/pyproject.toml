@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "mobile-api"
+version = "0.1.0"
+description = "QuantLab AI Mobile Dashboard API"
+packages = [{ include = "main.py" }]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fastapi = "^0.115"

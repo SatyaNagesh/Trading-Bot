@@ -1,0 +1,50 @@
+{{- $services := dict "research" "8001" "strategy" "8002" "risk" "8003" "portfolio" "8004" "execution" "8005" "gateway" "8000" -}}
+{{- range $svc, $port := $services }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $svc }}-engine
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: {{ $svc }}
+spec:
+  replicas: {{ index $.Values.replicas $svc | default 2 }}
+  selector:
+    matchLabels:
+      app: {{ $svc }}
+  template:
+    metadata:
+      labels:
+        app: {{ $svc }}
+    spec:
+      containers:
+      - name: {{ $svc }}
+        image: "quantlab/{{ $svc }}:{{ $.Values.image.tag }}"
+        imagePullPolicy: {{ $.Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ $port }}
+        resources:
+          {{- $res := index $.Values.resources $svc | default dict }}
+          requests:
+            cpu: {{ $res.requests.cpu | default "250m" }}
+            memory: {{ $res.requests.memory | default "256Mi" }}
+          limits:
+            cpu: {{ $res.limits.cpu | default "500m" }}
+            memory: {{ $res.limits.memory | default "512Mi" }}
+        envFrom:
+        - configMapRef:
+            name: quantlab-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $svc }}-engine
+  namespace: {{ $.Release.Namespace }}
+spec:
+  selector:
+    app: {{ $svc }}
+  ports:
+  - port: {{ $port }}
+    targetPort: {{ $port }}
+---
+{{- end }}
