@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: research-engine
+  namespace: quantlab
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: research-engine
+  template:
+    metadata:
+      labels:
+        app: research-engine
+    spec:
+      containers:
+      - name: research
+        image: quantlab/research:latest
+        ports:
+        - containerPort: 8001
+        env:
+        - name: NEO4J_URI
+          valueFrom:
+            secretKeyRef:
+              name: quantlab-secrets
+              key: neo4j-uri
+        - name: NEO4J_USER
+          value: neo4j
+        - name: NEO4J_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: quantlab-secrets
+              key: neo4j-password
+        resources:
+          requests:
+            cpu: 250m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: research-engine
+  namespace: quantlab
+spec:
+  selector:
+    app: research-engine
+  ports:
+  - port: 8001
+    targetPort: 8001

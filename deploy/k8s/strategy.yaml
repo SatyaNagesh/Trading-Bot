@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strategy-engine
+  namespace: quantlab
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: strategy-engine
+  template:
+    metadata:
+      labels:
+        app: strategy-engine
+    spec:
+      containers:
+      - name: strategy
+        image: quantlab/strategy:latest
+        ports:
+        - containerPort: 8002
+        env:
+        - name: NEO4J_URI
+          valueFrom:
+            secretKeyRef:
+              name: quantlab-secrets
+              key: neo4j-uri
+        resources:
+          requests:
+            cpu: 250m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: strategy-engine
+  namespace: quantlab
+spec:
+  selector:
+    app: strategy-engine
+  ports:
+  - port: 8002
+    targetPort: 8002

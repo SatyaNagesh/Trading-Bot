@@ -1,0 +1,50 @@
+groups:
+- name: quantlab-alerts
+  rules:
+  - alert: HighErrorRate
+    expr: rate(quantlab_errors_total[5m]) > 0.05
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Error rate > 5% for 5 minutes"
+
+  - alert: ServiceDown
+    expr: up{namespace="quantlab"} == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Service {{ $labels.instance }} is down"
+
+  - alert: HighRequestLatency
+    expr: histogram_quantile(0.95, rate(quantlab_request_duration_seconds_bucket[5m])) > 2
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "P95 latency > 2s"
+
+  - alert: HighActiveOrders
+    expr: quantlab_active_orders > 100
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Active orders > 100"
+
+  - alert: PodRestarting
+    expr: rate(kube_pod_container_status_restarts_total{namespace="quantlab"}[10m]) > 1
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Pod {{ $labels.pod }} restarting frequently"
+
+  - alert: MemoryPressure
+    expr: (sum(container_memory_working_set_bytes{namespace="quantlab"}) by (pod) / sum(kube_pod_container_resource_limits{namespace="quantlab", resource="memory"}) by (pod)) > 0.9
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Pod {{ $labels.pod }} memory usage > 90%"
