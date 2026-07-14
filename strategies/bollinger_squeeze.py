@@ -45,7 +45,7 @@ class BollingerStrategy:
 
         max_stop_pct = 0.02
 
-        if above_trend and above_20ema and high_vol and ema20_slope > 0 and last['Close'] > last['HIGH_20']:
+        if above_trend and above_20ema and high_vol and ema20_slope > 0 and last['Close'] >= last['HIGH_20'] * 0.995:
             if last['RSI'] < 70:
                 atr_stop = last['ATR'] * 1.0
                 stop_pct = min(atr_stop / last['Close'], max_stop_pct)
@@ -60,7 +60,7 @@ class BollingerStrategy:
                     'strategy': self.name,
                 })
 
-        elif below_trend and below_20ema and high_vol and ema20_slope < 0 and last['Close'] < last['LOW_20']:
+        elif below_trend and below_20ema and high_vol and ema20_slope < 0 and last['Close'] <= last['LOW_20'] * 1.005:
             if last['RSI'] > 30:
                 atr_stop = last['ATR'] * 1.0
                 stop_pct = min(atr_stop / last['Close'], max_stop_pct)
