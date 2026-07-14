@@ -45,7 +45,7 @@ class BacktestEngine:
         for i in range(100, len(df)):
             window = df.iloc[:i + 1]
             regime = detect_regime(window, REGIME_PARAMS)
-            signals = vote(window, ENSEMBLE_PARAMS, regime=regime)
+            signals = vote(window, ENSEMBLE_PARAMS, regime=regime, stock=ticker)
 
             price = df.iloc[i]['Close']
             equity_val = cash + (shares * price if position else 0)

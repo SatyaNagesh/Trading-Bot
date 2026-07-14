@@ -46,7 +46,7 @@ def main():
         confidence = regime_confidence(hist, regime)
         print(f"  {ticker_name}: regime={regime} (confidence={confidence:.0%})")
 
-        ensemble_signals = vote(hist, ENSEMBLE_PARAMS, regime=regime)
+        ensemble_signals = vote(hist, ENSEMBLE_PARAMS, regime=regime, stock=ticker)
 
         if not ensemble_signals:
             print(f"  {ticker_name}: no ensemble signal")

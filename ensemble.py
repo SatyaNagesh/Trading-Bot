@@ -1,15 +1,19 @@
 import pandas as pd
 
-from config import INDICATOR_PARAMS
+from config import INDICATOR_PARAMS, PER_STOCK_STRATEGIES
 from strategies import STRATEGIES, STRATEGY_REGIMES
 
 
-def vote(df: pd.DataFrame, params: dict, regime: str = None) -> list[dict]:
+def vote(df: pd.DataFrame, params: dict, regime: str = None, stock: str = None) -> list[dict]:
     min_votes = params.get('min_votes', 2)
     require_regime = params.get('require_regime_match', True)
 
+    stock_whitelist = PER_STOCK_STRATEGIES.get(stock) if stock else None
+
     all_signals = []
     for name, strategy in STRATEGIES.items():
+        if stock_whitelist is not None and name not in stock_whitelist:
+            continue
         if require_regime and regime and regime != 'unknown':
             allowed = STRATEGY_REGIMES.get(name, [])
             if regime not in allowed:

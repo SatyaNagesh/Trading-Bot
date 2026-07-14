@@ -52,6 +52,14 @@ RISK_PARAMS = {
     'position_size_pct': 0.05,
 }
 
+PER_STOCK_STRATEGIES = {
+    'RELIANCE.NS': ['bollinger_squeeze', 'rsi_reversal'],
+    'TCS.NS': ['macd_divergence', 'bollinger_squeeze'],
+    'WIPRO.NS': ['macd_divergence', 'bollinger_squeeze', 'rsi_reversal'],
+    'HCLTECH.NS': ['macd_divergence', 'bollinger_squeeze', 'rsi_reversal'],
+    'TECHM.NS': ['bollinger_squeeze', 'rsi_reversal'],
+}
+
 REGIME_PARAMS = {
     'trend_lookback': 50,
     'volatility_lookback': 20,
