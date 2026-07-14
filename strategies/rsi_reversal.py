@@ -32,9 +32,10 @@ class RSIStrategy:
         if pd.isna(last['RSI']) or pd.isna(last['BB_LOWER']):
             return []
 
+        above_200 = pd.isna(last['SMA_200']) or last['Close'] > last['SMA_200'] * 0.97
+
         if last['RSI'] < rsi_os and prev['RSI'] >= rsi_os:
             near_bb = last['Close'] <= last['BB_LOWER'] * 1.01
-            above_200 = pd.isna(last['SMA_200']) or last['Close'] > last['SMA_200'] * 0.95
             if near_bb and above_200:
                 signals.append({
                     'type': 'BUY',
@@ -49,7 +50,8 @@ class RSIStrategy:
 
         elif last['RSI'] > rsi_ob and prev['RSI'] <= rsi_ob:
             near_bb = last['Close'] >= last['BB_UPPER'] * 0.99
-            if near_bb:
+            below_200 = pd.isna(last['SMA_200']) or last['Close'] < last['SMA_200'] * 1.03
+            if near_bb and below_200:
                 signals.append({
                     'type': 'SELL',
                     'price': round(last['Close'], 2),

@@ -35,6 +35,7 @@ class BollingerStrategy:
             return []
 
         above_trend = pd.isna(last['SMA_200']) or last['Close'] > last['SMA_200']
+        below_trend = pd.isna(last['SMA_200']) or last['Close'] < last['SMA_200']
         high_vol = last['VOL_RATIO'] > vol_thresh
 
         if above_trend and high_vol and last['Close'] > last['HIGH_20'] * 0.99:
@@ -51,7 +52,7 @@ class BollingerStrategy:
                         'strategy': self.name,
                     })
 
-        elif not above_trend and high_vol and last['Close'] < last['LOW_20'] * 1.01:
+        elif below_trend and high_vol and last['Close'] < last['LOW_20'] * 1.01:
             if prev['Close'] >= prev['LOW_20'] * 1.01:
                 if last['RSI'] > 25:
                     signals.append({
