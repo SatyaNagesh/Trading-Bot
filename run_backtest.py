@@ -13,6 +13,7 @@ def main():
     print("=" * 70)
 
     all_results = []
+    all_engines = []
     for ticker in tickers:
         print(f"\n  Fetching {ticker} ({BacktestEngine.__init__.__defaults__[0]} years)...")
         engine = BacktestEngine()
@@ -24,6 +25,7 @@ def main():
         print(f"  Data points: {len(df)}")
         result = engine.run(df, ticker)
         all_results.append(result)
+        all_engines.append(engine)
 
         print(f"  Trades: {result['total_trades']}")
         print(f"  Win Rate: {result['win_rate']}%")
@@ -35,11 +37,8 @@ def main():
 
     print("=" * 70)
     print("\nTrade Logs:")
-    for r in all_results:
+    for r, engine in zip(all_results, all_engines):
         print(f"\n--- {r['ticker']} ---")
-        engine = BacktestEngine()
-        df = engine.fetch_history(r['ticker'])
-        result = engine.run(df, r['ticker'])
         if engine.trades:
             print(engine.summary())
 

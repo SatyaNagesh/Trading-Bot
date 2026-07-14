@@ -94,6 +94,7 @@ class BacktestEngine:
                         'target': target,
                         'type': 'BUY',
                         'strategies': best['strategies'],
+                        'reason': best.get('reason', ''),
                     })
 
         if position > 0:
@@ -136,9 +137,10 @@ class BacktestEngine:
         lines = []
         for t in self.trades:
             if 'pnl_pct' in t:
+                strat = t.get('strategies', ['?'])[0] if isinstance(t.get('strategies'), list) else t.get('strategies', '?')
                 lines.append(
                     f"{t['entry_date'].date()} {t['type']} @ ₹{t['entry_price']:.2f} "
                     f"→ {t['exit_date'].date()} @ ₹{t['exit_price']:.2f} "
-                    f"P&L: {t['pnl_pct']:+.2f}%"
+                    f"P&L: {t['pnl_pct']:+.2f}% [{strat}]"
                 )
         return '\n'.join(lines)
