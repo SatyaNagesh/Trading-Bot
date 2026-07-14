@@ -56,6 +56,6 @@ REGIME_PARAMS = {
 }
 
 ENSEMBLE_PARAMS = {
-    'min_votes': 2,
+    'min_votes': 1,
     'require_regime_match': True,
 }
