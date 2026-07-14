@@ -3,10 +3,11 @@ import numpy as np
 import yfinance as yf
 from datetime import datetime, timedelta, timezone
 
-from config import BACKTEST_YEARS, BACKTEST_INTERVAL, INDICATOR_PARAMS
+from config import BACKTEST_YEARS, BACKTEST_INTERVAL, INDICATOR_PARAMS, ENSEMBLE_PARAMS, REGIME_PARAMS, RISK_PARAMS
 from risk import (calculate_sharpe, calculate_sortino, calculate_calmar,
                   max_drawdown, kelly_criterion)
-from ensemble import run_all_strategies
+from ensemble import vote
+from regime import detect_regime
 
 
 class BacktestEngine:
@@ -28,6 +29,10 @@ class BacktestEngine:
         position = 0
         cash = self.capital
         shares = 0
+        entry_price = 0
+        entry_idx = 0
+        stop_loss = 0
+        target = 0
         equity = self.capital
         peak = self.capital
         max_dd = 0
@@ -39,46 +44,57 @@ class BacktestEngine:
 
         for i in range(100, len(df)):
             window = df.iloc[:i + 1]
-            signals = run_all_strategies(window, INDICATOR_PARAMS)
-
-            buy = [s for s in signals if s['type'] == 'BUY']
-            sell = [s for s in signals if s['type'] == 'SELL']
+            regime = detect_regime(window, REGIME_PARAMS)
+            signals = vote(window, ENSEMBLE_PARAMS, regime=regime)
 
             price = df.iloc[i]['Close']
-
-            if buy and position == 0:
-                shares = cash * 0.95 / price
-                cash -= shares * price
-                position = 1
-                self.trades.append({
-                    'entry_date': df.iloc[i].name,
-                    'entry_price': price,
-                    'type': 'BUY',
-                    'strategies': buy[0]['strategy'],
-                })
-
-            elif sell and position > 0:
-                entry = self.trades[-1]['entry_price']
-                pnl_pct = (price - entry) / entry * 100
-                cash += shares * price
-                position = 0
-                trade_count += 1
-                self.trades[-1]['exit_date'] = df.iloc[i].name
-                self.trades[-1]['exit_price'] = price
-                self.trades[-1]['pnl_pct'] = round(pnl_pct, 2)
-
-                if pnl_pct > 0:
-                    wins += 1
-                    total_win_pct += pnl_pct
-                else:
-                    losses += 1
-                    total_loss_pct += abs(pnl_pct)
-
             equity_val = cash + (shares * price if position else 0)
+
+            if position > 0:
+                pnl_pct = (price - entry_price) / entry_price * 100
+                hit_stop = price <= stop_loss
+                hit_target = price >= target
+                any_sell = any(s['type'] == 'SELL' for s in signals)
+
+                if hit_stop or hit_target or any_sell:
+                    cash += shares * price
+                    position = 0
+                    trade_count += 1
+                    self.trades[-1]['exit_date'] = df.iloc[i].name
+                    self.trades[-1]['exit_price'] = price
+                    self.trades[-1]['pnl_pct'] = round(pnl_pct, 2)
+                    if pnl_pct > 0:
+                        wins += 1
+                        total_win_pct += pnl_pct
+                    else:
+                        losses += 1
+                        total_loss_pct += abs(pnl_pct)
+
             self.equity_curve.append(equity_val)
             peak = max(peak, equity_val)
             dd = (equity_val - peak) / peak * 100
             max_dd = min(max_dd, dd)
+
+            if position == 0:
+                buy = [s for s in signals if s['type'] == 'BUY']
+                if buy:
+                    best = max(buy, key=lambda x: abs(x['price'] - x['target']))
+                    risk_per_trade = RISK_PARAMS['position_size_pct']
+                    shares = cash * risk_per_trade / price
+                    cash -= shares * price
+                    position = 1
+                    entry_price = price
+                    stop_loss = best['stop']
+                    target = best['target']
+                    entry_idx = i
+                    self.trades.append({
+                        'entry_date': df.iloc[i].name,
+                        'entry_price': price,
+                        'stop_loss': stop_loss,
+                        'target': target,
+                        'type': 'BUY',
+                        'strategies': best['strategies'],
+                    })
 
         if position > 0:
             cash += shares * df.iloc[-1]['Close']
