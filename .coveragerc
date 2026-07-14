@@ -1,0 +1,10 @@
+[run]
+source = packages/
+omit = packages/*/__init__.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError
+    if __name__ == "__main__":
+fail_under = 50

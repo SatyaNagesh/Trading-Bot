@@ -5,6 +5,9 @@ description = "AI-augmented quantitative research operating system"
 authors = ["Satya Nagesh"]
 readme = "README.md"
 license = "MIT"
+packages = [
+    { include = "packages" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.13"
@@ -25,8 +28,13 @@ statsmodels = "^0.14"
 structlog = "^24.0"
 opentelemetry-api = "^1.25"
 opentelemetry-sdk = "^1.25"
-backtesting = "^0.4"
 python-dotenv = "^1.0"
+click = "^8.0"
+pyyaml = "^6.0"
+tabulate = "^0.9"
+plotly = "^5.0"
+neo4j = "^5.0"
+qdrant-client = "^1.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0"
@@ -46,13 +54,50 @@ line-length = 100
 target-version = "py313"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "N", "W", "B", "SIM", "ARG"]
+select = ["E", "F", "I", "N", "W", "B", "SIM", "ARG", "D", "UP"]
+ignore = [
+    "D100",  # Missing docstring in public module
+    "D104",  # Missing docstring in public package
+    "D107",  # Missing docstring in __init__
+    "D203",  # 1 blank line required before class docstring
+    "D213",  # Multi-line docstring summary should start at second line
+    "D401",  # First line should be in imperative mood
+    "D404",  # First word of the docstring should not be This
+    "D415",  # Punctuation in docstring
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D", "ARG"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.mypy]
 python_version = "3.13"
 strict = true
 ignore_missing_imports = true
+explicit_package_bases = true
+warn_unused_ignores = true
+no_implicit_optional = true
+
+[[tool.mypy.overrides]]
+module = ["tests/**"]
+ignore_errors = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+minversion = "8.0"
+
+[tool.coverage.run]
+source = ["packages"]
+omit = ["packages/*/__init__.py", "packages/core/models.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "logger.",
+]
+fail_under = 50

@@ -1,0 +1,10 @@
+[tool.poetry]
+name = "cli"
+version = "0.1.0"
+description = "QuantLab AI CLI"
+packages = [{ include = "main.py" }]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+click = "^8.0"
+tabulate = "^0.9"
