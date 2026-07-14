@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "portfolio-engine"
+version = "0.1.0"
+description = "QuantLab AI Portfolio Engine"
+packages = [{ include = "main.py" }, { include = "service.py" }]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fastapi = "^0.115"
