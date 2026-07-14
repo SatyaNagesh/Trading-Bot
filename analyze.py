@@ -3,7 +3,8 @@ import sys
 from datetime import datetime, timezone
 
 from config import WATCHLIST, INDICATOR_PARAMS, DISCORD_WEBHOOK_URL
-from regime import detect_regime, REGIME_PARAMS
+from config import REGIME_PARAMS
+from regime import detect_regime
 from ensemble import vote
 from notify import send_signal, send_error, send_report
 from db import log_signal, is_duplicate
