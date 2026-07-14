@@ -27,18 +27,21 @@ LIVE_INTERVAL = '1h'
 LIVE_PERIOD = '1mo'
 
 INDICATOR_PARAMS = {
-    'ema_fast': 9,
-    'ema_slow': 21,
+    'ema_fast': 20,
+    'ema_slow': 50,
+    'ema_trend': 200,
     'rsi_period': 14,
-    'rsi_overbought': 70,
-    'rsi_oversold': 30,
+    'rsi_overbought': 75,
+    'rsi_oversold': 25,
     'macd_fast': 12,
     'macd_slow': 26,
     'macd_signal': 9,
     'bb_period': 20,
-    'bb_std': 2,
+    'bb_std': 2.0,
     'volume_sma_period': 20,
-    'volume_threshold': 1.5,
+    'volume_threshold': 1.3,
+    'adx_period': 14,
+    'adx_threshold': 25,
 }
 
 RISK_PARAMS = {
@@ -46,13 +49,13 @@ RISK_PARAMS = {
     'kelly_fraction': 0.25,
     'max_drawdown_pct': 15,
     'volatility_lookback': 20,
-    'position_size_pct': 0.02,
+    'position_size_pct': 0.05,
 }
 
 REGIME_PARAMS = {
     'trend_lookback': 50,
     'volatility_lookback': 20,
-    'sideways_threshold': 0.05,
+    'sideways_threshold': 0.03,
 }
 
 ENSEMBLE_PARAMS = {

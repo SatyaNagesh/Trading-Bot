@@ -11,8 +11,8 @@ STRATEGIES = {
 }
 
 STRATEGY_REGIMES = {
-    'ema_crossover': ['bullish_trend', 'bearish_trend'],
+    'ema_crossover': ['bullish_trend', 'bearish_trend', 'mixed'],
     'rsi_reversal': ['sideways', 'mixed'],
     'macd_divergence': ['bullish_trend', 'bearish_trend', 'mixed'],
-    'bollinger_squeeze': ['high_volatility', 'sideways'],
+    'bollinger_squeeze': ['high_volatility', 'sideways', 'mixed'],
 }
