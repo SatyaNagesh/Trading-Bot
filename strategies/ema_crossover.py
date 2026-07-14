@@ -4,22 +4,18 @@ import pandas_ta as ta
 
 class EMAStrategy:
     name = 'ema_crossover'
-    display = 'EMA Crossover'
+    display = 'Trend Pullback'
 
     def run(self, df: pd.DataFrame, params: dict) -> list[dict]:
-        if df is None or len(df) < max(params['ema_trend'], 250):
+        if df is None or len(df) < 250:
             return []
         df = df.copy()
         fast = params['ema_fast']
         slow = params['ema_slow']
         trend = params['ema_trend']
         rsi_p = params['rsi_period']
-        rsi_ob = params['rsi_overbought']
-        rsi_os = params['rsi_oversold']
         vol_period = params['volume_sma_period']
-        vol_thresh = params['volume_threshold']
         adx_p = params['adx_period']
-        adx_t = params['adx_threshold']
 
         df['EMA_FAST'] = ta.ema(df['Close'], length=fast)
         df['EMA_SLOW'] = ta.ema(df['Close'], length=slow)
@@ -35,43 +31,43 @@ class EMAStrategy:
         signals = []
         last = df.iloc[-1]
         prev = df.iloc[-2]
-        p3 = df.iloc[-3]
 
-        if pd.isna(last['EMA_FAST']) or pd.isna(last['EMA_SLOW']) or pd.isna(last['EMA_TREND']):
+        if pd.isna(last['EMA_FAST']) or pd.isna(last['EMA_TREND']):
             return []
 
-        if 'ADX' in df.columns and (pd.isna(last['ADX']) or last['ADX'] < adx_t):
-            return []
+        above_trend = last['Close'] > last['EMA_TREND']
+        below_trend = last['Close'] < last['EMA_TREND']
 
-        if last['Close'] < last['EMA_TREND'] * 0.95:
-            return []
+        near_slow = abs(last['Close'] - last['EMA_SLOW']) / last['EMA_SLOW'] < 0.01
+        adx_ok = 'ADX' not in df.columns or (not pd.isna(last['ADX']) and last['ADX'] > 20)
 
-        if prev['EMA_FAST'] <= prev['EMA_SLOW'] and last['EMA_FAST'] > last['EMA_SLOW']:
-            if last['RSI'] < rsi_ob and last['RSI'] > 40:
-                vol_ok = last['VOL_RATIO'] > vol_thresh
-                vol_note = f" + Volume {last['VOL_RATIO']:.1f}x" if vol_ok else ""
-                signals.append({
-                    'type': 'BUY',
-                    'price': round(last['Close'], 2),
-                    'target': round(last['Close'] * 1.05, 2),
-                    'stop': round(last['Close'] * 0.975, 2),
-                    'reason': f"EMA {fast}/{slow} bullish cross above {trend} MA{vol_note}, ADX {last.get('ADX', 0):.0f}",
-                    'rsi': round(last['RSI'], 1),
-                    'volume_ratio': round(last['VOL_RATIO'], 1),
-                    'strategy': self.name,
-                })
+        if above_trend and near_slow and adx_ok:
+            if prev['Close'] <= prev['EMA_SLOW'] and last['Close'] > last['EMA_SLOW']:
+                if 40 <= last['RSI'] <= 60:
+                    vol_note = f" Vol {last['VOL_RATIO']:.1f}x" if last['VOL_RATIO'] > 1.2 else ""
+                    signals.append({
+                        'type': 'BUY',
+                        'price': round(last['Close'], 2),
+                        'target': round(last['Close'] * 1.03, 2),
+                        'stop': round(last['Close'] * 0.985, 2),
+                        'reason': f"Trend pullback bounce at {slow} EMA{vol_note}, ADX {last.get('ADX', 0):.0f}",
+                        'rsi': round(last['RSI'], 1),
+                        'volume_ratio': round(last['VOL_RATIO'], 1),
+                        'strategy': self.name,
+                    })
 
-        elif prev['EMA_FAST'] >= prev['EMA_SLOW'] and last['EMA_FAST'] < last['EMA_SLOW']:
-            if last['RSI'] > rsi_os and last['RSI'] < 60:
-                signals.append({
-                    'type': 'SELL',
-                    'price': round(last['Close'], 2),
-                    'target': round(last['Close'] * 0.95, 2),
-                    'stop': round(last['Close'] * 1.025, 2),
-                    'reason': f"EMA {fast}/{slow} bearish cross, ADX {last.get('ADX', 0):.0f}",
-                    'rsi': round(last['RSI'], 1),
-                    'volume_ratio': round(last['VOL_RATIO'], 1),
-                    'strategy': self.name,
-                })
+        elif below_trend and near_slow and adx_ok:
+            if prev['Close'] >= prev['EMA_SLOW'] and last['Close'] < last['EMA_SLOW']:
+                if 40 <= last['RSI'] <= 60:
+                    signals.append({
+                        'type': 'SELL',
+                        'price': round(last['Close'], 2),
+                        'target': round(last['Close'] * 0.97, 2),
+                        'stop': round(last['Close'] * 1.015, 2),
+                        'reason': f"Trend pullback rejection at {slow} EMA, ADX {last.get('ADX', 0):.0f}",
+                        'rsi': round(last['RSI'], 1),
+                        'volume_ratio': round(last['VOL_RATIO'], 1),
+                        'strategy': self.name,
+                    })
 
         return signals
