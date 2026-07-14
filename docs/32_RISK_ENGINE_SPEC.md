@@ -1,7 +1,7 @@
 # QuantLab AI — Risk Engine Specification
 
 > **Protecting Capital**  
-> Version 1.0 | Last Updated: July 2026
+> Version 1.1 | Last Updated: July 2026
 
 ---
 
@@ -56,13 +56,15 @@ risk_budget:
 │                                                     │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐         │
 │  │Position  │  │Portfolio │  │  Market  │         │
-│  │  Risk    │  │   Risk   │  │   Risk   │         │
+│  │  Sizer   │  │   Risk   │  │   Risk   │         │
 │  ├──────────┤  ├──────────┤  ├──────────┤         │
-│  │Order Risk│  │  AI Risk │  │ Dynamic  │         │
+│  │RiskFilter│  │  AI Risk │  │ Dynamic  │         │
 │  ├──────────┤  ├──────────┤  ├──────────┤         │
 │  │   Risk   │  │Governance│  │Reporting │         │
 │  │Analytics │  │          │  │          │         │
 │  └──────────┘  └──────────┘  └──────────┘         │
+│                                                     │
+│  Called by Strategy Engine for sizing & filtering   │
 └──────────────────────────────────────────────────┘
 ```
 
@@ -71,8 +73,16 @@ risk_budget:
 ```yaml
 PositionSizer:
   - Risk-budget allocation per trade
-  - Multiple sizing models
+  - Multiple sizing models (Kelly, ATR, fixed, volatility-target)
   - Position limit enforcement
+  - Called by Strategy Engine for all sizing decisions
+
+RiskFilter:
+  - Pre-trade risk check
+  - Portfolio correlation check
+  - Concentration limits
+  - Regime validation
+  - Called by Strategy Engine before signal output
 
 PortfolioRisk:
   - Correlation matrix management

@@ -1,7 +1,7 @@
 # QuantLab AI — Agent Communication Protocol
 
 > **How Agents Talk to Each Other**  
-> Version 1.0 | Last Updated: July 2026
+> Version 1.1 | Last Updated: July 2026
 
 ---
 
@@ -238,6 +238,41 @@ Sensitive payload fields must be encrypted:
   }
 }
 ```
+
+---
+
+---
+
+## Section: Dual Transport Model
+
+Agents use two transport methods depending on the communication type:
+
+### Synchronous (gRPC) — For queries and commands
+
+| Scenario | Example | Timeout |
+|----------|---------|---------|
+| Query state | "What is current VaR?" | 5s |
+| Validate input | "Is this strategy valid?" | 10s |
+| Compute metric | "Compute Sharpe ratio" | 30s |
+| Health check | "Is engine alive?" | 2s |
+
+### Asynchronous (Event Bus) — For actions and notifications
+
+| Scenario | Example | Pattern |
+|----------|---------|---------|
+| Trigger backtest | "Run backtest on strategy X" | Request → callback |
+| Risk alert | "Drawdown threshold breached" | Fire-and-forget |
+| Data pipeline | "Fetch new market data" | Choreography |
+| Long-running | "Optimize parameters" | Poll status |
+
+### Circuit Breaker & Retry
+
+| Engine | Timeout | Retries | Circuit Breaker |
+|--------|---------|---------|-----------------|
+| DataEngine | 30s | 2 | 5 failures → 30s open |
+| BacktestEngine | 300s | 1 | N/A (long-running) |
+| RiskEngine | 5s | 3 | 3 failures → 10s open |
+| ExecutionEngine | 10s | 0 | 2 failures → 5s open |
 
 ---
 

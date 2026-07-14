@@ -259,6 +259,39 @@ research_repository:
 
 ---
 
+---
+
+## Section: Validation Engine (Research Engine Sub-Component)
+
+The Validation Engine is a named sub-component of the Research Engine responsible for statistical testing of strategies. See the full spec in `docs/30_RESEARCH_ENGINE_SPEC.md`.
+
+### Key Responsibilities
+
+- Statistical testing (Shapiro-Wilk, t-tests, bootstrap)
+- Overfitting detection (combinatorially symmetric cross-validation, deflated Sharpe ratio)
+- Walk-forward analysis coordination (executed by Backtest Engine)
+- Monte Carlo simulation coordination (executed by Backtest Engine)
+- Robustness testing (parameter perturbation, regime shifts)
+- Go/no-go recommendation for strategies
+
+### Interface
+
+```python
+class ValidationEngine:
+    async def validate(
+        self, strategy_id: str, backtest_result: BacktestResult
+    ) -> ValidationReport: ...
+    async def detect_overfitting(
+        self, strategy_id: str, results: list[BacktestResult]
+    ) -> OverfittingScore: ...
+    async def robustness_test(
+        self, strategy_id: str, scenarios: list[Scenario]
+    ) -> RobustnessReport: ...
+    async def recommend(self, strategy_id: str) -> GoNoGo: ...
+```
+
+---
+
 ## Reproducibility
 
 ```yaml

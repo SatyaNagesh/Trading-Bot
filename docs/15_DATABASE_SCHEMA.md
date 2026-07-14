@@ -352,3 +352,30 @@ RELATES_TO, PRECEDES, CAUSES, CONTRADICTS
 - market_data (market_id, timestamp): B-tree composite
 - market_data (timestamp DESC): BRIN for partitioning
 - trades (entry_time, strategy_id): B-tree composite
+
+---
+
+## Neo4j Schema (Knowledge Graph)
+
+See `docs/12_KNOWLEDGE_GRAPH_SPEC.md` for the complete Neo4j schema including:
+
+### Node Types
+- Hypothesis, Strategy, Experiment, MarketRegime, Instrument
+- ResearchSession, RiskEvent, DecisionRecord
+
+### Edge Types
+- TESTS, VALIDATED_BY, OCCURS_IN, TRADES, CONTRADICTS
+- CAUSES, DEPENDS_ON, DISCOVERED_IN, DECIDED_BY, RELATES_TO
+
+### Key Constraints
+```cypher
+CREATE CONSTRAINT hypothesis_id FOR (h:Hypothesis) REQUIRE h.id IS UNIQUE;
+CREATE CONSTRAINT strategy_id FOR (s:Strategy) REQUIRE s.id IS UNIQUE;
+CREATE CONSTRAINT instrument_id FOR (i:Instrument) REQUIRE i.id IS UNIQUE;
+```
+
+### Infrastructure
+- Neo4j 5.x running in Docker
+- 2 GB heap, 1 GB page cache (dev)
+- Daily backups to MinIO
+- Connection pool: 50 connections per service

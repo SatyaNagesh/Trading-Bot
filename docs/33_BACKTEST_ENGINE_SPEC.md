@@ -376,7 +376,41 @@ monte_carlo:
 
 ---
 
-## Section X — Parameter Optimization
+## Section X — Optimization Engine (Backtest Engine Sub-Component)
+
+The Optimization Engine is a named sub-component of the Backtest Engine responsible for parameter optimization. See the full spec in `docs/33_BACKTEST_ENGINE_SPEC.md`.
+
+### Supported Methods
+
+| Method | Speed | Quality | Use Case |
+|--------|-------|---------|----------|
+| Grid Search | Slow | Exhaustive | Small parameter space (< 100 combos) |
+| Random Search | Medium | Good | Large parameter space |
+| Bayesian (GP) | Fast | Excellent | Expensive evaluations |
+| Optuna | Fast | Excellent | Complex constraints |
+| Genetic Algorithm | Medium | Good | Multi-objective |
+
+### Interface
+
+```python
+class OptimizationEngine:
+    async def optimize(
+        self, strategy_def: StrategyDef, data: pd.DataFrame,
+        method: str, params: OptimConfig
+    ) -> OptimResult: ...
+    async def grid_search(
+        self, strategy_def: StrategyDef, data: pd.DataFrame,
+        param_grid: dict
+    ) -> list[OptimRun]: ...
+    async def bayesian(
+        self, strategy_def: StrategyDef, data: pd.DataFrame,
+        space: dict, n_trials: int
+    ) -> OptimRun: ...
+```
+
+---
+
+### Parameter Optimization
 
 ### Grid Search
 

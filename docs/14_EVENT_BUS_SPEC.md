@@ -1,7 +1,7 @@
 # QuantLab AI — Event Bus Specification
 
 > **The Nervous System**  
-> Version 1.0 | Last Updated: July 2026
+> Version 1.1 | Last Updated: July 2026
 
 ---
 
@@ -192,6 +192,23 @@ dead_letter_queue:
       conditions:
         - age > max_age
 ```
+
+---
+
+## Error Event Types
+
+Standard error events emitted by engines on failure:
+
+| Event Type | Source | Payload | Level |
+|------------|--------|---------|-------|
+| `engine.error.transient` | Any | `{engine, operation, error, retry_count}` | L0 |
+| `engine.error.recoverable` | Any | `{engine, operation, error, input_snapshot}` | L1 |
+| `engine.error.critical` | Any | `{engine, operation, error, stack_trace}` | L2 |
+| `engine.error.catastrophic` | Any | `{engine, operation, error, incident_id}` | L3 |
+| `engine.degraded` | Any | `{engine, mode, reason, capabilities_affected}` | L1 |
+| `broker.disconnect` | BrokerGateway | `{broker, last_heartbeat, open_orders}` | L2 |
+| `data.stale` | DataEngine | `{source, age_hours, max_age_hours}` | L1 |
+| `risk.breach` | RiskEngine | `{limit_type, current_value, threshold}` | L2 |
 
 ---
 

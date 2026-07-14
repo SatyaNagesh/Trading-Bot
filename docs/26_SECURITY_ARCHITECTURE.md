@@ -1,7 +1,7 @@
 # QuantLab AI — Security Architecture
 
 > **Keeping the System Safe**  
-> Version 1.0 | Last Updated: July 2026
+> Version 1.1 | Last Updated: July 2026
 
 ---
 
@@ -282,6 +282,86 @@ audit_storage:
   retention: 7 years (compliance)
   immutable: true
   backup: Geo-redundant
+```
+
+---
+
+---
+
+## Section: Authentication Implementation
+
+### Auth System Architecture
+
+```
+Auth Service (standalone service)
+├── OAuth2 Provider (Google/GitHub for humans)
+├── JWT Issuer (for humans, agents, services)
+├── API Key Manager (for CLI users)
+├── Certificate Authority (for mTLS)
+├── RBAC Policy Engine
+└── Session Manager (Redis-backed)
+```
+
+### JWT Token Structure
+
+```json
+{
+  "sub": "user_abc123 | agent_ceo_001 | svc_data_engine",
+  "role": "researcher | admin | agent | trader | viewer",
+  "type": "human | agent | service",
+  "scopes": ["strategies:read", "backtests:write"],
+  "iat": 1700000000,
+  "exp": 1700086400,
+  "jti": "tid_unique_001"
+}
+```
+
+### Token Validation Flow
+
+```
+1. Client presents JWT in Authorization header
+2. Auth Service validates signature (RS256)
+3. Checks expiry (iat, exp)
+4. Checks revocation status (Redis blacklist)
+5. Extracts role and scopes
+6. RBAC engine checks permission for requested resource
+7. Request forwarded to target service (with JWT claims in header)
+```
+
+### Agent Identity Tokens
+
+```yaml
+agent_auth:
+  method: "Agent Identity Token (mTLS + short-lived JWT)"
+  
+  issuance:
+    - "Agent spawned with unique identity"
+    - "mTLS cert issued by internal CA"
+    - "JWT issued with 1-hour expiry"
+    - "Scoped to agent's assigned engines only"
+  
+  renewal:
+    - "Auto-renewed by Agent Framework"
+    - "Renewal requires valid mTLS"
+    - "On renewal failure: agent paused"
+  
+  revocation:
+    - "Agent terminated → token revoked"
+    - "Suspicious activity → immediate revocation"
+    - "Stale > 10 min → auto-revoked"
+```
+
+### RBAC Implementation
+
+```python
+# Decision matrix: role × resource → action
+PERMISSIONS = {
+    "admin":    {"strategies": "crud", "backtests": "crud", "trades": "crud", "users": "crud"},
+    "researcher": {"strategies": "crud", "backtests": "crud", "trades": "r",    "users": ""},
+    "trader":   {"strategies": "r",    "backtests": "r",    "trades": "crud", "users": ""},
+    "viewer":   {"strategies": "r",    "backtests": "r",    "trades": "r",    "users": ""},
+    "agent":    {"strategies": "cr",   "backtests": "cr",   "trades": "r",    "users": ""},
+}
 ```
 
 ---

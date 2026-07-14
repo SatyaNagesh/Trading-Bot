@@ -100,25 +100,23 @@ design_tenets:
 └──────────────────────────────────────────────────────┘
 ```
 
-### The 17 Engines
+### The 15 Engines
 
 | Engine | Document | Purpose |
 |--------|----------|---------|
 | Data Engine | 29_DATA_PIPELINE_SPEC | Acquire and validate market data |
-| Research Engine | 30_RESEARCH_ENGINE_SPEC | Hypothesis formation and testing |
-| Strategy Engine | 31_STRATEGY_ENGINE_SPEC | Strategy design and generation |
-| Backtest Engine | 33_BACKTEST_ENGINE_SPEC | Historical simulation |
-| Optimization Engine | 33_BACKTEST_ENGINE_SPEC | Parameter optimization |
-| Validation Engine | 30_RESEARCH_ENGINE_SPEC | Statistical validation |
-| Risk Engine | 32_RISK_ENGINE_SPEC | Risk monitoring and control |
-| Portfolio Engine | 34_PORTFOLIO_ENGINE_SPEC | Multi-strategy allocation |
-| Execution Engine | 28_BROKER_INTEGRATION_SPEC | Trade execution |
-| Broker Gateway | 28_BROKER_INTEGRATION_SPEC | Broker abstraction |
-| ML Engine | 27_MLOPS_ARCHITECTURE | Machine learning models |
-| Agent Framework | 07-10 | AI agent management |
+| Research Engine (incl. Validation) | 30_RESEARCH_ENGINE_SPEC | Hypothesis formation, testing & statistical validation |
+| Strategy Engine | 31_STRATEGY_ENGINE_SPEC | Strategy design and DSL generation |
+| Backtest Engine (incl. Optimization) | 33_BACKTEST_ENGINE_SPEC | Historical simulation & parameter optimization |
+| Risk Engine | 32_RISK_ENGINE_SPEC | Risk monitoring, position sizing, and control |
+| Portfolio Engine | 34_PORTFOLIO_ENGINE_SPEC | Multi-strategy allocation & rebalancing |
+| Execution Engine | 36_EXECUTION_ENGINE_SPEC | Order routing, execution algorithms, fill management |
+| Broker Gateway | 28_BROKER_INTEGRATION_SPEC | Broker abstraction layer |
+| ML Engine | 27_MLOPS_ARCHITECTURE | Machine learning model lifecycle |
+| Agent Framework | 07-10 | AI agent management and orchestration |
 | Task Engine | 10_TASK_ORCHESTRATION | Work orchestration |
-| Knowledge Engine | 12_KNOWLEDGE_GRAPH | Institutional memory |
-| Memory Engine | 11_MEMORY_ARCHITECTURE | Multi-layer memory |
+| Knowledge Engine | 12_KNOWLEDGE_GRAPH | Institutional memory & Neo4j graph |
+| Memory Engine | 11_MEMORY_ARCHITECTURE | Multi-layer memory system |
 | Event Bus | 14_EVENT_BUS_SPEC | Inter-service communication |
 | Workflow Engine | 13_WORKFLOW_ENGINE | Standardized processes |
 

@@ -1,7 +1,7 @@
 # QuantLab AI — API Specification
 
 > **How to Talk to QuantLab AI**  
-> Version 1.0 | Last Updated: July 2026
+> Version 1.1 | Last Updated: July 2026
 
 ---
 
@@ -274,29 +274,119 @@ Server → Client:
 
 ---
 
-## Rate Limiting
+---
 
-| Tier | Rate Limit | Burst |
-|------|-----------|-------|
-| Free | 100 req/min | 200 |
-| Pro | 1000 req/min | 2000 |
-| Enterprise | 10000 req/min | 20000 |
+## Section: API Gateway
+
+### Gateway Architecture
+
+```
+Client → API Gateway (Kong/Traefik) → Auth Service → Rate Limiter → Service
+         │
+         ├── TLS termination
+         ├── JWT validation / mTLS handshake
+         ├── Rate limit (sliding window)
+         ├── RBAC enforcement
+         ├── Request routing
+         └── Request/response logging (Loki)
+```
+
+### Gateway Responsibilities
+
+1. TLS termination (TLS 1.3)
+2. JWT validation for humans, mTLS for services and agents
+3. Rate limit enforcement (sliding window per client)
+4. RBAC check against policy engine
+5. Request routing to appropriate service
+6. Circuit breaker per upstream service (5 failures → 30s open)
+7. Request/response logging for audit
 
 ---
 
-## Authentication
+## Section: Authentication
+
+### Auth Methods
+
+| Actor | Method | Token Type | Expiry |
+|-------|--------|------------|--------|
+| Human (dashboard) | OAuth2 + Google/GitHub | JWT | 24h |
+| Human (CLI) | API Key | JWT | 90d |
+| AI Agent | Agent Identity Token | mTLS + JWT | 1h |
+| Service | mTLS | Certificate | 1y |
+
+### Token Format (JWT)
+
+```json
+{
+  "sub": "user_abc123",
+  "role": "researcher",
+  "type": "human",
+  "iat": 1700000000,
+  "exp": 1700086400,
+  "jti": "unique_token_id"
+}
+```
+
+### RBAC Roles
+
+| Role | Permissions |
+|------|------------|
+| `admin` | Full access, limit changes, user management |
+| `researcher` | Read/write hypotheses, strategies, backtests |
+| `trader` | Execute trades, read portfolio |
+| `viewer` | Read-only dashboard |
+| `agent` | Engine-specific scoped access |
+
+---
+
+## Section: Rate Limiting
+
+| Tier | Requests/Min | Burst | Scope |
+|------|-------------|-------|-------|
+| Human UI | 60 | 10 | Per user |
+| CLI | 120 | 20 | Per API key |
+| Agent | 300 | 50 | Per agent identity |
+| Backtest (async) | 10 | 2 | Per service |
+
+Algorithm: Sliding window log
+Response on limit: HTTP 429 + `Retry-After` header
+
+---
+
+## Section: API Versioning
 
 ```yaml
-Auth Method: API Key (Bearer token)
-Header: Authorization: Bearer <api_key>
-Api Key Generation: QuantLab AI dashboard
+scheme: "URL path prefix"
+format: "/api/v1/..."
+current: "v1"
+deprecation_policy: "6 months notice"
+sunset_policy: "12 months notice"
 ```
 
 ---
 
-## Versioning
+## Section: gRPC Service Definitions (Internal)
 
-| Version | Status | Support |
-|---------|--------|---------|
-| v1 | Active | Current |
-| v2 | Planning | Future |
+### Pattern
+
+```protobuf
+service EngineService {
+  rpc GetSignals(GetSignalsRequest) returns (GetSignalsResponse);
+  rpc Validate(ValidateRequest) returns (ValidateResponse);
+  rpc GetStatus(GetStatusRequest) returns (GetStatusResponse);
+}
+
+message GetSignalsRequest {
+  string strategy_id = 1;
+  MarketContext context = 2;
+}
+```
+
+### When to Use gRPC vs REST vs Event Bus
+
+| Transport | Use For | Example |
+|-----------|---------|---------|
+| REST | External client API | Dashboard queries |
+| gRPC | Internal service sync | Agent queries engine |
+| Event Bus | Async actions | Backtest completed |
+| WebSocket | Real-time streams | Live price updates |

@@ -142,3 +142,56 @@ Every service/package must have a README.md containing:
 - API reference
 - Dependencies
 - Testing instructions
+
+---
+
+## Error Handling Standards
+
+### Error Classification
+
+| Level | Name | Examples | Action |
+|-------|------|---------|--------|
+| L0 | Transient | Network timeout, rate limited | Retry with exponential backoff (3 attempts) |
+| L1 | Recoverable | Invalid input, missing data | Return error to caller, log, no retry |
+| L2 | Critical | DB corruption, broker disconnect | Alert human, pause trading, incident report |
+| L3 | Catastrophic | Security breach, constitutional violation | Emergency shutdown, immutable log, human pager |
+
+### Error Response Format
+
+```json
+{
+  "error": {
+    "code": "RATE_LIMITED",
+    "message": "Too many requests. Retry after 30s.",
+    "details": { "retry_after_seconds": 30 },
+    "request_id": "req_abc123",
+    "timestamp": "2026-07-14T12:00:00Z"
+  }
+}
+```
+
+### Standard Error Codes
+
+| Code | HTTP | Level | Description |
+|------|------|-------|-------------|
+| `INVALID_INPUT` | 400 | L1 | Malformed request |
+| `UNAUTHORIZED` | 401 | L1 | Missing/invalid auth |
+| `FORBIDDEN` | 403 | L1 | Insufficient permissions |
+| `NOT_FOUND` | 404 | L1 | Resource not found |
+| `RATE_LIMITED` | 429 | L0 | Rate limit exceeded |
+| `SERVICE_UNAVAILABLE` | 503 | L0 | Engine temporarily down |
+| `DEPENDENCY_FAILURE` | 502 | L1 | Downstream failed |
+| `INTERNAL_ERROR` | 500 | L2 | Unexpected error |
+| `DATA_INTEGRITY` | 500 | L2 | Data corruption |
+| `BROKER_DISCONNECT` | 502 | L2 | Broker connection lost |
+| `CONSTITUTIONAL_VIOLATION` | 403 | L3 | Violates 12 Laws |
+
+### Graceful Degradation
+
+| Failed Engine | Degraded Behavior |
+|---------------|-------------------|
+| Data Engine | Use cached data (last 24h), pause new research |
+| Risk Engine | Use last known risk snapshot, reduce sizes by 50% |
+| Backtest Engine | Queue requests, serve cached results |
+| Execution Engine | Pause all trading, alert human |
+| Knowledge Graph | Disable graph queries, serve DB fallback |

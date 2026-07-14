@@ -1,7 +1,7 @@
 # QuantLab AI — Strategy Engine Specification
 
 > **Converting Research Into Executable Strategies**  
-> Version 1.0 | Last Updated: July 2026
+> Version 1.1 | Last Updated: July 2026
 
 ---
 
@@ -69,15 +69,17 @@ strategy:
 │                Strategy Engine                      │
 │                                                     │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐         │
-│  │ Strategy  │  │  Signal   │  │ Position │         │
-│  │ Manager   │  │ Generator │  │  Sizer   │         │
+│  │ Strategy  │  │  Signal   │  │Parameter │         │
+│  │ Manager   │  │ Generator │  │ Manager  │         │
 │  ├──────────┤  ├──────────┤  ├──────────┤         │
-│  │ Parameter │  │ Condition │  │ Risk     │         │
-│  │ Manager   │  │  Engine   │  │ Filter   │         │
+│  │ Condition │  │ Strategy │  │Strategy  │         │
+│  │  Engine   │  │    DSL   │  │ Registry │         │
 │  └──────────┘  └──────────┘  └──────────┘         │
 │                                                     │
 │  ┌──────────────────────────────────────────────┐  │
-│  │           Strategy DSL Interpreter             │  │
+│  │     Delegates to Risk Engine for:             │  │
+│  │     • Position Sizing (PositionSizer)          │  │
+│  │     • Risk Filtering (RiskFilter)              │  │
 │  └──────────────────────────────────────────────┘  │
 └──────────────────────────────────────────────────┘
 ```
@@ -97,12 +99,6 @@ SignalGenerator:
   - Handle multi-factor signals
   - Ensemble aggregation
 
-PositionSizer:
-  - Apply sizing model
-  - Respect risk constraints
-  - Handle partial fills
-  - Scale in/out
-
 ParameterManager:
   - Hyperparameter definitions
   - Optimization integration
@@ -115,11 +111,13 @@ ConditionEngine:
   - Market state checks
   - Cross-strategy conditions
 
-RiskFilter:
-  - Pre-trade risk check
-  - Portfolio correlation check
-  - Concentration limits
-  - Regime validation
+StrategyRegistry:
+  - Strategy metadata and versioning
+  - Lineage tracking
+  - Status management
+
+# Position Sizing and Risk Filtering are delegated to the Risk Engine
+# See docs/32_RISK_ENGINE_SPEC.md for PositionSizer and RiskFilter
 ```
 
 ### Interfaces
@@ -135,10 +133,10 @@ class StrategyEngine:
 ### Event Flow
 
 ```
-MarketData → ConditionEngine → SignalGenerator → RiskFilter → Output
-     │                              │
-     ▼                              ▼
-StrategyManager              PositionSizer
+MarketData → ConditionEngine → SignalGenerator → Risk Engine (delegate) → Output
+     │
+     ▼
+StrategyManager
 ```
 
 ---
@@ -240,25 +238,28 @@ def bb(data: pd.Series, period: int = 20, std: int = 2) -> BBResult: ...
 def atr(high: pd.Series, low: pd.Series, close: pd.Series, period: int = 14) -> pd.Series: ...
 ```
 
-### Risk API
+### Risk & Portfolio APIs
 
-```python
-# Available in DSL as risk.*
-risk.max_position_size(portfolio_value, symbol)
-risk.max_drawdown(current_equity, peak_equity)
-risk.var(returns, confidence=0.95)
-risk.cvar(returns, confidence=0.95)
+Risk and portfolio functions are **not inlined in the Strategy DSL**. They are delegated to the Risk Engine and Portfolio Engine respectively:
+
+```yaml
+# Strategy DSL delegates to Risk Engine for sizing
+sizing:
+  model: "kelly"              # Model name in Risk Engine
+  risk_per_trade: 0.01        # Parameter passed to Risk Engine
+
+# Risk limits checked by Risk Engine pre-trade
+filters:
+  max_position_size: 0.10
+  max_drawdown: 0.20
+
+# Portfolio context provided by Portfolio Engine
+portfolio_context:
+  correlation_check: true
+  concentration_limit: 0.25
 ```
 
-### Portfolio API
-
-```python
-# Available in DSL as portfolio.*
-portfolio.current_exposure(symbol)
-portfolio.correlation(strategy_id)
-portfolio.allocated_capital()
-portfolio.remaining_capacity()
-```
+See `docs/32_RISK_ENGINE_SPEC.md` for risk APIs and `docs/34_PORTFOLIO_ENGINE_SPEC.md` for portfolio APIs.
 
 ---
 
