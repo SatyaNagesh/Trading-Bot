@@ -37,6 +37,7 @@ class MACDStrategy:
         below_trend = pd.isna(last['SMA_200']) or last['Close'] < last['SMA_200']
 
         macd_below_zero_bars = (df['MACD'].iloc[-10:] < 0).sum() if len(df) >= 10 else 0
+        macd_above_zero_bars = (df['MACD'].iloc[-10:] > 0).sum() if len(df) >= 10 else 0
 
         if above_trend and prev['MACD'] <= 0 and last['MACD'] > 0:
             if hist_rising and last['RSI'] > 50 and last['RSI'] < 70 and ema50_slope > 0 and macd_below_zero_bars >= 3:
@@ -50,8 +51,6 @@ class MACDStrategy:
                     'volume_ratio': 0,
                     'strategy': self.name,
                 })
-
-        macd_above_zero_bars = (df['MACD'].iloc[-10:] > 0).sum() if len(df) >= 10 else 0
 
         elif below_trend and prev['MACD'] >= 0 and last['MACD'] < 0:
             if last['MACD_HIST'] < prev['MACD_HIST'] and last['RSI'] < 50 and last['RSI'] > 30 and ema50_slope < 0 and macd_above_zero_bars >= 3:
