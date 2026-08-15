@@ -1,8 +1,6 @@
 """Zerodha Kite Connect broker implementation."""
 
 from datetime import date
-from decimal import Decimal
-from typing import Any
 
 from packages.broker.gateway import BaseBroker, BrokerConfig
 from packages.core.logging import get_logger
@@ -23,6 +21,7 @@ class ZerodhaBroker(BaseBroker):
         logger.info("zerodha_place_order", symbol=order.symbol, side=order.side.value)
         try:
             import httpx
+
             headers = {
                 "X-Kite-Version": "3",
                 "Authorization": f"token {self.api_key}:{self.access_token}",

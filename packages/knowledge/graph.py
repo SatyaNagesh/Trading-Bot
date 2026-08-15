@@ -86,7 +86,10 @@ async def find_related(node_id: int, rel_type: str | None = None, depth: int = 1
                 f"RETURN id(m) AS node_id, labels(m) AS labels, m"
             )
         result = await session.run(query, node_id=node_id)
-        return [{"id": r["node_id"], "labels": list(r["labels"]), **dict(r.get("m", {}))} async for r in result]
+        return [
+            {"id": r["node_id"], "labels": list(r["labels"]), **dict(r.get("m", {}))}
+            async for r in result
+        ]
 
 
 async def search_by_text(query_text: str, node_type: str | None = None) -> list[dict]:
@@ -98,4 +101,6 @@ async def search_by_text(query_text: str, node_type: str | None = None) -> list[
             f"RETURN id(n) AS node_id, labels(n) AS labels, n LIMIT 50"
         )
         result = await session.run(query, q=query_text)
-        return [{"id": r["node_id"], "labels": list(r["labels"]), **dict(r["n"])} async for r in result]
+        return [
+            {"id": r["node_id"], "labels": list(r["labels"]), **dict(r["n"])} async for r in result
+        ]

@@ -2,15 +2,15 @@
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
 from typing import Any
 
+from packages.core.exceptions import QuantLabError
 from packages.core.logging import get_logger
 
 logger = get_logger("agent_base")
 
 
-class AgentError(Exception):
+class AgentError(QuantLabError):
     pass
 
 
@@ -40,8 +40,7 @@ class BaseAgent(ABC):
         self.description = description
 
     @abstractmethod
-    async def run(self, context: AgentContext, input_data: Any) -> AgentResult:
-        ...
+    async def run(self, context: AgentContext, input_data: Any) -> AgentResult: ...
 
     async def think(self, context: AgentContext, prompt: str) -> str:
         logger.debug("agent_think", agent=self.agent_id, step=context.current_step)

@@ -1,5 +1,5 @@
 import structlog
-from structlog.processors import JSONRenderer, TimeStamper, add_log_level
+from structlog.processors import JSONRenderer, TimeStamper
 from structlog.dev import ConsoleRenderer
 
 

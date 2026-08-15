@@ -1,12 +1,10 @@
 """NSE market data pipeline with yfinance and cache layer."""
 
 import asyncio
-import os
-from datetime import date, datetime, timedelta
+from datetime import date
 from decimal import Decimal
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 import yfinance as yf
 
@@ -60,10 +58,15 @@ def _download_from_yahoo(symbol: str, start: date, end: date) -> pd.DataFrame:
     if df.empty:
         raise DataError(f"No data returned for {symbol}")
 
-    df = df.rename(columns={
-        "Open": "open", "High": "high", "Low": "low",
-        "Close": "close", "Volume": "volume",
-    })
+    df = df.rename(
+        columns={
+            "Open": "open",
+            "High": "high",
+            "Low": "low",
+            "Close": "close",
+            "Volume": "volume",
+        }
+    )
     df.columns = [c.lower() for c in df.columns]
     return df
 
@@ -118,10 +121,13 @@ def _load_from_cache(symbol: str, start: date, end: date) -> list[Bar] | None:
 
 def _load_parquet_range(path: Path, start: date, end: date) -> pd.DataFrame:
     try:
-        return pd.read_parquet(path, filters=[
-            ("index", ">=", str(start)),
-            ("index", "<=", str(end)),
-        ])
+        return pd.read_parquet(
+            path,
+            filters=[
+                ("index", ">=", str(start)),
+                ("index", "<=", str(end)),
+            ],
+        )
     except (TypeError, ValueError):
         df = pd.read_parquet(path)
         return df[(df.index >= str(start)) & (df.index <= str(end))]
@@ -138,15 +144,55 @@ def _save_to_cache(symbol: str, df: pd.DataFrame) -> None:
 
 def get_available_symbols() -> list[str]:
     nifty50 = [  # TODO: load from config/API in V1
-        "RELIANCE", "TCS", "HDFCBANK", "INFY", "ICICIBANK",
-        "HINDUNILVR", "ITC", "SBIN", "BHARTIARTL", "KOTAKBANK",
-        "BAJFINANCE", "LT", "WIPRO", "AXISBANK", "TITAN",
-        "ASIANPAINT", "MARUTI", "SUNPHARMA", "TATAMOTORS", "NTPC",
-        "ONGC", "POWERGRID", "BAJAJFINSV", "JSWSTEEL", "HCLTECH",
-        "ULTRACEMCO", "INDUSINDBK", "NESTLEIND", "M&M", "TATASTEEL",
-        "TECHM", "HDFCLIFE", "SBILIFE", "DRREDDY", "CIPLA",
-        "BAJAJ_AUTO", "DIVISLAB", "GRASIM", "EICHERMOT", "BRITANNIA",
-        "TRENT", "APOLLOHOSP", "BPCL", "ADANIPORTS", "COALINDIA",
-        "HINDALCO", "ADANIENT", "HEROMOTOCO", "BEL", "SHRIRAMFIN",
+        "RELIANCE",
+        "TCS",
+        "HDFCBANK",
+        "INFY",
+        "ICICIBANK",
+        "HINDUNILVR",
+        "ITC",
+        "SBIN",
+        "BHARTIARTL",
+        "KOTAKBANK",
+        "BAJFINANCE",
+        "LT",
+        "WIPRO",
+        "AXISBANK",
+        "TITAN",
+        "ASIANPAINT",
+        "MARUTI",
+        "SUNPHARMA",
+        "TATAMOTORS",
+        "NTPC",
+        "ONGC",
+        "POWERGRID",
+        "BAJAJFINSV",
+        "JSWSTEEL",
+        "HCLTECH",
+        "ULTRACEMCO",
+        "INDUSINDBK",
+        "NESTLEIND",
+        "M&M",
+        "TATASTEEL",
+        "TECHM",
+        "HDFCLIFE",
+        "SBILIFE",
+        "DRREDDY",
+        "CIPLA",
+        "BAJAJ_AUTO",
+        "DIVISLAB",
+        "GRASIM",
+        "EICHERMOT",
+        "BRITANNIA",
+        "TRENT",
+        "APOLLOHOSP",
+        "BPCL",
+        "ADANIPORTS",
+        "COALINDIA",
+        "HINDALCO",
+        "ADANIENT",
+        "HEROMOTOCO",
+        "BEL",
+        "SHRIRAMFIN",
     ]
     return sorted(nifty50)

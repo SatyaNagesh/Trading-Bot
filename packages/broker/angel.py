@@ -1,8 +1,6 @@
 """Angel One SmartAPI broker implementation."""
 
 from datetime import date
-from decimal import Decimal
-from typing import Any
 
 from packages.broker.gateway import BaseBroker, BrokerConfig
 from packages.core.logging import get_logger
@@ -21,6 +19,7 @@ class AngelOneBroker(BaseBroker):
         logger.info("angel_place_order", symbol=order.symbol, side=order.side.value)
         try:
             import httpx
+
             headers = {
                 "X-PrivateKey": self.config.api_key,
                 "Accept": "application/json",

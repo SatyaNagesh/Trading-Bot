@@ -1,6 +1,7 @@
 from datetime import datetime, date, timezone
 from decimal import Decimal
 from enum import Enum
+from typing import Any
 from pydantic import BaseModel, Field
 
 
@@ -28,10 +29,12 @@ class OrderStatus(str, Enum):
     VALIDATED = "VALIDATED"
     SUBMITTED = "SUBMITTED"
     PENDING = "PENDING"
+    ACCEPTED = "ACCEPTED"
     PARTIALLY_FILLED = "PARTIALLY_FILLED"
     FILLED = "FILLED"
     CANCELLED = "CANCELLED"
     REJECTED = "REJECTED"
+    EXPIRED = "EXPIRED"
 
 
 class PositionSide(str, Enum):
@@ -41,9 +44,15 @@ class PositionSide(str, Enum):
 
 class MarketRegime(str, Enum):
     TRENDING = "trending"
+    MEAN_REVERTING = "mean_reverting"
     RANGING = "ranging"
+    SIDEWAYS = "sideways"
     VOLATILE = "volatile"
+    HIGH_VOLATILITY = "high_volatility"
+    LOW_VOLATILITY = "low_volatility"
+    BREAKOUT = "breakout"
     CRISIS = "crisis"
+    UNKNOWN = "unknown"
 
 
 class StrategyStatus(str, Enum):
@@ -99,7 +108,9 @@ class Trade(BaseModel):
     exit_time: datetime | None = None
     pnl: Decimal = Decimal("0")
     pnl_pct: float = 0.0
-    reason: str = ""
+    entry_reason: str = ""
+    exit_reason: str = ""
+    commission: Decimal = Decimal("0")
 
 
 class Position(BaseModel):
@@ -195,6 +206,19 @@ class MarketContext(BaseModel):
     volatility: float = 0.0
     volume_ratio: float = 1.0
     indicators: dict[str, float] = {}
+    indicator_df: Any | None = None
+
+
+class ExitReason(str, Enum):
+    TAKE_PROFIT = "take_profit"
+    STOP_LOSS = "stop_loss"
+    SIGNAL_REVERSAL = "signal_reversal"
+    TRAILING_STOP = "trailing_stop"
+    RISK_LIMIT = "risk_limit"
+    MANUAL = "manual"
+    EXPIRY = "expiry"
+    TIME_EXIT = "time_exit"
+    UNKNOWN = "unknown"
 
 
 class RiskBudget(BaseModel):
@@ -203,6 +227,10 @@ class RiskBudget(BaseModel):
     max_drawdown: float = 0.20
     max_leverage: float = 1.0
     max_positions: int = 10
+    max_exposure_pct: float = 0.40
+    max_concurrent_trades: int = 5
+    max_position_size_pct: float = 0.10
+    per_strategy_allocation_pct: float = 0.25
 
 
 class Portfolio(BaseModel):
@@ -211,5 +239,41 @@ class Portfolio(BaseModel):
     initial_capital: Decimal
     current_value: Decimal
     cash: Decimal
+    buying_power: Decimal = Decimal("0")
+    equity: Decimal = Decimal("0")
+    net_asset_value: Decimal = Decimal("0")
+    realized_pnl: Decimal = Decimal("0")
+    unrealized_pnl: Decimal = Decimal("0")
+    daily_return: float = 0.0
+    total_return: float = 0.0
+    drawdown: float = 0.0
+    exposure: float = 0.0
     positions: list[Position] = []
     strategies: dict[str, float] = {}
+
+
+class JournalEntry(BaseModel):
+    id: str = Field(default="")
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    strategy_id: str
+    hypothesis_id: str = ""
+    symbol: str
+    side: Side
+    entry_price: Decimal
+    exit_price: Decimal | None = None
+    quantity: int
+    position_size: Decimal = Decimal("0")
+    entry_time: datetime
+    exit_time: datetime | None = None
+    pnl: Decimal = Decimal("0")
+    pnl_pct: float = 0.0
+    signal: str = ""
+    market_regime: str = ""
+    confidence: float = 0.0
+    composite_score: float = 0.0
+    expected_edge: float = 0.0
+    risk_score: float = 0.0
+    exit_reason: str = ""
+    execution_details: dict = {}
+    notes: str = ""
+    tags: list[str] = []

@@ -15,12 +15,14 @@ async def detect_hypothesis_strategy_contradictions() -> list[dict]:
         for s in strategies:
             s_tags = set(t.lower() for t in s.get("tags", []))
             if "mean-reversion" in h_keywords and "momentum" in s_tags:
-                contradictions.append({
-                    "type": "approach_mismatch",
-                    "hypothesis": h.get("title"),
-                    "strategy": s.get("name"),
-                    "detail": "Mean-reversion hypothesis vs momentum strategy",
-                })
+                contradictions.append(
+                    {
+                        "type": "approach_mismatch",
+                        "hypothesis": h.get("title"),
+                        "strategy": s.get("name"),
+                        "detail": "Mean-reversion hypothesis vs momentum strategy",
+                    }
+                )
     logger.info("contradiction_check", found=len(contradictions))
     return contradictions
 

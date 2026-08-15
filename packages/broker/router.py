@@ -1,7 +1,6 @@
 """Smart order router — routes orders across simulated venues."""
 
-from dataclasses import dataclass, field
-from typing import Any
+from dataclasses import dataclass
 from packages.core.logging import get_logger
 
 logger = get_logger("smart_order_router")
@@ -25,7 +24,9 @@ class SmartOrderRouter:
         ]
 
     def best_venue(self, quantity: int, is_aggressive: bool = False) -> Venue:
-        sorted_venues = sorted(self.venues, key=lambda v: v.latency_ms if is_aggressive else v.spread)
+        sorted_venues = sorted(
+            self.venues, key=lambda v: v.latency_ms if is_aggressive else v.spread
+        )
         for v in sorted_venues:
             if v.available:
                 logger.info("router_selected_venue", venue=v.name, qty=quantity)

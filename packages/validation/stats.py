@@ -46,7 +46,9 @@ def normality_test(returns: np.ndarray) -> dict:
     }
 
 
-def strategy_significance(strategy_returns: np.ndarray, benchmark_returns: np.ndarray | None = None) -> dict:
+def strategy_significance(
+    strategy_returns: np.ndarray, benchmark_returns: np.ndarray | None = None
+) -> dict:
     if benchmark_returns is None:
         benchmark_returns = np.zeros_like(strategy_returns)
     t_test = t_test_strategies(strategy_returns, benchmark_returns)

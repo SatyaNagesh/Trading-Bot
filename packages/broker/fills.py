@@ -3,7 +3,6 @@
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from decimal import Decimal
-from typing import Any
 from uuid import uuid4
 
 from packages.core.logging import get_logger

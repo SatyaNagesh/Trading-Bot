@@ -1,19 +1,34 @@
 import uuid
-from datetime import datetime, date, timezone
-from decimal import Decimal
+from datetime import datetime, timezone
 
-_now = lambda: datetime.now(timezone.utc)
+
+def _now() -> datetime:
+    return datetime.now(timezone.utc)
+
 
 from sqlalchemy import (
-    Column, String, Integer, Float, Numeric, DateTime, Date, Text, Enum as SAEnum,
-    ForeignKey, JSON, Boolean, UniqueConstraint, Index,
+    Column,
+    String,
+    Integer,
+    Float,
+    Numeric,
+    DateTime,
+    Date,
+    Text,
+    Enum as SAEnum,
+    ForeignKey,
+    JSON,
+    UniqueConstraint,
+    Index,
 )
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import DeclarativeBase
 
 from packages.domain.models import (
-    Side, OrderType, OrderStatus, PositionSide,
-    StrategyStatus, HypothesisStatus, MarketRegime,
+    Side,
+    OrderType,
+    OrderStatus,
+    StrategyStatus,
+    HypothesisStatus,
 )
 
 

@@ -1,6 +1,6 @@
 """Connection pooling and database health management."""
 
-from packages.core.database import engine, async_session, check_health
+from packages.core.database import check_health
 from packages.core.logging import get_logger
 from packages.hardening.protection import ConnectionPool
 

@@ -30,11 +30,13 @@ def macd(data: pd.Series, fast: int = 12, slow: int = 26, signal: int = 9) -> pd
     macd_line = fast_ema - slow_ema
     signal_line = ema(macd_line, signal)
     histogram = macd_line - signal_line
-    return pd.DataFrame({
-        "macd": macd_line,
-        "signal": signal_line,
-        "histogram": histogram,
-    })
+    return pd.DataFrame(
+        {
+            "macd": macd_line,
+            "signal": signal_line,
+            "histogram": histogram,
+        }
+    )
 
 
 def bb(data: pd.Series, period: int = 20, std: int = 2) -> pd.DataFrame:
@@ -44,30 +46,37 @@ def bb(data: pd.Series, period: int = 20, std: int = 2) -> pd.DataFrame:
     upper = middle + (rolling_std * std)
     lower = middle - (rolling_std * std)
     bandwidth = (upper - lower) / middle * 100
-    return pd.DataFrame({
-        "upper": upper,
-        "middle": middle,
-        "lower": lower,
-        "bandwidth": bandwidth,
-    })
+    return pd.DataFrame(
+        {
+            "upper": upper,
+            "middle": middle,
+            "lower": lower,
+            "bandwidth": bandwidth,
+        }
+    )
 
 
 def atr(high: pd.Series, low: pd.Series, close: pd.Series, period: int = 14) -> pd.Series:
     """Average True Range."""
     prev_close = close.shift(1)
-    tr = pd.concat([
-        high - low,
-        (high - prev_close).abs(),
-        (low - prev_close).abs(),
-    ], axis=1).max(axis=1)
+    tr = pd.concat(
+        [
+            high - low,
+            (high - prev_close).abs(),
+            (low - prev_close).abs(),
+        ],
+        axis=1,
+    ).max(axis=1)
     return tr.rolling(window=period).mean()
 
 
 def wma(data: pd.Series, period: int) -> pd.Series:
     """Weighted Moving Average."""
     weights = np.arange(1, period + 1)
+
     def _wma(arr):
         return np.dot(arr, weights) / weights.sum()
+
     return data.rolling(window=period).apply(_wma, raw=True)
 
 

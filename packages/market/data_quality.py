@@ -1,12 +1,8 @@
 """Data quality checks for market data."""
 
-from datetime import date, datetime
-from decimal import Decimal
-
 import numpy as np
 
 from packages.domain.models import Bar
-from packages.core.exceptions import DataQualityError
 from packages.core.logging import get_logger
 
 logger = get_logger("data_quality")
@@ -21,9 +17,7 @@ def check_gaps(bars: list[Bar], symbol: str) -> list[str]:
     for i in range(1, len(dates)):
         diff = (dates[i] - dates[i - 1]).days
         if diff > 5:
-            warnings.append(
-                f"{symbol}: gap of {diff} days between {dates[i-1]} and {dates[i]}"
-            )
+            warnings.append(f"{symbol}: gap of {diff} days between {dates[i - 1]} and {dates[i]}")
     return warnings
 
 

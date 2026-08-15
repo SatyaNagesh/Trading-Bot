@@ -17,13 +17,27 @@ async def check_order_risk(
     checks = []
     current_positions = len(open_positions)
     if current_positions >= budget.max_positions:
-        checks.append({"check": "max_positions", "passed": False, "detail": f"At max {budget.max_positions} positions"})
+        checks.append(
+            {
+                "check": "max_positions",
+                "passed": False,
+                "detail": f"At max {budget.max_positions} positions",
+            }
+        )
     else:
         checks.append({"check": "max_positions", "passed": True})
     estimated_notional = float(order.price or 0) * order.quantity
-    leverage = (sum(float(p.current_price * p.quantity) for p in open_positions) + estimated_notional) / max(portfolio_value, 1)
+    leverage = (
+        sum(float(p.current_price * p.quantity) for p in open_positions) + estimated_notional
+    ) / max(portfolio_value, 1)
     if leverage > budget.max_leverage:
-        checks.append({"check": "max_leverage", "passed": False, "detail": f"Leverage {leverage:.2f} > max {budget.max_leverage}"})
+        checks.append(
+            {
+                "check": "max_leverage",
+                "passed": False,
+                "detail": f"Leverage {leverage:.2f} > max {budget.max_leverage}",
+            }
+        )
     else:
         checks.append({"check": "max_leverage", "passed": True})
     all_passed = all(c["passed"] for c in checks)

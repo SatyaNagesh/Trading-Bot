@@ -2,17 +2,26 @@
 
 import math
 from dataclasses import dataclass
-from datetime import datetime, date
 from decimal import Decimal
 from typing import Callable
 
 import numpy as np
 
 from packages.domain.models import (
-    Bar, Side, OrderType, OrderStatus, PositionSide,
-    Trade, Position, Order, Signal, SignalDirection,
-    BacktestConfig, BacktestResult,
-    MarketContext, MarketRegime,
+    Bar,
+    Side,
+    OrderType,
+    OrderStatus,
+    PositionSide,
+    Trade,
+    Position,
+    Order,
+    Signal,
+    SignalDirection,
+    BacktestConfig,
+    BacktestResult,
+    MarketContext,
+    MarketRegime,
 )
 from packages.core.exceptions import BacktestError
 from packages.core.logging import get_logger
@@ -34,7 +43,7 @@ class BacktestEngine:
         self.peak_equity: Decimal = self.config.initial_capital
         self.bar_index: int = 0
 
-    async def run(self, bars: dict[str, list[Bar]]) -> BacktestResult:
+    def run(self, bars: dict[str, list[Bar]]) -> BacktestResult:
         if not bars:
             raise BacktestError("No data provided for backtest")
 
@@ -172,19 +181,20 @@ class BacktestEngine:
 
     def _update_equity(self) -> None:
         positions_value = sum(
-            float(pos.current_price * pos.quantity)
-            for pos in self.positions.values()
+            float(pos.current_price * pos.quantity) for pos in self.positions.values()
         )
         self.current_equity = self.cash + Decimal(str(positions_value))
         self.peak_equity = max(self.peak_equity, self.current_equity)
 
     def _record_equity(self) -> None:
-        self.equity_curve.append({
-            "bar": self.bar_index,
-            "equity": float(self.current_equity),
-            "cash": float(self.cash),
-            "drawdown": self._current_drawdown(),
-        })
+        self.equity_curve.append(
+            {
+                "bar": self.bar_index,
+                "equity": float(self.current_equity),
+                "cash": float(self.cash),
+                "drawdown": self._current_drawdown(),
+            }
+        )
 
     def _compute_quantity(self, side: Side, bar: Bar) -> int:
         if side == Side.BUY:
@@ -223,9 +233,14 @@ class BacktestEngine:
     def _compute_metrics(self) -> dict:
         if not self.trades:
             return {
-                "total_return": 0, "annualized_return": 0,
-                "sharpe": 0, "sortino": 0, "max_drawdown": 0,
-                "win_rate": 0, "profit_factor": 0, "total_trades": 0,
+                "total_return": 0,
+                "annualized_return": 0,
+                "sharpe": 0,
+                "sortino": 0,
+                "max_drawdown": 0,
+                "win_rate": 0,
+                "profit_factor": 0,
+                "total_trades": 0,
             }
 
         initial = float(self.config.initial_capital)
@@ -291,6 +306,10 @@ class BacktestEngine:
         days = (self.config.end_date - self.config.start_date).days
         years = max(days, 1) / 365.25
         return ((1 + total_return) ** (1 / years) - 1) * 100
+
+    @property
+    def metrics(self) -> dict:
+        return self._compute_metrics()
 
     def _compile_results(self) -> BacktestResult:
         metrics = self._compute_metrics()

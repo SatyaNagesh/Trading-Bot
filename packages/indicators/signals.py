@@ -12,7 +12,9 @@ class SignalGenerator:
     def __init__(self, strategy_id: str):
         self.strategy_id = strategy_id
 
-    def long(self, confidence: float = 0.5, reason: list[str] | None = None, **extra: Any) -> Signal:
+    def long(
+        self, confidence: float = 0.5, reason: list[str] | None = None, **extra: Any
+    ) -> Signal:
         return Signal(
             strategy_id=self.strategy_id,
             direction=SignalDirection.LONG,
@@ -21,7 +23,9 @@ class SignalGenerator:
             indicator_values=extra,
         )
 
-    def short(self, confidence: float = 0.5, reason: list[str] | None = None, **extra: Any) -> Signal:
+    def short(
+        self, confidence: float = 0.5, reason: list[str] | None = None, **extra: Any
+    ) -> Signal:
         return Signal(
             strategy_id=self.strategy_id,
             direction=SignalDirection.SHORT,

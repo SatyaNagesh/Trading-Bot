@@ -2,7 +2,6 @@
 
 from datetime import date, datetime, timezone
 from decimal import Decimal
-from typing import Any
 
 from packages.core.logging import get_logger
 from packages.domain.models import Bar
@@ -22,25 +21,28 @@ async def fetch_crypto_bars(
 ) -> list[Bar]:
     try:
         import ccxt.async_support as ccxt
+
         ex = getattr(ccxt, exchange)()
         since = int(datetime.combine(start, datetime.min.time()).timestamp() * 1000)
         ohlcv = await ex.fetch_ohlcv(symbol, timeframe=interval, since=since)
         await ex.close()
         bars = []
         for row in ohlcv:
-            ts, o, h, l, c, v = row
+            ts, o, h, low, c, v = row
             bar_date = datetime.fromtimestamp(ts / 1000, tz=timezone.utc)
             if bar_date.date() > end:
                 break
-            bars.append(Bar(
-                timestamp=bar_date,
-                open=Decimal(str(o)),
-                high=Decimal(str(h)),
-                low=Decimal(str(l)),
-                close=Decimal(str(c)),
-                volume=int(v),
-                symbol=symbol,
-            ))
+            bars.append(
+                Bar(
+                    timestamp=bar_date,
+                    open=Decimal(str(o)),
+                    high=Decimal(str(h)),
+                    low=Decimal(str(low)),
+                    close=Decimal(str(c)),
+                    volume=int(v),
+                    symbol=symbol,
+                )
+            )
         logger.info("crypto_fetched", symbol=symbol, bars=len(bars), exchange=exchange)
         return bars
     except ImportError:
@@ -53,20 +55,23 @@ async def fetch_crypto_bars(
 
 def _simulate_crypto(symbol: str, start: date, end: date) -> list[Bar]:
     import random
+
     bars = []
     price = 50000.0
     current = start
     while current <= end:
         change = random.uniform(-0.03, 0.03)
-        price *= (1 + change)
-        bars.append(Bar(
-            timestamp=datetime.combine(current, datetime.min.time(), tzinfo=timezone.utc),
-            open=Decimal(str(round(price, 2))),
-            high=Decimal(str(round(price * 1.02, 2))),
-            low=Decimal(str(round(price * 0.98, 2))),
-            close=Decimal(str(round(price * (1 + random.uniform(-0.01, 0.01)), 2))),
-            volume=int(random.uniform(1000, 10000)),
-            symbol=symbol,
-        ))
+        price *= 1 + change
+        bars.append(
+            Bar(
+                timestamp=datetime.combine(current, datetime.min.time(), tzinfo=timezone.utc),
+                open=Decimal(str(round(price, 2))),
+                high=Decimal(str(round(price * 1.02, 2))),
+                low=Decimal(str(round(price * 0.98, 2))),
+                close=Decimal(str(round(price * (1 + random.uniform(-0.01, 0.01)), 2))),
+                volume=int(random.uniform(1000, 10000)),
+                symbol=symbol,
+            )
+        )
         current = date.fromordinal(current.toordinal() + 1)
     return bars

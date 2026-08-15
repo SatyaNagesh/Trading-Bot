@@ -16,10 +16,13 @@ class CEOAgent(BaseAgent):
         for i, task in enumerate(prioritized):
             if i < len(agents):
                 assignments[task.get("id", f"task_{i}")] = agents[i]
-        return AgentResult(success=True, output={
-            "assignments": assignments,
-            "order": [t.get("name") for t in prioritized],
-        })
+        return AgentResult(
+            success=True,
+            output={
+                "assignments": assignments,
+                "order": [t.get("name") for t in prioritized],
+            },
+        )
 
 
 class CTOAgent(BaseAgent):
@@ -30,11 +33,14 @@ class CTOAgent(BaseAgent):
         for service, status in health.items():
             if not status:
                 issues.append(f"{service} is unhealthy")
-        return AgentResult(success=True, output={
-            "healthy": len(issues) == 0,
-            "issues": issues,
-            "recommendations": ["scale up" for _ in issues],
-        })
+        return AgentResult(
+            success=True,
+            output={
+                "healthy": len(issues) == 0,
+                "issues": issues,
+                "recommendations": ["scale up" for _ in issues],
+            },
+        )
 
 
 class DocumentationAgent(BaseAgent):

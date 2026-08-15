@@ -19,7 +19,10 @@ test-all:
 	poetry run pytest tests/ -x --cov=packages --cov=services --cov=apps
 
 run-api:
-	poetry run uvicorn apps.api.main:app --reload --port 8000
+	poetry run uvicorn services.api.main:app --reload --port 8000
+
+run-discord:
+	poetry run python -m services.discord_bot.main
 
 run-docs:
 	poetry run mkdocs serve

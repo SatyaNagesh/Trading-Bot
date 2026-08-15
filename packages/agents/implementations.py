@@ -4,7 +4,6 @@ from typing import Any
 
 from packages.agents.base import BaseAgent, AgentContext, AgentResult
 from packages.core.logging import get_logger
-from packages.domain.models import Hypothesis, HypothesisStatus
 
 logger = get_logger("agents")
 
@@ -20,13 +19,14 @@ class ResearchAgent(BaseAgent):
                 "findings": f"Research completed for: {hypothesis}",
             }
             return AgentResult(success=True, output=result)
-        return AgentResult(success=False, error="Invalid input: expected dict with 'hypothesis' key")
+        return AgentResult(
+            success=False, error="Invalid input: expected dict with 'hypothesis' key"
+        )
 
 
 class StrategyAgent(BaseAgent):
     async def run(self, context: AgentContext, input_data: Any) -> AgentResult:
         logger.info("strategy_agent_run")
-        research_output = input_data.get("research", {})
         strategy = {
             "name": "sma_crossover",
             "parameters": {"fast_period": 20, "slow_period": 50},

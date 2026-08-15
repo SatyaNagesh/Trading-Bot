@@ -1,12 +1,9 @@
 """Execution algorithms — TWAP, VWAP, Iceberg order scheduling."""
 
-import math
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from typing import Any
 
 from packages.core.logging import get_logger
-from packages.domain.models import Order, Side, OrderType, OrderStatus
 
 logger = get_logger("execution_algos")
 

@@ -3,8 +3,6 @@
 from datetime import datetime, date
 from decimal import Decimal
 
-import pytest
-
 from packages.domain.models import (
     Bar, Signal, SignalDirection, BacktestConfig,
 )
@@ -35,8 +33,7 @@ def test_engine_initialization():
     assert engine.positions == {}
 
 
-@pytest.mark.asyncio
-async def test_empty_backtest():
+def test_empty_backtest():
     config = BacktestConfig(
         initial_capital=Decimal("1000000"),
         start_date=date(2024, 1, 1),
@@ -45,13 +42,12 @@ async def test_empty_backtest():
     engine = BacktestEngine(config=config)
 
     bars = {"TEST": []}
-    result = await engine.run(bars)
+    result = engine.run(bars)
     assert result.total_trades == 0
     assert result.sharpe_ratio == 0.0
 
 
-@pytest.mark.asyncio
-async def test_backtest_buy_signal_creates_trade():
+def test_backtest_buy_signal_creates_trade():
     config = BacktestConfig(
         initial_capital=Decimal("100000"),
         start_date=date(2024, 1, 1),
@@ -77,6 +73,6 @@ async def test_backtest_buy_signal_creates_trade():
         _make_bar(101.0, 2),
         _make_bar(102.0, 3),
     ]}
-    result = await engine.run(bars)
+    result = engine.run(bars)
     assert result.total_trades > 0
     assert result.equity_curve[-1]["equity"] > 100000

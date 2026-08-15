@@ -1,10 +1,12 @@
-from datetime import date, datetime
-from decimal import Decimal
+from datetime import date
 from typing import Protocol
 
 from packages.domain.models import (
-    Bar, Trade, Order, StrategyDefinition, Hypothesis,
-    BacktestConfig, BacktestResult, Portfolio,
+    Bar,
+    Trade,
+    StrategyDefinition,
+    Hypothesis,
+    BacktestResult,
 )
 
 
