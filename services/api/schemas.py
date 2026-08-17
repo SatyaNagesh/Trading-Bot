@@ -2,7 +2,7 @@
 
 from datetime import datetime
 from decimal import Decimal
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -47,11 +47,21 @@ class CycleRunRequest(BaseModel):
 
 
 class CycleResultResponse(BaseModel):
-    cycle: str
+    cycle: int | str
     trades: int
     errors: list[str]
     dashboard: str | None = None
     metrics: dict[str, Any] | None = None
+
+
+class AdviceScanRequest(BaseModel):
+    bars: dict[str, list[dict[str, Any]]] | None = None
+
+
+class ManualTradeRequest(BaseModel):
+    symbol: str
+    side: Literal["long", "short"] = "long"
+    price: float | None = None
 
 
 # ── Portfolio ────────────────────────────────────────────────────────────

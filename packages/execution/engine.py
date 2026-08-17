@@ -38,7 +38,9 @@ class ExecutionEngine:
 
     async def execute(self, order: Order) -> Order:
         self._check_duplicate(order)
-        self.oms.validate(order.id)
+        current = self.oms.get_order(order.id)
+        if current and current.status == OrderStatus.CREATED:
+            self.oms.validate(order.id)
         self.oms.submit(order.id)
 
         for attempt in range(1, self.max_retries + 1):

@@ -58,6 +58,41 @@ class Experiment:
         self.status = to
         self.updated_at = datetime.now(timezone.utc).isoformat()
 
+    def transition_along(self, to: ExperimentStatus) -> None:
+        """Transition to ``to`` following any valid path through the state graph.
+
+        Some pipeline flows target a stage that is several valid hops away
+        (e.g. VALIDATING -> PROMOTED via PAPER_TESTING/LEARNING). This walks
+        breadth-first over valid edges so intermediate stages are recorded.
+        """
+        from collections import deque
+
+        path: dict[ExperimentStatus, ExperimentStatus] = {self.status: None}
+        queue = deque([self.status])
+        found = None
+        while queue:
+            cur = queue.popleft()
+            if cur == to:
+                found = cur
+                break
+            for nxt in EXPERIMENT_TRANSITIONS.get(cur, []):
+                if nxt not in path:
+                    path[nxt] = cur
+                    queue.append(nxt)
+        if found is None:
+            raise ValueError(
+                f"No valid transition path from {self.status.value} to {to.value}"
+            )
+        steps: list[ExperimentStatus] = []
+        cur = to
+        while cur is not None:
+            steps.append(cur)
+            cur = path[cur]
+        for step in reversed(steps[:-1]):
+            self.transition(step)
+            if step == to:
+                break
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "id": self.id,

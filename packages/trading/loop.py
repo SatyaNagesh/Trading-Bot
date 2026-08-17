@@ -36,11 +36,12 @@ class PaperTradingLoop:
         broker: BaseBroker | None = None,
         initial_capital: Decimal = Decimal("1000000"),
         session_manager: SessionManager | None = None,
+        portfolio: PortfolioEngine | None = None,
     ):
         self.broker = broker or SimulatedBroker(BrokerConfig(mode="paper"))
         self.oms = OrderManager()
         self.execution = ExecutionEngine(self.broker, self.oms)
-        self.portfolio = PortfolioEngine(initial_capital=initial_capital)
+        self.portfolio = portfolio or PortfolioEngine(initial_capital=initial_capital)
         self.risk = RiskEngine()
         self.session = session_manager or SessionManager()
         self.journal = TradeJournal()

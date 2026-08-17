@@ -42,6 +42,7 @@ class BacktestEngine:
         self.current_equity: Decimal = self.config.initial_capital
         self.peak_equity: Decimal = self.config.initial_capital
         self.bar_index: int = 0
+        self._exit_params: dict[str, dict] = {}
 
     def run(self, bars: dict[str, list[Bar]]) -> BacktestResult:
         if not bars:
@@ -61,6 +62,7 @@ class BacktestEngine:
 
             self._on_bar(current_bars)
 
+        self._close_all_positions(current_bars)
         return self._compile_results()
 
     def _on_bar(self, bars: dict[str, Bar]) -> None:
@@ -81,6 +83,14 @@ class BacktestEngine:
     def _process_signal(self, signal: Signal, bar: Bar) -> None:
         if signal.direction == SignalDirection.NEUTRAL:
             return
+
+        tp = signal.metadata.get("take_profit_pct")
+        sl = signal.metadata.get("stop_loss_pct")
+        if tp is not None or sl is not None:
+            self._exit_params[signal.strategy_id] = {
+                "take_profit_pct": float(tp or 0.0),
+                "stop_loss_pct": float(sl or 0.0),
+            }
 
         side = Side.BUY if signal.direction == SignalDirection.LONG else Side.SELL
         quantity = self._compute_quantity(side, bar)
@@ -177,7 +187,56 @@ class BacktestEngine:
             pos.pnl_pct = float((bar.close - pos.average_price) / pos.average_price * 100)
 
     def _check_stops(self, symbol: str, bar: Bar) -> None:
-        logger.debug("check_stops_not_implemented", symbol=symbol)
+        pos = self.positions.get(symbol)
+        if not pos or pos.quantity <= 0:
+            return
+
+        params = self._exit_params.get(pos.strategy_id, {})
+        tp = params.get("take_profit_pct", 0.0)
+        sl = params.get("stop_loss_pct", 0.0)
+
+        if tp > 0 and pos.pnl_pct >= tp:
+            logger.info(
+                "stop_take_profit",
+                symbol=symbol,
+                strategy=pos.strategy_id,
+                pnl_pct=round(pos.pnl_pct, 2),
+                tp=tp,
+            )
+            self._close_position(symbol, bar, reason="take_profit")
+        elif sl > 0 and pos.pnl_pct <= -sl:
+            logger.info(
+                "stop_loss_hit",
+                symbol=symbol,
+                strategy=pos.strategy_id,
+                pnl_pct=round(pos.pnl_pct, 2),
+                sl=sl,
+            )
+            self._close_position(symbol, bar, reason="stop_loss")
+
+    def _close_position(self, symbol: str, bar: Bar, reason: str) -> None:
+        pos = self.positions.get(symbol)
+        if not pos or pos.quantity <= 0:
+            return
+
+        order = Order(
+            strategy_id=pos.strategy_id,
+            portfolio_id="backtest",
+            symbol=symbol,
+            side=Side.SELL,
+            order_type=OrderType.MARKET,
+            quantity=pos.quantity,
+            price=bar.close,
+        )
+        trade = self._execute_order(order, bar)
+        if trade:
+            trade.exit_reason = reason
+
+    def _close_all_positions(self, bars: dict[str, Bar]) -> None:
+        for symbol in list(self.positions.keys()):
+            bar = bars.get(symbol)
+            if bar:
+                self._close_position(symbol, bar, reason="end_of_run")
 
     def _update_equity(self) -> None:
         positions_value = sum(

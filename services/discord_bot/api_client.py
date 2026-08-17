@@ -84,3 +84,21 @@ class QuantLabAPIClient:
 
     def dashboard(self) -> dict[str, str]:
         return self._get("/system/dashboard")
+
+    # ── Advice (human-in-the-loop proposals) ──
+    def advice_proposals(self, status: str | None = None) -> list[dict[str, Any]]:
+        q = f"?status={status}" if status else ""
+        return self._get(f"/advice/proposals{q}")
+
+    def advice_approve(self, proposal_id: str) -> dict[str, Any]:
+        return self._post(f"/advice/proposals/{proposal_id}/approve")
+
+    def advice_cancel(self, proposal_id: str) -> dict[str, Any]:
+        return self._post(f"/advice/proposals/{proposal_id}/cancel")
+
+    # ── Manual trade (call out a position on demand) ──
+    def manual_trade(self, symbol: str, side: str = "long", price: float | None = None) -> dict[str, Any]:
+        payload = {"symbol": symbol, "side": side}
+        if price is not None:
+            payload["price"] = price
+        return self._post("/trading/manual", json=payload)

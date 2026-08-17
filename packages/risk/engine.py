@@ -49,7 +49,9 @@ class RiskEngine:
         )
         checks.append(drawdown_check)
 
-        daily_loss_check = self._check_daily_loss(self._daily_loss, self.budget.max_daily_loss)
+        daily_loss_check = self._check_daily_loss(
+            self._daily_loss, self.budget.max_daily_loss, nav
+        )
         checks.append(daily_loss_check)
 
         leverage_check = self._check_leverage(
@@ -145,18 +147,24 @@ class RiskEngine:
             "limit": limit * 100,
         }
 
-    def _check_daily_loss(self, daily_loss: float, limit: float) -> dict[str, Any]:
-        if daily_loss > limit:
+    def _check_daily_loss(
+        self, daily_loss: float, limit: float, nav: float = 0.0
+    ) -> dict[str, Any]:
+        # daily_loss is accumulated in rupees; the budget limit is a fraction of
+        # equity (e.g. 0.02 = 2%). Normalize the rupee loss against NAV so both
+        # sides are comparable percentages before checking.
+        loss_frac = (daily_loss / nav) if nav > 0 else 0.0
+        if loss_frac > limit:
             return {
                 "check": "max_daily_loss",
                 "passed": False,
-                "current": round(daily_loss * 100, 2),
+                "current": round(loss_frac * 100, 2),
                 "limit": limit * 100,
             }
         return {
             "check": "max_daily_loss",
             "passed": True,
-            "current": round(daily_loss * 100, 2),
+            "current": round(loss_frac * 100, 2),
             "limit": limit * 100,
         }
 

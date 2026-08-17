@@ -29,10 +29,10 @@ async def get_positions(
         {
             "symbol": p.symbol,
             "quantity": p.quantity,
-            "entry_price": float(p.entry_price),
+            "entry_price": float(p.average_price),
             "current_price": float(p.current_price),
-            "pnl": float(p.unrealized_pnl),
-            "pnl_pct": float(p.unrealized_pnl_pct) if hasattr(p, "unrealized_pnl_pct") else 0.0,
+            "pnl": float(p.pnl),
+            "pnl_pct": float(p.pnl_pct),
             "strategy_id": p.strategy_id,
         }
         for p in bot.portfolio.get_all_positions()
@@ -51,10 +51,10 @@ async def get_position(
     return {
         "symbol": pos.symbol,
         "quantity": pos.quantity,
-        "entry_price": float(pos.entry_price),
+        "entry_price": float(pos.average_price),
         "current_price": float(pos.current_price),
-        "pnl": float(pos.unrealized_pnl),
-        "pnl_pct": float(pos.unrealized_pnl_pct) if hasattr(pos, "unrealized_pnl_pct") else 0.0,
+        "pnl": float(pos.pnl),
+        "pnl_pct": float(pos.pnl_pct),
         "strategy_id": pos.strategy_id,
     }
 
@@ -76,8 +76,8 @@ async def get_trades(
             "exit_price": float(t.exit_price) if hasattr(t, "exit_price") and t.exit_price else None,
             "pnl": float(t.pnl) if hasattr(t, "pnl") else None,
             "strategy_id": getattr(t, "strategy_id", ""),
-            "opened_at": str(t.opened_at),
-            "closed_at": str(t.closed_at) if hasattr(t, "closed_at") and t.closed_at else None,
+            "opened_at": str(t.entry_time),
+            "closed_at": str(t.exit_time) if hasattr(t, "exit_time") and t.exit_time else None,
         }
         for t in trades
     ]

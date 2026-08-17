@@ -74,7 +74,7 @@ async def get_rankings(
         {
             "strategy_id": r.entry.template.id,
             "name": r.entry.template.name,
-            "score": r.score,
+            "score": bot.ranker.compute_score(r.entry),
             "sharpe": r.entry.result.sharpe_ratio,
         }
         for r in ranked

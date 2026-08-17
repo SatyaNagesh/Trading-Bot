@@ -148,6 +148,7 @@ class IntegratedBot:
             broker=self.broker,
             initial_capital=initial,
             session_manager=self.session,
+            portfolio=self.portfolio,
         )
 
     def _init_analytics(self) -> None:
@@ -446,6 +447,10 @@ class IntegratedBot:
             def make_signal_fn(template):
                 def signal_fn(bar: Bar, ctx) -> list[Signal]:
                     close_val = float(bar.close)
+                    exit_meta = {
+                        "take_profit_pct": template.exit.take_profit_pct,
+                        "stop_loss_pct": template.exit.stop_loss_pct,
+                    }
                     ind = template.indicators[0] if template.indicators else None
                     if ind and ind.factory in ("sma", "ema"):
                         threshold = ind.params.get("threshold", 0)
@@ -458,6 +463,7 @@ class IntegratedBot:
                                     confidence=0.6,
                                     reason=[f"{ind.factory}_crossover"],
                                     timestamp=str(bar.timestamp),
+                                    metadata=exit_meta,
                                 )
                             ]
                     if close_val < 50:
@@ -469,6 +475,7 @@ class IntegratedBot:
                                 confidence=0.5,
                                 reason=["price_low"],
                                 timestamp=str(bar.timestamp),
+                                metadata=exit_meta,
                             )
                         ]
                     return []
@@ -500,6 +507,7 @@ class IntegratedBot:
 
             self.lifecycle.register(cand.id, cand.name)
             self.lifecycle.transition(cand.id, StrategyStage.GENERATING)
+            self.lifecycle.transition(cand.id, StrategyStage.BACKTESTING)
 
             exp = self.experiments.create(
                 hypothesis=f"Test {cand.name}",
@@ -541,10 +549,10 @@ class IntegratedBot:
                 and result.total_trades >= self.config.min_trades_for_promotion
             ):
                 self.lifecycle.transition(cand.id, StrategyStage.PAPER_TRADING)
-                exp.transition(ExperimentStatus.PROMOTED)
+                exp.transition_along(ExperimentStatus.PROMOTED)
                 promoted += 1
             else:
-                exp.transition(ExperimentStatus.ARCHIVED)
+                exp.transition_along(ExperimentStatus.ARCHIVED)
 
         ranked = self.ranker.top_n(self.library.all(), self.config.top_n_ranked)
         for re in ranked:

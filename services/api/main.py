@@ -33,6 +33,7 @@ from services.api.router_health import router as health_router
 from services.api.router_alerts import router as alerts_router
 from services.api.router_config import router as config_router
 from services.api.websocket import router as ws_router
+from services.api.router_advice import router as advice_router
 
 setup_logging()
 logger = get_logger("api")
@@ -81,6 +82,7 @@ def create_app() -> FastAPI:
     app.include_router(alerts_router)
     app.include_router(config_router)
     app.include_router(ws_router)
+    app.include_router(advice_router)
 
     return app
 

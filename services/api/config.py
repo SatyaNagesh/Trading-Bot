@@ -21,4 +21,4 @@ class APIConfig(BaseSettings):
     max_websocket_clients: int = 50
     dashboard_refresh_seconds: int = 2
 
-    model_config = {"env_prefix": "QUANTLAB_API_", "env_file": ".env"}
+    model_config = {"env_prefix": "QUANTLAB_API_", "env_file": ".env", "extra": "ignore"}

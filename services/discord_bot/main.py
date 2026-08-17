@@ -17,6 +17,7 @@ from packages.core.logging import setup_logging, get_logger
 from services.discord_bot.config import DiscordBotConfig
 from services.discord_bot.api_client import QuantLabAPIClient
 from services.discord_bot.commands import QuantLabCog
+from services.discord_bot.advice_cog import AdviceCog
 
 setup_logging()
 logger = get_logger("discord_bot")
@@ -39,6 +40,7 @@ def main():
     async def on_ready():
         logger.info("discord_bot_ready", user=str(bot.user))
         await bot.add_cog(QuantLabCog(bot, client))
+        await bot.add_cog(AdviceCog(bot, client, cfg))
         await bot.tree.sync()
 
     bot.run(cfg.token)

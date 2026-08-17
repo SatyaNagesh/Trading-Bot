@@ -6,6 +6,28 @@ from discord.ext import commands
 from services.discord_bot.api_client import QuantLabAPIClient
 
 
+def _trade_callout_summary(client: QuantLabAPIClient, symbol: str, side: str, price: float | None) -> str:
+    req = {"symbol": symbol, "side": side, "price": price}
+    result = client.manual_trade(**{k: v for k, v in req.items() if v is not None})
+    execu = result.get("execution", {})
+    action = execu.get("action")
+    pre = f"{req['symbol']} {side.upper()}"
+    if action == "filled":
+        return (f"✅ **{pre} filled** — {execu.get('side', side).upper()} "
+                f"@ ₹{execu.get('fill_price', '?')} · qty {execu.get('quantity', '?')}")
+    if action == "partial":
+        return f"🕓 **{pre} partially filled** @ ₹{execu.get('fill_price', '?')}"
+    if action == "skipped":
+        return f"⏹ **{pre} skipped — {execu.get('reason', 'no reason')}** (market closed / no open position)"
+    if action == "rejected":
+        return f"⛔ **{pre} rejected by risk** — {execu.get('reason', '')}"
+    if action == "failed":
+        return f"❌ **{pre} failed** — {execu.get('error', 'unknown error')}"
+    if action == "none":
+        return f"⏹ **{pre} no trade** — {execu.get('reason', 'neutral signal')}"
+    return f"ℹ️ **{pre}** — {result.get('execution')}"
+
+
 def _status_embed(client: QuantLabAPIClient) -> Embed:
     try:
         ts = client.trading_status()
@@ -123,12 +145,24 @@ class QuantLabCog(commands.Cog):
         except Exception as e:
             await interaction.followup.send(embed=Embed(title="Error", description=str(e), color=Color.red()))
 
+    @app_commands.command(name="quantlab-trade", description="Manually call out a long/short trade (auto-sized, respects market hours)")
+    @app_commands.describe(symbol="Ticker symbol, e.g. RELIANCE.NS", side="Direction: long or short", price="Optional override price (defaults to last cached close)")
+    async def cmd_trade(self, interaction, symbol: str, side: str = "long", price: float | None = None):
+        await interaction.response.defer()
+        try:
+            msg = _trade_callout_summary(self.client, symbol.strip().upper(), side, price)
+        except Exception as e:
+            msg = f"❌ **Trade call-out failed** — {e}"
+        await interaction.followup.send(msg)
+
     @app_commands.command(name="quantlab-help", description="Show available QuantLab commands")
     async def cmd_help(self, interaction):
         embed = Embed(title="QuantLab AI — Commands", color=Color.blue())
         embed.add_field(name="/quantlab-status", value="Trading engine status", inline=False)
         embed.add_field(name="/quantlab-positions", value="Open positions", inline=False)
         embed.add_field(name="/quantlab-rankings", value="Top ranked strategies", inline=False)
+        embed.add_field(name="/quantlab-trade <symbol> <long|short> [price]", value="Manually call out a trade", inline=False)
+        embed.add_field(name="/quantlab-advice", value="List pending trade proposals", inline=False)
         embed.add_field(name="/quantlab-start", value="Start the engine", inline=False)
         embed.add_field(name="/quantlab-stop", value="Stop the engine", inline=False)
         embed.add_field(name="/quantlab-health", value="API health check", inline=False)
