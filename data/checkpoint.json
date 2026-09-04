@@ -1,0 +1,64 @@
+{
+  "portfolio_state": {
+    "cash": 1000000,
+    "positions": {},
+    "equity": 1000000,
+    "total_pnl": 0.0
+  },
+  "trades_history": [],
+  "strategies_active": [
+    {
+      "id": "sma_crossover",
+      "name": "SMA Crossover",
+      "status": "watchlist",
+      "direction_kind": "trend",
+      "symbols": [
+        "RELIANCE.NS",
+        "TCS.NS"
+      ],
+      "params": {
+        "period_fast": 20,
+        "period_slow": 50
+      },
+      "source": "stdlib",
+      "registered_at": "2026-08-29T07:18:23.095528+00:00",
+      "updated_at": "2026-08-31T12:38:48.075900+00:00",
+      "last_eval": null,
+      "meta": {
+        "transition_to_watchlist": {
+          "at": "2026-08-31T12:38:48.077150+00:00",
+          "reason": "audit test"
+        }
+      }
+    },
+    {
+      "id": "autonomous_momentum",
+      "name": "Autonomous Momentum (round-trip)",
+      "status": "active",
+      "direction_kind": "trend",
+      "symbols": [
+        "RELIANCE.NS",
+        "TCS.NS"
+      ],
+      "params": {},
+      "source": "manual",
+      "registered_at": "2026-08-29T07:18:23.120028+00:00",
+      "updated_at": "2026-09-04T07:44:50.254571+00:00",
+      "last_eval": null,
+      "meta": {
+        "transition_to_active": {
+          "at": "2026-08-29T07:45:34.927162+00:00",
+          "reason": "approved_for_soak"
+        },
+        "transition_to_candidate": {
+          "at": "2026-08-29T07:19:32.097722+00:00",
+          "reason": "reset_test_artifact"
+        }
+      }
+    }
+  ],
+  "alerts_active": [],
+  "risk_state": null,
+  "saved_at": "2026-09-04T15:26:01.641472+00:00",
+  "version": "0.1.0"
+}

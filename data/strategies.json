@@ -1,0 +1,1839 @@
+{
+  "version": 1,
+  "gates": {
+    "min_sharpe": 0.8,
+    "max_drawdown_pct": 25.0,
+    "min_win_rate_pct": 45.0,
+    "min_total_trades": 10,
+    "min_total_return_pct": 0.0,
+    "degraded_drawdown_pct": 15.0,
+    "degraded_min_win_rate_pct": 40.0,
+    "degraded_min_trades": 10,
+    "validating_repeats": 1
+  },
+  "strategies": {
+    "sma_crossover": {
+      "id": "sma_crossover",
+      "name": "SMA Crossover",
+      "status": "watchlist",
+      "direction_kind": "trend",
+      "symbols": [
+        "RELIANCE.NS",
+        "TCS.NS"
+      ],
+      "params": {
+        "period_fast": 20,
+        "period_slow": 50
+      },
+      "source": "stdlib",
+      "registered_at": "2026-08-29T07:18:23.095528+00:00",
+      "updated_at": "2026-08-31T12:38:48.075900+00:00",
+      "last_eval": null,
+      "meta": {
+        "transition_to_watchlist": {
+          "at": "2026-08-31T12:38:48.077150+00:00",
+          "reason": "audit test"
+        }
+      }
+    },
+    "rsi_mean_reversion": {
+      "id": "rsi_mean_reversion",
+      "name": "RSI Mean Reversion",
+      "status": "candidate",
+      "direction_kind": "mean_reversion",
+      "symbols": [
+        "RELIANCE.NS",
+        "TCS.NS"
+      ],
+      "params": {
+        "period": 14,
+        "oversold": 30.0,
+        "overbought": 70.0
+      },
+      "source": "stdlib",
+      "registered_at": "2026-08-29T07:18:23.106186+00:00",
+      "updated_at": "2026-08-29T07:18:23.106186+00:00",
+      "last_eval": null,
+      "meta": {}
+    },
+    "ema_trend": {
+      "id": "ema_trend",
+      "name": "EMA Trend",
+      "status": "candidate",
+      "direction_kind": "trend",
+      "symbols": [
+        "RELIANCE.NS",
+        "TCS.NS"
+      ],
+      "params": {
+        "period": 21
+      },
+      "source": "stdlib",
+      "registered_at": "2026-08-29T07:18:23.113158+00:00",
+      "updated_at": "2026-08-29T07:18:23.113158+00:00",
+      "last_eval": null,
+      "meta": {}
+    },
+    "autonomous_momentum": {
+      "id": "autonomous_momentum",
+      "name": "Autonomous Momentum (round-trip)",
+      "status": "active",
+      "direction_kind": "trend",
+      "symbols": [
+        "RELIANCE.NS",
+        "TCS.NS"
+      ],
+      "params": {},
+      "source": "manual",
+      "registered_at": "2026-08-29T07:18:23.120028+00:00",
+      "updated_at": "2026-09-04T07:44:50.254571+00:00",
+      "last_eval": null,
+      "meta": {
+        "transition_to_active": {
+          "at": "2026-08-29T07:45:34.927162+00:00",
+          "reason": "approved_for_soak"
+        },
+        "transition_to_candidate": {
+          "at": "2026-08-29T07:19:32.097722+00:00",
+          "reason": "reset_test_artifact"
+        }
+      }
+    }
+  },
+  "history": {
+    "autonomous_momentum": [
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:15:25.768780+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:16:26.084654+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:17:26.457538+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:18:26.787169+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:19:27.012897+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:20:27.187569+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:21:27.364170+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:22:27.463293+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:23:27.603604+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:24:27.793587+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:25:28.011228+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:26:28.416856+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:27:28.767227+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:28:28.963130+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:29:29.149389+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:30:29.506037+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:31:29.662255+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:32:29.753638+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:33:32.771408+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:34:33.133796+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:35:33.458255+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:36:33.815938+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:37:34.247134+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:38:34.566905+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:39:34.786136+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:40:34.995675+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:41:35.226373+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:42:35.565295+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0
+        },
+        "checked_at": "2026-09-04T07:43:35.820382+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:47:05.693904+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:48:07.470814+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:49:08.152263+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:50:08.708060+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:51:09.500038+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:52:10.074376+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:53:10.496509+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:54:10.904795+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:55:11.417523+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:56:11.799803+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:57:12.173065+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:58:13.286214+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T07:59:13.691702+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:00:14.132569+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:01:14.932689+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:02:15.774723+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:03:16.488122+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:04:17.837224+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:05:18.552622+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:06:19.403830+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:07:29.236073+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:08:29.873739+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:09:30.772154+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:10:31.318727+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:11:31.757208+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:12:32.456874+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:13:33.191721+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:14:33.882891+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:15:34.711169+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:16:35.362690+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:17:36.185721+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:18:36.896703+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:19:37.517803+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:20:38.066801+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:21:38.781454+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:22:39.213421+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:23:39.766318+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:24:48.296746+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:25:48.810750+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:26:49.303277+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:27:49.842726+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:28:50.228728+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:29:50.955585+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:30:51.329221+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:31:51.682496+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:32:52.246320+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:33:52.741270+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:34:53.151491+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:35:53.772114+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:36:54.221138+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:37:54.634560+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:38:55.291674+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:39:55.880601+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:40:56.331524+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:41:56.879781+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:42:57.340271+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:43:57.748916+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:44:58.134297+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:45:58.646021+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:46:59.018840+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:47:59.395551+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:48:59.966845+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:50:00.552532+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:51:01.454403+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:52:02.171018+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:53:02.935657+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:54:03.554461+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:55:04.444041+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:56:05.231324+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:57:06.046780+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:58:06.904234+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T08:59:07.479038+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:00:08.029452+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:01:08.797043+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:02:09.721831+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:03:10.459688+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:04:11.121246+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:05:11.967335+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:06:12.708882+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:07:13.873718+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:08:14.749418+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:09:15.564828+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:10:16.186396+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:11:16.977015+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:12:17.958509+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:13:18.785720+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:14:19.639169+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:15:20.426510+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:16:21.377488+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:17:22.244105+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:18:23.263546+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:19:24.277326+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:20:25.096416+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:21:26.005647+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:22:27.028528+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:23:27.863417+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:24:28.678825+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:25:29.597775+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:26:30.142624+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:27:31.376931+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:28:32.141450+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:29:32.981547+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:30:33.780338+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:31:34.566407+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:32:35.553644+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:33:36.469405+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:34:37.467718+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:35:38.302259+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:36:39.122157+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:37:40.032745+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:38:42.949781+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:39:43.567937+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:40:44.401535+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:41:54.256732+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:42:55.353609+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:43:55.830020+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:44:56.364280+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:45:56.998700+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:46:57.398725+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:47:57.987506+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:48:58.554699+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:49:59.121194+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:50:59.573787+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:52:00.236480+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:53:00.721993+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:54:01.167840+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:55:01.590633+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:56:01.993062+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:57:02.585725+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:58:02.955473+00:00",
+        "action": "no_change"
+      },
+      {
+        "strategy_id": "autonomous_momentum",
+        "symbol": "*",
+        "metrics": {
+          "win_rate": 0.0,
+          "max_drawdown": 0.0,
+          "total_trades": 0
+        },
+        "checked_at": "2026-09-04T09:59:03.492931+00:00",
+        "action": "no_change"
+      }
+    ]
+  },
+  "saved_at": "2026-09-04T09:59:03.493060+00:00"
+}
