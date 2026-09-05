@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "TATAMOTORS.NS",
+    "timeframe": "d1d",
+    "error": "failed to fetch TATAMOTORS.NS after 3 attempts: empty response for TATAMOTORS.NS",
+    "retrieved_utc": "2026-09-05T13:21:18.749334+00:00"
+  },
+  {
+    "symbol": "TATAMOTORS.NS",
+    "timeframe": "1m",
+    "error": "failed to fetch TATAMOTORS.NS after 3 attempts: empty response for TATAMOTORS.NS",
+    "retrieved_utc": "2026-09-05T13:21:42.653422+00:00"
+  },
+  {
+    "symbol": "TATAMOTORS.NS",
+    "timeframe": "15m",
+    "error": "failed to fetch TATAMOTORS.NS after 3 attempts: empty response for TATAMOTORS.NS",
+    "retrieved_utc": "2026-09-05T13:21:54.921078+00:00"
+  }
+]

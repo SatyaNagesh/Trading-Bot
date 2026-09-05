@@ -1,0 +1,2511 @@
+{
+  "removed": [
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIENT_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIENT_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIENT_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIENT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIENT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIENT_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIENT_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIPORTS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIPORTS_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIPORTS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIPORTS_NS.parquet"
+    },
+    {
+      "ts": "2015-08-12 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIPORTS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIPORTS_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIPORTS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIPORTS_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIPORTS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIPORTS_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIPORTS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIPORTS_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIPORTS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIPORTS_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ADANIPORTS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ADANIPORTS_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "APOLLOHOSP.NS",
+      "timeframe": "d1d",
+      "file": "d1d/APOLLOHOSP_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "APOLLOHOSP.NS",
+      "timeframe": "d1d",
+      "file": "d1d/APOLLOHOSP_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "APOLLOHOSP.NS",
+      "timeframe": "d1d",
+      "file": "d1d/APOLLOHOSP_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "APOLLOHOSP.NS",
+      "timeframe": "d1d",
+      "file": "d1d/APOLLOHOSP_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "APOLLOHOSP.NS",
+      "timeframe": "d1d",
+      "file": "d1d/APOLLOHOSP_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "APOLLOHOSP.NS",
+      "timeframe": "d1d",
+      "file": "d1d/APOLLOHOSP_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "APOLLOHOSP.NS",
+      "timeframe": "d1d",
+      "file": "d1d/APOLLOHOSP_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ASIANPAINT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ASIANPAINT_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ASIANPAINT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ASIANPAINT_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ASIANPAINT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ASIANPAINT_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ASIANPAINT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ASIANPAINT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ASIANPAINT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ASIANPAINT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ASIANPAINT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ASIANPAINT_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ASIANPAINT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ASIANPAINT_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "AXISBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/AXISBANK_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "AXISBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/AXISBANK_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "AXISBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/AXISBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "AXISBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/AXISBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "AXISBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/AXISBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "AXISBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/AXISBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "AXISBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/AXISBANK_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJFINSV.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJFINSV_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJFINSV.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJFINSV_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJFINSV.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJFINSV_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJFINSV.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJFINSV_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJFINSV.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJFINSV_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJFINSV.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJFINSV_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJFINSV.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJFINSV_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJ_AUTO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJ_AUTO_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJ_AUTO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJ_AUTO_NS.parquet"
+    },
+    {
+      "ts": "2024-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJ_AUTO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJ_AUTO_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJ_AUTO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJ_AUTO_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJ_AUTO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJ_AUTO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJ_AUTO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJ_AUTO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJ_AUTO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJ_AUTO_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJAJ_AUTO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJAJ_AUTO_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJFINANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJFINANCE_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJFINANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJFINANCE_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJFINANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJFINANCE_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJFINANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJFINANCE_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJFINANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJFINANCE_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJFINANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJFINANCE_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BAJFINANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BAJFINANCE_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BEL_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BEL_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BEL_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BEL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BEL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BEL_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BEL_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BHARTIARTL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BHARTIARTL_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BHARTIARTL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BHARTIARTL_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BHARTIARTL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BHARTIARTL_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BHARTIARTL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BHARTIARTL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BHARTIARTL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BHARTIARTL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BHARTIARTL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BHARTIARTL_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BHARTIARTL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BHARTIARTL_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BPCL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BPCL_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BPCL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BPCL_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BPCL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BPCL_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BPCL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BPCL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BPCL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BPCL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BPCL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BPCL_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BPCL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BPCL_NS.parquet"
+    },
+    {
+      "ts": "2014-02-19 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2015-08-12 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2018-11-07 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2021-11-04 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2022-09-12 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2022-10-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "BRITANNIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/BRITANNIA_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "CIPLA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/CIPLA_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "CIPLA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/CIPLA_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "CIPLA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/CIPLA_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "CIPLA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/CIPLA_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "CIPLA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/CIPLA_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "CIPLA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/CIPLA_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "CIPLA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/CIPLA_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "COALINDIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/COALINDIA_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "COALINDIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/COALINDIA_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "COALINDIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/COALINDIA_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "COALINDIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/COALINDIA_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "COALINDIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/COALINDIA_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "COALINDIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/COALINDIA_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "COALINDIA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/COALINDIA_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DIVISLAB.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DIVISLAB_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DIVISLAB.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DIVISLAB_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DIVISLAB.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DIVISLAB_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DIVISLAB.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DIVISLAB_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DIVISLAB.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DIVISLAB_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DIVISLAB.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DIVISLAB_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DRREDDY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DRREDDY_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DRREDDY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DRREDDY_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DRREDDY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DRREDDY_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DRREDDY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DRREDDY_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DRREDDY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DRREDDY_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DRREDDY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DRREDDY_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "DRREDDY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/DRREDDY_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "EICHERMOT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/EICHERMOT_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "EICHERMOT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/EICHERMOT_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "EICHERMOT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/EICHERMOT_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "EICHERMOT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/EICHERMOT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "EICHERMOT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/EICHERMOT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "EICHERMOT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/EICHERMOT_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "EICHERMOT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/EICHERMOT_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "GRASIM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/GRASIM_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "GRASIM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/GRASIM_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "GRASIM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/GRASIM_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "GRASIM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/GRASIM_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "GRASIM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/GRASIM_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "GRASIM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/GRASIM_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "GRASIM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/GRASIM_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HCLTECH.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HCLTECH_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HCLTECH.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HCLTECH_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HCLTECH.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HCLTECH_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HCLTECH.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HCLTECH_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HCLTECH.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HCLTECH_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HCLTECH.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HCLTECH_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HCLTECH.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HCLTECH_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCBANK_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCBANK_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCBANK_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCLIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCLIFE_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCLIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCLIFE_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCLIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCLIFE_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCLIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCLIFE_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HDFCLIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HDFCLIFE_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HEROMOTOCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HEROMOTOCO_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HEROMOTOCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HEROMOTOCO_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HEROMOTOCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HEROMOTOCO_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HEROMOTOCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HEROMOTOCO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HEROMOTOCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HEROMOTOCO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HEROMOTOCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HEROMOTOCO_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HEROMOTOCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HEROMOTOCO_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDALCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDALCO_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDALCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDALCO_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDALCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDALCO_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDALCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDALCO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDALCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDALCO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDALCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDALCO_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDALCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDALCO_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDUNILVR.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDUNILVR_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDUNILVR.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDUNILVR_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDUNILVR.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDUNILVR_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDUNILVR.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDUNILVR_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDUNILVR.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDUNILVR_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDUNILVR.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDUNILVR_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "HINDUNILVR.NS",
+      "timeframe": "d1d",
+      "file": "d1d/HINDUNILVR_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ICICIBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ICICIBANK_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ICICIBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ICICIBANK_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ICICIBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ICICIBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ICICIBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ICICIBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ICICIBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ICICIBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ICICIBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ICICIBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ICICIBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ICICIBANK_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INDUSINDBK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INDUSINDBK_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INDUSINDBK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INDUSINDBK_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INDUSINDBK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INDUSINDBK_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INDUSINDBK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INDUSINDBK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INDUSINDBK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INDUSINDBK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INDUSINDBK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INDUSINDBK_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INDUSINDBK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INDUSINDBK_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INFY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INFY_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INFY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INFY_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INFY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INFY_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INFY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INFY_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INFY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INFY_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INFY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INFY_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "INFY.NS",
+      "timeframe": "d1d",
+      "file": "d1d/INFY_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ITC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ITC_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ITC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ITC_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ITC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ITC_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ITC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ITC_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ITC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ITC_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ITC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ITC_NS.parquet"
+    },
+    {
+      "ts": "2014-02-19 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2015-08-12 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2018-11-07 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2021-11-04 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2022-09-12 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2022-10-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "JSWSTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/JSWSTEEL_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "KOTAKBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/KOTAKBANK_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "KOTAKBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/KOTAKBANK_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "KOTAKBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/KOTAKBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "KOTAKBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/KOTAKBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "KOTAKBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/KOTAKBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "KOTAKBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/KOTAKBANK_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "KOTAKBANK.NS",
+      "timeframe": "d1d",
+      "file": "d1d/KOTAKBANK_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "LT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/LT_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "LT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/LT_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "LT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/LT_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "LT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/LT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "LT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/LT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "LT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/LT_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "LT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/LT_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "M&M.NS",
+      "timeframe": "d1d",
+      "file": "d1d/M&M_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "M&M.NS",
+      "timeframe": "d1d",
+      "file": "d1d/M&M_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "M&M.NS",
+      "timeframe": "d1d",
+      "file": "d1d/M&M_NS.parquet"
+    },
+    {
+      "ts": "2025-09-08 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "M&M.NS",
+      "timeframe": "d1d",
+      "file": "d1d/M&M_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "M&M.NS",
+      "timeframe": "d1d",
+      "file": "d1d/M&M_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "M&M.NS",
+      "timeframe": "d1d",
+      "file": "d1d/M&M_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "M&M.NS",
+      "timeframe": "d1d",
+      "file": "d1d/M&M_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "M&M.NS",
+      "timeframe": "d1d",
+      "file": "d1d/M&M_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "MARUTI.NS",
+      "timeframe": "d1d",
+      "file": "d1d/MARUTI_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "MARUTI.NS",
+      "timeframe": "d1d",
+      "file": "d1d/MARUTI_NS.parquet"
+    },
+    {
+      "ts": "2015-08-12 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "MARUTI.NS",
+      "timeframe": "d1d",
+      "file": "d1d/MARUTI_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "MARUTI.NS",
+      "timeframe": "d1d",
+      "file": "d1d/MARUTI_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "MARUTI.NS",
+      "timeframe": "d1d",
+      "file": "d1d/MARUTI_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "MARUTI.NS",
+      "timeframe": "d1d",
+      "file": "d1d/MARUTI_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "MARUTI.NS",
+      "timeframe": "d1d",
+      "file": "d1d/MARUTI_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "MARUTI.NS",
+      "timeframe": "d1d",
+      "file": "d1d/MARUTI_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NESTLEIND.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NESTLEIND_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NESTLEIND.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NESTLEIND_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NESTLEIND.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NESTLEIND_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NESTLEIND.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NESTLEIND_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NESTLEIND.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NESTLEIND_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NESTLEIND.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NESTLEIND_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NESTLEIND.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NESTLEIND_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NTPC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NTPC_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NTPC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NTPC_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NTPC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NTPC_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NTPC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NTPC_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NTPC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NTPC_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NTPC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NTPC_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "NTPC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/NTPC_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ONGC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ONGC_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ONGC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ONGC_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ONGC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ONGC_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ONGC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ONGC_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ONGC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ONGC_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ONGC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ONGC_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ONGC.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ONGC_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "POWERGRID.NS",
+      "timeframe": "d1d",
+      "file": "d1d/POWERGRID_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "POWERGRID.NS",
+      "timeframe": "d1d",
+      "file": "d1d/POWERGRID_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "POWERGRID.NS",
+      "timeframe": "d1d",
+      "file": "d1d/POWERGRID_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "POWERGRID.NS",
+      "timeframe": "d1d",
+      "file": "d1d/POWERGRID_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "POWERGRID.NS",
+      "timeframe": "d1d",
+      "file": "d1d/POWERGRID_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "POWERGRID.NS",
+      "timeframe": "d1d",
+      "file": "d1d/POWERGRID_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "POWERGRID.NS",
+      "timeframe": "d1d",
+      "file": "d1d/POWERGRID_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "RELIANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/RELIANCE_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "RELIANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/RELIANCE_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "RELIANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/RELIANCE_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "RELIANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/RELIANCE_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "RELIANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/RELIANCE_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "RELIANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/RELIANCE_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "RELIANCE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/RELIANCE_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBILIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBILIFE_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBILIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBILIFE_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBILIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBILIFE_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBILIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBILIFE_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBILIFE.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBILIFE_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBIN_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBIN_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBIN_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBIN_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBIN_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBIN_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SBIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SBIN_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2015-08-12 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2015-09-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2015-10-16 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2015-11-30 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2024-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SHRIRAMFIN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SHRIRAMFIN_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SUNPHARMA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SUNPHARMA_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SUNPHARMA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SUNPHARMA_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SUNPHARMA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SUNPHARMA_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SUNPHARMA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SUNPHARMA_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SUNPHARMA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SUNPHARMA_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SUNPHARMA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SUNPHARMA_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "SUNPHARMA.NS",
+      "timeframe": "d1d",
+      "file": "d1d/SUNPHARMA_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TATASTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TATASTEEL_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TATASTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TATASTEEL_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TATASTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TATASTEEL_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TATASTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TATASTEEL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TATASTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TATASTEEL_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TATASTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TATASTEEL_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TATASTEEL.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TATASTEEL_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TCS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TCS_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TCS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TCS_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TCS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TCS_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TCS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TCS_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TCS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TCS_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TCS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TCS_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TCS.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TCS_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TECHM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TECHM_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TECHM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TECHM_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TECHM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TECHM_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TECHM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TECHM_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TECHM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TECHM_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TECHM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TECHM_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TECHM.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TECHM_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TITAN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TITAN_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TITAN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TITAN_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TITAN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TITAN_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TITAN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TITAN_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TITAN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TITAN_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TITAN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TITAN_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TITAN.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TITAN_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TRENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TRENT_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TRENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TRENT_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TRENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TRENT_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TRENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TRENT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TRENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TRENT_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TRENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TRENT_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "TRENT.NS",
+      "timeframe": "d1d",
+      "file": "d1d/TRENT_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ULTRACEMCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ULTRACEMCO_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ULTRACEMCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ULTRACEMCO_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ULTRACEMCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ULTRACEMCO_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ULTRACEMCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ULTRACEMCO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ULTRACEMCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ULTRACEMCO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ULTRACEMCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ULTRACEMCO_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "ULTRACEMCO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/ULTRACEMCO_NS.parquet"
+    },
+    {
+      "ts": "2014-04-24 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "WIPRO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/WIPRO_NS.parquet"
+    },
+    {
+      "ts": "2014-10-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "WIPRO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/WIPRO_NS.parquet"
+    },
+    {
+      "ts": "2025-03-18 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "WIPRO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/WIPRO_NS.parquet"
+    },
+    {
+      "ts": "2026-01-15 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "WIPRO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/WIPRO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-01 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "WIPRO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/WIPRO_NS.parquet"
+    },
+    {
+      "ts": "2026-05-28 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "WIPRO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/WIPRO_NS.parquet"
+    },
+    {
+      "ts": "2026-06-26 00:00:00+05:30",
+      "reason": "zero-volume stub (quarantined)",
+      "symbol": "WIPRO.NS",
+      "timeframe": "d1d",
+      "file": "d1d/WIPRO_NS.parquet"
+    }
+  ],
+  "kept_special_sessions": []
+}

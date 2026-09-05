@@ -1,0 +1,263 @@
+{
+  "splits": {
+    "train": {
+      "start": "2014-01-01",
+      "end": "2023-01-01"
+    },
+    "validation": {
+      "start": "2023-01-01",
+      "end": "2025-07-01"
+    },
+    "final_oos": {
+      "start": "2025-07-01",
+      "end": "2026-09-05"
+    }
+  },
+  "per_symbol_counts": {
+    "ADANIENT_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "ADANIPORTS_NS": {
+      "train": 2217,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "APOLLOHOSP_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "ASIANPAINT_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "AXISBANK_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "BAJAJFINSV_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "BAJAJ_AUTO_NS": {
+      "train": 2218,
+      "validation": 612,
+      "final_oos": 293
+    },
+    "BAJFINANCE_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "BEL_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "BHARTIARTL_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "BPCL_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "BRITANNIA_NS": {
+      "train": 2212,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "CIPLA_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "COALINDIA_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "DIVISLAB_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "DRREDDY_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "EICHERMOT_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "GRASIM_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "HCLTECH_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "HDFCBANK_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "HDFCLIFE_NS": {
+      "train": 1266,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "HEROMOTOCO_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "HINDALCO_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "HINDUNILVR_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "ICICIBANK_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "INDUSINDBK_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "INFY_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "ITC_NS": {
+      "train": 2218,
+      "validation": 614,
+      "final_oos": 293
+    },
+    "JSWSTEEL_NS": {
+      "train": 2212,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "KOTAKBANK_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "LT_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "M&M_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 292
+    },
+    "MARUTI_NS": {
+      "train": 2217,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "NESTLEIND_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "NTPC_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "ONGC_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "POWERGRID_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "RELIANCE_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "SBILIFE_NS": {
+      "train": 1298,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "SBIN_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "SHRIRAMFIN_NS": {
+      "train": 2214,
+      "validation": 612,
+      "final_oos": 293
+    },
+    "SUNPHARMA_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "TATASTEEL_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "TCS_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "TECHM_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "TITAN_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "TRENT_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "ULTRACEMCO_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    },
+    "WIPRO_NS": {
+      "train": 2218,
+      "validation": 613,
+      "final_oos": 293
+    }
+  }
+}
