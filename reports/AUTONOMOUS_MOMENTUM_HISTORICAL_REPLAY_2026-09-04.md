@@ -7,6 +7,29 @@
 
 ---
 
+## 0. ADDENDUM (2026-09-05) — PHASE-1 REGIME-FREQUENCY CORRECTION
+
+A **frequency/annualization bug** was found and fixed in `RegimeObserver` (the regime source used by the live `SignalOptimizer` path): per-bar volatility was annualised with a hard-coded `sqrt(252)` (**daily** assumption), so 1-minute returns looked ~19× less volatile than they are and were classified as low-vol/sideways. The classifier now scales by `sqrt(252 × periods_per_day)` (`packages/analytics/frequency.py`; default daily → backward compatible). This **changes the §10a/§21 regime picture** for 09-04 intraday:
+
+**Corrected 09-04 (1-min) regime mix — frequency-aware `RegimeObserver` (live path):**
+| Symbol | `unknown` | `high_volatility` | `mean_reverting` | `trending`/`breakout`/`low_volatility` |
+|---|---|---|---|---|
+| RELIANCE.NS | 20 bars | 328 | 28 | **0** |
+| TCS.NS | 20 bars | 291 | 71 | **0** |
+
+**Corrected acceptance funnel** (causal per-bar replay of the live decision path: `RegimeObserver` → momentum(5)>0 → conf=0.60+min(mom,0.30) → flat-gate → `trend_following`-compatible regime gate, `unknown` passes):
+| Symbol | momentum>0 candidates | accepted | accepted-regime disposition |
+|---|---|---|---|
+| RELIANCE.NS | 168 | **7** | all in `unknown` (first ≤21 bars) |
+| TCS.NS | 149 | **4** | all in `unknown` (first ≤21 bars) |
+
+**Reconciliation with the body below:** the §10a/§10b/§19 numbers (`ranging` 92.9%, 18 accepted, etc.) were produced by a **legacy SMA-slope classifier** no longer present in the live path. The **conclusion is unchanged, and strengthened**:
+- The 09-04 session was **not legitimately trend-followable**: it is `high_volatility`/`mean_reverting`, with **zero** `trending`/`breakout`/`low_volatility` bars. `autonomous_momentum`'s trend gate is suppressed **for the right reason**.
+- The only regime that accepts is `unknown` (regime not yet established in the first ~21 bars) — a **silent acceptance path**, exactly the fragility flagged in §10b/§23.2. Every `unknown`-regime acceptance in the corrected replay happened inside that early window; those trades were losers in the tournament harness (2 trades/symbol, 0% wins, ≈ −1.1% net each).
+- §§20–25 (no look-ahead, data insufficiency, classification D/F) are **unaffected** by the fix; the first condition's headline must now read: **suppression is caused by genuinely non-trending (high-vol, mean-reverting) intraday conditions**, not by a scaling bug.
+
+---
+
 ## 1. EXECUTIVE SUMMARY
 
 **Bottom line: `autonomous_momentum` has NEVER actually run a genuine, market-anchored historical backtest or replay — before this task.**
