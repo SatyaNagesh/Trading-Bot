@@ -287,11 +287,13 @@ def composite_z_cols(panel: pd.DataFrame, features: list[str], split: str) -> pd
     return pd.concat(zs, axis=1).mean(axis=1)
 
 
-def cost_aware_ls(panel: pd.DataFrame, feature: str, horizon: int,
-                  split: str, coverage: float = 0.10,
-                  cost_per_side: float = 0.0015) -> dict:
-    """Long-short decile portfolio held `horizon` days, gross vs net of costs."""
-    sub = panel[panel["split"] == split].dropna(subset=[feature, f"fwd_ret_{horizon}"])
+def ls_daily_rows(sub: pd.DataFrame, feature: str, horizon: int,
+                  coverage: float = 0.10, cost_per_side: float = 0.0015):
+    """Per-rebalance long-short gross/net/turnover rows for a credit-score panel slice.
+
+    `sub` must have columns [feature, fwd_ret_{horizon}] and a (symbol, date) MultiIndex.
+    Rebalance happens every `horizon` trading days (long-top / short-bottom ranked groups).
+    """
     sub = sub.copy()
     sub["dt"] = sub.index.get_level_values("date")
     dates = pd.Index(np.unique(sub["dt"])).sort_values()
@@ -315,17 +317,27 @@ def cost_aware_ls(panel: pd.DataFrame, feature: str, horizon: int,
         gross = float((w.to_numpy() * truth).sum())
         turnover = float(np.abs(w - prev_weights).sum()) if prev_weights is not None else 2.0
         cost = turnover * cost_per_side
-        rows.append({"gross": gross, "net": gross - cost, "turnover": turnover})
+        rows.append({"date": str(t), "gross": gross, "net": gross - cost, "turnover": turnover})
         prev_weights = w
         last_accepted = t
+    return rows, last_accepted, grid
+
+
+def cost_aware_ls(panel: pd.DataFrame, feature: str, horizon: int,
+                  split: str, coverage: float = 0.10,
+                  cost_per_side: float = 0.0015) -> dict:
+    """Long-short decile portfolio held `horizon` days, gross vs net of costs."""
+    sub = panel[panel["split"] == split].dropna(subset=[feature, f"fwd_ret_{horizon}"])
+    if len(sub) < 200:
+        return {"status": "INSUFFICIENT", "n": int(len(sub))}
+    rows, last_accepted, grid = ls_daily_rows(sub, feature, horizon, coverage, cost_per_side)
     if len(rows) < 5:
-        return {"status": "INSUFFICIENT", "dashboard": len(rows)}
+        return {"status": "INSUFFICIENT", "rebalances": len(rows)}
     gross_cum = float(np.prod([1 + r["gross"] for r in rows]) - 1) * 100
     net_cum = float(np.prod([1 + r["net"] for r in rows]) - 1) * 100
     # equal-weight index buy&hold over the same span as a market benchmark
     idx_ret = sub.groupby("date")[f"fwd_ret_{horizon}"].mean()
     bench_span = idx_ret.loc[:last_accepted]
-    bench_cum = float(np.prod(1 + bench_span / (bench_span.count() / max(len(grid), 1))) - 1)
     mkt_bh = float(np.prod([1 + r for r in
                             bench_span.groupby(pd.cut(bench_span.index, len(grid))).mean()
                             if np.isfinite(r)]) - 1) * 100
