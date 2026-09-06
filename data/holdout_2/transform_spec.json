@@ -1,0 +1,62 @@
+{
+  "feature": "vol_trend_10v50",
+  "feature_definition": "SMA(volume,10)/SMA(volume,50)-1",
+  "pre_registered_utc": "2026-09-06T00:00:00+00:00",
+  "purpose": "Monetization transforms for the vol_trend_10v50 signal investigated in phases 1-7, 11-13 of VOL_TREND_SIGNAL_TO_ALPHA. Pre-registered BEFORE holdout_2 data acquisition and BEFORE any transform evaluation.",
+  "costs": {
+    "transaction_cost_per_side": 0.0025,
+    "transaction_cost_sensitivity_per_side": 0.0015,
+    "rebalance": "daily at close, equal weight per leg",
+    "cost_floor_note": "25 bps/side covers brokerage + realistic impact; 15 bps/side equals the frozen pipeline base cost and is reported as a sensitivity only"
+  },
+  "evaluation_stages": {
+    "selection_gate": "DEVELOPMENT VALIDATION split: transform has net_25bps LS mean > 0 AND 95% block-bootstrap (block=63, 1000 sims) CI lower > 0; p = fraction of bootstrap sims <= 0; then BH-FDR at q <= 0.10 across the five transforms",
+    "confirmation": "each SELECTED transform evaluated EXACTLY ONCE on holdout_2 FINAL-OOS; considered monetizable only if net_25bps mean > 0 AND CI lower > 0 on that single run",
+    "no_tuning": "no re-specification, threshold search, or resampling after results are observed; if no transform passes the gate, honourably record not-monetizable"
+  },
+  "transforms": [
+    {
+      "id": "T1_decile_raw",
+      "kind": "raw",
+      "coverage": 0.10,
+      "description": "Long top-decile, short bottom-decile of raw vol_trend_10v50 cross-sectional rank"
+    },
+    {
+      "id": "T2_quintile_raw",
+      "kind": "raw",
+      "coverage": 0.20,
+      "description": "Long top-quintile, short bottom-quintile of raw vol_trend_10v50 cross-sectional rank"
+    },
+    {
+      "id": "T3_decile_volstd",
+      "kind": "vol_std_scaled",
+      "coverage": 0.10,
+      "description": "Long/short deciles of vol_trend_10v50 scaled by per-symbol trailing 252d std of the feature (volume-scale neutralised)"
+    },
+    {
+      "id": "T4_decile_sector_relative",
+      "kind": "sector_relative",
+      "coverage": 0.10,
+      "description": "Long/short deciles of within-date, within-sector percentile rank (sector-balanced)"
+    },
+    {
+      "id": "T5_decile_neutralized",
+      "kind": "neutralized",
+      "coverage": 0.10,
+      "description": "Long/short deciles of per-date cross-sectional rank-OLS residual of the feature on rank(beta), rank(vol), rank(mom), rank(trend), rank(size), rank(liquidity)"
+    }
+  ],
+  "evaluation_splits": {
+    "development": ["train", "validation", "final_oos"],
+    "holdout": ["train", "validation", "final_oos"],
+    "holdout_2": ["train", "validation", "final_oos"]
+  },
+  "metrics_per_run": [
+    "gross long/short/LS mean daily pct",
+    "net LS at 25 bps and 15 bps per side",
+    "net t-stat, 95% block-bootstrap CI, p(<=0)",
+    "leg turnover, avg position count",
+    "annualised Sharpe and Sortino, max drawdown",
+    "expectancy per rebalance"
+  ]
+}
