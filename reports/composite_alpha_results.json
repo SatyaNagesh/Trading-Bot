@@ -1,0 +1,469 @@
+{
+ "phase": "composite_alpha_v3",
+ "freeze": "data/alpha_v2/composite_freeze.json (v2; v1 retained)",
+ "signals_frozen": [
+  "C3_rev_abn_mkt1",
+  "G1_breadth_rise",
+  "G6_breadth_mom5",
+  "G4_xs_ret_disp"
+ ],
+ "thresholds": {
+  "G1_breadth_rise|3": 0.5104211897524967,
+  "G6_breadth_mom5|3": 0.0,
+  "G4_xs_ret_disp|1": 0.015221737710112199
+ },
+ "complementarity": {
+  "row_correlation": {
+   "C3_rev_abn_mkt1|G1_breadth_rise": {
+    "n": 151493,
+    "pearson": -0.0009,
+    "spearman": -0.0208
+   },
+   "C3_rev_abn_mkt1|G6_breadth_mom5": {
+    "n": 151305,
+    "pearson": -0.0007,
+    "spearman": -0.0151
+   },
+   "C3_rev_abn_mkt1|G4_xs_ret_disp": {
+    "n": 151493,
+    "pearson": -0.0002,
+    "spearman": -0.021
+   },
+   "G1_breadth_rise|G6_breadth_mom5": {
+    "n": 151307,
+    "pearson": 0.7129,
+    "spearman": 0.7061
+   },
+   "G1_breadth_rise|G4_xs_ret_disp": {
+    "n": 151495,
+    "pearson": 0.0256,
+    "spearman": 0.0288
+   },
+   "G4_xs_ret_disp|G6_breadth_mom5": {
+    "n": 151307,
+    "pearson": 0.058,
+    "spearman": 0.0467
+   }
+  },
+  "prediction_correlation": {
+   "date_mean_negC3|G1_breadth_rise": {
+    "n_dates": 3130,
+    "pearson": 0.056,
+    "spearman": 0.0771
+   },
+   "date_mean_negC3|G6_breadth_mom5": {
+    "n_dates": 3126,
+    "pearson": 0.0435,
+    "spearman": 0.0593
+   },
+   "date_mean_negC3|G4_xs_ret_disp": {
+    "n_dates": 3130,
+    "pearson": 0.0109,
+    "spearman": 0.0217
+   }
+  },
+  "date_level_correlation": {
+   "G1_breadth_rise|G6_breadth_mom5": {
+    "n_dates": 3126,
+    "pearson": 0.7129,
+    "spearman": 0.7061
+   },
+   "G1_breadth_rise|G4_xs_ret_disp": {
+    "n_dates": 3130,
+    "pearson": 0.0258,
+    "spearman": 0.0288
+   },
+   "G4_xs_ret_disp|G6_breadth_mom5": {
+    "n_dates": 3126,
+    "pearson": 0.0579,
+    "spearman": 0.0466
+   }
+  },
+  "observation_overlap": {
+   "bottom10_C3_dates": 15150,
+   "share_bottom10_in_breadth_stress": 0.3706,
+   "share_bottom10_in_disp_high": 0.6245,
+   "share_bottom10_in_both": 0.2207,
+   "date_coverage_breadth_stress": 0.3755,
+   "date_coverage_disp_high": 0.419,
+   "date_coverage_both": 0.1493
+  }
+ },
+ "conditional_C3_on_development": {
+  "breadth_high": {
+   "1": -0.01569,
+   "3": -0.02169,
+   "5": -0.01746
+  },
+  "breadth_low": {
+   "1": -0.02809,
+   "3": -0.03005,
+   "5": -0.02446
+  },
+  "breadth_rising": {
+   "1": -0.0169,
+   "3": -0.02348,
+   "5": -0.01782
+  },
+  "breadth_falling": {
+   "1": -0.02885,
+   "3": -0.02959,
+   "5": -0.02518
+  },
+  "disp_high": {
+   "1": -0.02528,
+   "3": -0.03127,
+   "5": -0.02711
+  },
+  "disp_low": {
+   "1": -0.01978,
+   "3": -0.02085,
+   "5": -0.01548
+  }
+ },
+ "composite_verdict": {
+  "C0_BASELINE": {
+   "ic_train": [
+    0.02171,
+    1.2649881142579034e-12,
+    106855
+   ],
+   "ic_val": [
+    0.02858,
+    7.092966074484508e-07,
+    30086
+   ],
+   "ic_final": [
+    0.0215,
+    0.009611877115150547,
+    14503
+   ],
+   "ic_val_h3": [
+    0.02872,
+    6.249477080277899e-07,
+    30086
+   ],
+   "ic_val_h5": [
+    0.01663,
+    0.003909512963601536,
+    30086
+   ],
+   "cost_train_25": [
+    -22.557,
+    -22.9526,
+    0.0009
+   ],
+   "cost_val_25": [
+    -39.1539,
+    -39.4543,
+    0.0033
+   ],
+   "cost_final_25": [
+    -3.0351,
+    -3.5206,
+    0.0068
+   ],
+   "ls_train": {
+    "dates": 2217,
+    "ls_mean_pct": -0.0105,
+    "ls_tstat": -0.319,
+    "ls_positive_dates_frac": 0.512,
+    "long_excess_vs_mkt_pct": -0.0376,
+    "long_mean_pct": 0.053,
+    "short_mean_pct": 0.0636
+   },
+   "ls_val": {
+    "dates": 613,
+    "ls_mean_pct": -0.0592,
+    "ls_tstat": -0.979,
+    "ls_positive_dates_frac": 0.5057,
+    "long_excess_vs_mkt_pct": -0.0092,
+    "long_mean_pct": 0.078,
+    "short_mean_pct": 0.1372
+   },
+   "ls_final": {
+    "dates": 292,
+    "ls_mean_pct": -0.0212,
+    "ls_tstat": -0.285,
+    "ls_positive_dates_frac": 0.5171,
+    "long_excess_vs_mkt_pct": 0.0082,
+    "long_mean_pct": 0.0303,
+    "short_mean_pct": 0.0516
+   },
+   "randomization": {
+    "status": "OK",
+    "n": 151444,
+    "obs_ic": 0.02294,
+    "null_mean": -9e-05,
+    "null_std": 0.00267,
+    "p_two_sided": 0.0,
+    "n_sims": 200,
+    "selection_bias_note": "composite built from V2 survivors; permutation p is conditional on the signal being independently promising - treat 0.05 as weak evidence"
+   },
+   "temporal": {
+    "frac_bands_gt0": 0.92,
+    "median_band_ic": 0.0245,
+    "n_bands": 25
+   }
+  },
+  "COMP1_REVERSAL_BREADTH": {
+   "ic_train": [
+    0.03019,
+    2.671945331655934e-09,
+    38829
+   ],
+   "ic_val": [
+    0.03725,
+    4.7826783153626096e-05,
+    11907
+   ],
+   "ic_final": [
+    0.04441,
+    0.0005069642552961717,
+    6124
+   ],
+   "ic_val_h3": [
+    0.0323,
+    0.0004221306012694992,
+    11907
+   ],
+   "ic_val_h5": [
+    0.01911,
+    0.037002028994220115,
+    11907
+   ],
+   "cost_train_25": [
+    58.4167,
+    57.6343,
+    0.0025
+   ],
+   "cost_val_25": [
+    2.1701,
+    1.657,
+    0.0082
+   ],
+   "cost_final_25": [
+    8.875,
+    8.3299,
+    0.016
+   ],
+   "ls_train": {
+    "dates": 804,
+    "ls_mean_pct": 0.0756,
+    "ls_tstat": 1.293,
+    "ls_positive_dates_frac": 0.5299,
+    "long_excess_vs_mkt_pct": 0.0321,
+    "long_mean_pct": 0.0477,
+    "short_mean_pct": -0.0279
+   },
+   "ls_val": {
+    "dates": 242,
+    "ls_mean_pct": 0.0082,
+    "ls_tstat": 0.097,
+    "ls_positive_dates_frac": 0.5537,
+    "long_excess_vs_mkt_pct": 0.0626,
+    "long_mean_pct": 0.1115,
+    "short_mean_pct": 0.1034
+   },
+   "ls_final": {
+    "dates": 121,
+    "ls_mean_pct": 0.0664,
+    "ls_tstat": 0.604,
+    "ls_positive_dates_frac": 0.5372,
+    "long_excess_vs_mkt_pct": 0.1004,
+    "long_mean_pct": 0.1704,
+    "short_mean_pct": 0.104
+   },
+   "randomization": {
+    "status": "OK",
+    "n": 56860,
+    "obs_ic": 0.03277,
+    "null_mean": -0.0001,
+    "null_std": 0.00438,
+    "p_two_sided": 0.0,
+    "n_sims": 200,
+    "selection_bias_note": "composite built from V2 survivors; permutation p is conditional on the signal being independently promising - treat 0.05 as weak evidence"
+   },
+   "temporal": {
+    "frac_bands_gt0": 1.0,
+    "median_band_ic": 0.0355,
+    "n_bands": 10
+   }
+  },
+  "COMP2_REVERSAL_DISP": {
+   "ic_train": [
+    0.02559,
+    3.2186850962290237e-09,
+    53499
+   ],
+   "ic_val": [
+    0.01395,
+    0.24968936883734405,
+    6811
+   ],
+   "ic_final": [
+    0.04244,
+    0.01660676693596308,
+    3185
+   ],
+   "ic_val_h3": [
+    0.03717,
+    0.0021523429754022327,
+    6811
+   ],
+   "ic_val_h5": [
+    0.0354,
+    0.0034804309912641607,
+    6811
+   ],
+   "cost_train_25": [
+    -11.2381,
+    -11.6765,
+    0.0018
+   ],
+   "cost_val_25": [
+    -17.5403,
+    -17.9559,
+    0.0144
+   ],
+   "cost_final_25": [
+    4.6025,
+    4.0795,
+    0.0308
+   ],
+   "ls_train": {
+    "dates": 1110,
+    "ls_mean_pct": -0.0051,
+    "ls_tstat": -0.095,
+    "ls_positive_dates_frac": 0.5243,
+    "long_excess_vs_mkt_pct": -0.0318,
+    "long_mean_pct": 0.1118,
+    "short_mean_pct": 0.1169
+   },
+   "ls_val": {
+    "dates": 139,
+    "ls_mean_pct": -0.1907,
+    "ls_tstat": -0.995,
+    "ls_positive_dates_frac": 0.446,
+    "long_excess_vs_mkt_pct": -0.0281,
+    "long_mean_pct": 0.0871,
+    "short_mean_pct": 0.2779
+   },
+   "ls_final": {
+    "dates": 65,
+    "ls_mean_pct": 0.1086,
+    "ls_tstat": 0.492,
+    "ls_positive_dates_frac": 0.4923,
+    "long_excess_vs_mkt_pct": 0.1131,
+    "long_mean_pct": 0.1926,
+    "short_mean_pct": 0.084
+   },
+   "randomization": {
+    "status": "OK",
+    "n": 63495,
+    "obs_ic": 0.02528,
+    "null_mean": 8e-05,
+    "null_std": 0.00418,
+    "p_two_sided": 0.0,
+    "n_sims": 200,
+    "selection_bias_note": "composite built from V2 survivors; permutation p is conditional on the signal being independently promising - treat 0.05 as weak evidence"
+   },
+   "temporal": {
+    "frac_bands_gt0": 0.8182,
+    "median_band_ic": 0.0331,
+    "n_bands": 11
+   }
+  },
+  "COMP3_REVERSAL_BREADTH_DISP": {
+   "ic_train": [
+    0.04105,
+    1.950701800090826e-08,
+    18701
+   ],
+   "ic_val": [
+    0.02894,
+    0.1331276831422017,
+    2695
+   ],
+   "ic_final": [
+    0.07622,
+    0.0075942475190236,
+    1225
+   ],
+   "ic_val_h3": [
+    0.0332,
+    0.08481010967857294,
+    2695
+   ],
+   "ic_val_h5": [
+    0.04038,
+    0.036076609635156576,
+    2695
+   ],
+   "cost_train_25": [
+    31.631,
+    30.9809,
+    0.0052
+   ],
+   "cost_val_25": [
+    10.748,
+    10.1984,
+    0.0364
+   ],
+   "cost_final_25": [
+    4.2873,
+    3.7675,
+    0.08
+   ],
+   "ls_train": {
+    "dates": 388,
+    "ls_mean_pct": 0.1043,
+    "ls_tstat": 1.11,
+    "ls_positive_dates_frac": 0.5387,
+    "long_excess_vs_mkt_pct": 0.0518,
+    "long_mean_pct": 0.0908,
+    "short_mean_pct": -0.0135
+   },
+   "ls_val": {
+    "dates": 55,
+    "ls_mean_pct": 0.1533,
+    "ls_tstat": 0.706,
+    "ls_positive_dates_frac": 0.5273,
+    "long_excess_vs_mkt_pct": 0.218,
+    "long_mean_pct": 0.4796,
+    "short_mean_pct": 0.3263
+   },
+   "ls_final": {
+    "dates": 25
+   },
+   "randomization": {
+    "status": "OK",
+    "n": 22621,
+    "obs_ic": 0.04109,
+    "null_mean": -0.00019,
+    "null_std": 0.00693,
+    "p_two_sided": 0.0,
+    "n_sims": 200,
+    "selection_bias_note": "composite built from V2 survivors; permutation p is conditional on the signal being independently promising - treat 0.05 as weak evidence"
+   },
+   "temporal": {
+    "frac_bands_gt0": 1.0,
+    "median_band_ic": 0.0313,
+    "n_bands": 4
+   }
+  }
+ },
+ "classification": {
+  "COMP1_REVERSAL_BREADTH": "B. PROMISING - NEEDS HOLDOUT-3",
+  "COMP2_REVERSAL_DISP": "D. REDUNDANT / NO INCREMENTAL VALUE (validation IC 0.014 ns, below baseline 0.029)",
+  "COMP3_REVERSAL_BREADTH_DISP": "B. PROMISING - NEEDS HOLDOUT-3 (secondary; highest IC, thin coverage, val ns)",
+  "C0_BASELINE": "baseline only"
+ },
+ "holdout_status": {
+  "frozen_60_symbol": "CONSUMED by V2 - not reusable",
+  "holdout_2": "LOCKED for V1 (bootstrap 11c5eff3) - not reusable",
+  "confirmation_required": "NEW untouched holdout-3, evaluated ONCE under the frozen composite protocol"
+ },
+ "holdout3_justified": true,
+ "holdout3_rationale": "COMP1 raises dev rank-IC to 0.030-0.044 (1.3-2.1x baseline) with 100% positive temporal bands, permutation p=0, tail-robust, net-positive at 25bps on all three dev windows - but economic spread on dev validation (~+2%/2.5y) is too thin to justify a strategy; needs independent confirmation. COMP2 is not justified."
+}
