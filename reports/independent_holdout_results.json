@@ -1,0 +1,515 @@
+{
+  "generated_utc": "2026-09-06T06:20:42.333422+00:00",
+  "phase": "independent out-of-sample holdout validation",
+  "freeze_ref": {
+    "commit": "eb05d85",
+    "code_base": "9e70300",
+    "tag": "research-freeze-2026-09-06"
+  },
+  "holdout_corpus": {
+    "store": "data/holdout",
+    "n_symbols_pre_registered": 60,
+    "selected": [
+      "ADANIPOWER.NS",
+      "HINDZINC.NS",
+      "DMART.NS",
+      "ADANIGREEN.NS",
+      "TVSMOTOR.NS",
+      "TORNTPHARM.NS",
+      "MOTHERSON.NS",
+      "DLF.NS",
+      "BHEL.NS",
+      "UNIONBANK.NS",
+      "SIEMENS.NS",
+      "CUMMINSIND.NS",
+      "VBL.NS",
+      "PNB.NS",
+      "POLYCAB.NS",
+      "BANKBARODA.NS",
+      "JINDALSTEL.NS",
+      "INDIANB.NS",
+      "TATAPOWER.NS",
+      "PFC.NS",
+      "GAIL.NS",
+      "CANBK.NS",
+      "ZYDUSLIFE.NS",
+      "IRFC.NS",
+      "VEDL.NS",
+      "MARICO.NS",
+      "INDIAMART.NS",
+      "AMBUJACEM.NS",
+      "TATACONSUM.NS",
+      "ASHOKLEY.NS",
+      "LUPIN.NS",
+      "AUROPHARMA.NS",
+      "BHARATFORG.NS",
+      "GODREJCP.NS",
+      "PERSISTENT.NS",
+      "COFORGE.NS",
+      "DIXON.NS",
+      "RECLTD.NS",
+      "SAIL.NS",
+      "NHPC.NS",
+      "IDFCFIRSTB.NS",
+      "HAVELLS.NS",
+      "YESBANK.NS",
+      "PRESTIGE.NS",
+      "OBEROIRLTY.NS",
+      "DABUR.NS",
+      "ALKEM.NS",
+      "GODREJPROP.NS",
+      "MRF.NS",
+      "TATACOMM.NS",
+      "KEI.NS",
+      "MPHASIS.NS",
+      "BALKRISIND.NS",
+      "THERMAX.NS",
+      "PAGEIND.NS",
+      "VOLTAS.NS",
+      "CONCOR.NS",
+      "IRCTC.NS",
+      "JUBLFOOD.NS",
+      "BLUESTARCO.NS"
+    ],
+    "n_fetched": 60,
+    "bars_total": 226559,
+    "range": {
+      "start": "2010-01-01",
+      "end": "2026-09-05"
+    },
+    "dataset_lock_sha256": "1f5bb43f75b4d34e193d815d7eeb19dd651bba6dc58d6984b1a23893dee316bc",
+    "audit": "all WARN (expected NSE holidays)",
+    "eligible_bars>=700": 60,
+    "splits": {
+      "start": "2010-01-01",
+      "end": "2026-09-05"
+    },
+    "split_boundaries": {
+      "train": {
+        "start": "2014-01-01",
+        "end": "2023-01-01"
+      },
+      "validation": {
+        "start": "2023-01-01",
+        "end": "2025-07-01"
+      },
+      "final_oos": {
+        "start": "2025-07-01",
+        "end": "2026-09-05"
+      }
+    }
+  },
+  "evaluated": {
+    "strategies": [
+      "A_trend_following",
+      "B_momentum",
+      "C_breakout",
+      "D_mean_reversion",
+      "E_multi_factor",
+      "autonomous_momentum_baseline"
+    ],
+    "alpha_features": [
+      "vol_rel20@1",
+      "vol_rel20@3",
+      "vol_rel20@5",
+      "vol_trend_10v50@1",
+      "vol_trend_10v50@3"
+    ]
+  },
+  "strategy_replication": {
+    "A_trend_following": {
+      "dev": {
+        "n": 525,
+        "exp": 2.41,
+        "verdict": "OVERFIT/FRAGILE"
+      },
+      "holdout": {
+        "n_oos_trades": 598,
+        "expectancy_pct": 5.3475,
+        "profit_factor": 2.902,
+        "win_rate_pct": 48.83,
+        "ci95": [
+          3.7165,
+          7.0885
+        ],
+        "top10pct_net_share": 1.019
+      },
+      "holdout_decision": "OVERFIT/FRAGILE",
+      "holdout_rationale": "outlier-driven top10%=102% of net; most-recent OOS window negative (exp -0.5266%, PF 0.847)",
+      "replication": "replicates"
+    },
+    "B_momentum": {
+      "dev": {
+        "n": 5820,
+        "exp": -0.35,
+        "verdict": "NO EDGE"
+      },
+      "holdout": {
+        "n_oos_trades": 7128,
+        "expectancy_pct": -0.4056,
+        "profit_factor": 0.717,
+        "win_rate_pct": 42.0,
+        "ci95": [
+          -0.4809,
+          -0.3257
+        ],
+        "top10pct_net_share": 0.0
+      },
+      "holdout_decision": "NO EDGE",
+      "holdout_rationale": "OOS expectancy -0.4056% (CI lohi -0.4809..-0.3257) not positive",
+      "replication": "replicates"
+    },
+    "C_breakout": {
+      "dev": {
+        "n": 0,
+        "verdict": "INSUFFICIENT"
+      },
+      "holdout": {
+        "n_oos_trades": 0,
+        "expectancy_pct": null,
+        "profit_factor": null,
+        "win_rate_pct": null,
+        "ci95": [
+          null,
+          null
+        ],
+        "top10pct_net_share": null
+      },
+      "holdout_decision": "INSUFFICIENT DATA",
+      "holdout_rationale": "pooled OOS trades=0 < 30",
+      "replication": "same-structure/manifest same"
+    },
+    "D_mean_reversion": {
+      "dev": {
+        "n": 1,
+        "verdict": "INSUFFICIENT"
+      },
+      "holdout": {
+        "n_oos_trades": 5,
+        "expectancy_pct": -1.3225,
+        "profit_factor": 0.624,
+        "win_rate_pct": 40.0,
+        "ci95": [
+          -6.6667,
+          3.9292
+        ],
+        "top10pct_net_share": 0.0
+      },
+      "holdout_decision": "INSUFFICIENT DATA",
+      "holdout_rationale": "pooled OOS trades=5 < 30",
+      "replication": "same-structure/manifest same"
+    },
+    "E_multi_factor": {
+      "dev": {
+        "n": 6625,
+        "exp": -0.36,
+        "verdict": "NO EDGE"
+      },
+      "holdout": {
+        "n_oos_trades": 7778,
+        "expectancy_pct": -0.2807,
+        "profit_factor": 0.816,
+        "win_rate_pct": 39.56,
+        "ci95": [
+          -0.3821,
+          -0.1759
+        ],
+        "top10pct_net_share": 0.0
+      },
+      "holdout_decision": "NO EDGE",
+      "holdout_rationale": "OOS expectancy -0.2807% (CI lohi -0.3821..-0.1759) not positive",
+      "replication": "replicates"
+    },
+    "autonomous_momentum_baseline": {
+      "dev": {
+        "n": 1,
+        "verdict": "INSUFFICIENT"
+      },
+      "holdout": {
+        "n_oos_trades": 3,
+        "expectancy_pct": -7.3212,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "ci95": [
+          -10.8341,
+          -3.0556
+        ],
+        "top10pct_net_share": 0.0
+      },
+      "holdout_decision": "INSUFFICIENT DATA",
+      "holdout_rationale": "pooled OOS trades=3 < 30",
+      "replication": "same-structure/manifest same"
+    }
+  },
+  "alpha_replication": {
+    "vol_rel20@1": {
+      "dev": {
+        "val_ic": 0.02883,
+        "final_ic": 0.0074,
+        "final_p": 0.3758158098344533
+      },
+      "holdout": {
+        "val_ic": 0.03357,
+        "val_p": 1.19974918888488e-10,
+        "final_ic": 0.00199,
+        "final_p": 0.7922062414115434,
+        "final_ls20_80_pct": 0.0368,
+        "final_ls_t": 0.535,
+        "breadth_pos_final": 0.4,
+        "randomization_p_two": 0.82,
+        "bootstrap_ci": [
+          -0.01576,
+          0.01137
+        ]
+      }
+    },
+    "vol_rel20@3": {
+      "dev": {
+        "val_ic": 0.02162,
+        "final_ic": -0.00189,
+        "final_p": 0.8218938292672822
+      },
+      "holdout": {
+        "val_ic": 0.02115,
+        "val_p": 4.967238787645378e-05,
+        "final_ic": 0.00547,
+        "final_p": 0.4705238277213857,
+        "final_ls20_80_pct": -0.0546,
+        "final_ls_t": -0.484,
+        "breadth_pos_final": 0.4833,
+        "randomization_p_two": 0.55,
+        "bootstrap_ci": [
+          -0.02798,
+          0.02081
+        ]
+      }
+    },
+    "vol_rel20@5": {
+      "dev": {
+        "val_ic": 0.02145,
+        "final_ic": 0.00089,
+        "final_p": 0.9160447601359025
+      },
+      "holdout": {
+        "val_ic": 0.01826,
+        "val_p": 0.003890638876065111,
+        "final_ic": -0.00487,
+        "final_p": 0.5493984252543878,
+        "final_ls20_80_pct": -0.1558,
+        "final_ls_t": -1.173,
+        "breadth_pos_final": 0.4667,
+        "randomization_p_two": 0.52,
+        "bootstrap_ci": [
+          -0.0395,
+          0.01669
+        ]
+      }
+    },
+    "vol_trend_10v50@1": {
+      "dev": {
+        "val_ic": 0.01545,
+        "final_ic": 0.03095,
+        "final_p": 0.00021297076244963797
+      },
+      "holdout": {
+        "val_ic": 0.01171,
+        "val_p": 0.024776902773385068,
+        "final_ic": 0.01522,
+        "final_p": 0.04395831241678527,
+        "final_ls20_80_pct": -0.0148,
+        "final_ls_t": -0.209,
+        "breadth_pos_final": 0.5667,
+        "randomization_p_two": 0.025,
+        "bootstrap_ci": [
+          -0.01304,
+          0.03609
+        ]
+      }
+    },
+    "vol_trend_10v50@3": {
+      "dev": {
+        "val_ic": 0.02008,
+        "final_ic": 0.05388,
+        "final_p": 1.2969358920145169e-10
+      },
+      "holdout": {
+        "val_ic": 0.01591,
+        "val_p": 0.036751297860926124,
+        "final_ic": 0.02748,
+        "final_p": 0.0002880406712593153,
+        "final_ls20_80_pct": 0.0148,
+        "final_ls_t": 0.139,
+        "breadth_pos_final": 0.6167,
+        "randomization_p_two": 0.0,
+        "bootstrap_ci": [
+          -0.01578,
+          0.05926
+        ]
+      }
+    }
+  },
+  "dev_baseline_alpha": {
+    "vol_rel20@1": {
+      "train": {
+        "spearman_ic": 0.00529,
+        "pvalue": 0.08515425152597622,
+        "ci95_lo": -0.00073,
+        "ci95_hi": 0.01131
+      },
+      "validation": {
+        "spearman_ic": 0.02883,
+        "pvalue": 5.785393939472527e-07,
+        "ci95_lo": 0.01753,
+        "ci95_hi": 0.04013
+      },
+      "final_oos": {
+        "spearman_ic": 0.0074,
+        "pvalue": 0.3758158098344533,
+        "ci95_lo": -0.00898,
+        "ci95_hi": 0.02379
+      }
+    },
+    "vol_rel20@3": {
+      "train": {
+        "spearman_ic": 0.0045,
+        "pvalue": 0.2581177106063346,
+        "ci95_lo": -0.0033,
+        "ci95_hi": 0.01229
+      },
+      "validation": {
+        "spearman_ic": 0.02162,
+        "pvalue": 0.00018041258187984077,
+        "ci95_lo": 0.01031,
+        "ci95_hi": 0.03293
+      },
+      "final_oos": {
+        "spearman_ic": -0.00189,
+        "pvalue": 0.8218938292672822,
+        "ci95_lo": -0.01833,
+        "ci95_hi": 0.01455
+      }
+    },
+    "vol_rel20@5": {
+      "train": {
+        "spearman_ic": -0.00095,
+        "pvalue": 0.8285793587563042,
+        "ci95_lo": -0.00953,
+        "ci95_hi": 0.00764
+      },
+      "validation": {
+        "spearman_ic": 0.02145,
+        "pvalue": 0.0010559036192867577,
+        "ci95_lo": 0.00861,
+        "ci95_hi": 0.03428
+      },
+      "final_oos": {
+        "spearman_ic": 0.00089,
+        "pvalue": 0.9160447601359025,
+        "ci95_lo": -0.01561,
+        "ci95_hi": 0.01739
+      }
+    },
+    "vol_trend_10v50@1": {
+      "train": {
+        "spearman_ic": -0.006,
+        "pvalue": 0.0527476133905469,
+        "ci95_lo": -0.01206,
+        "ci95_hi": 7e-05
+      },
+      "validation": {
+        "spearman_ic": 0.01545,
+        "pvalue": 0.007409536130715377,
+        "ci95_lo": 0.00414,
+        "ci95_hi": 0.02676
+      },
+      "final_oos": {
+        "spearman_ic": 0.03095,
+        "pvalue": 0.00021297076244963797,
+        "ci95_lo": 0.01457,
+        "ci95_hi": 0.04732
+      }
+    },
+    "vol_trend_10v50@3": {
+      "train": {
+        "spearman_ic": -0.01021,
+        "pvalue": 0.030826519826692822,
+        "ci95_lo": -0.01948,
+        "ci95_hi": -0.00094
+      },
+      "validation": {
+        "spearman_ic": 0.02008,
+        "pvalue": 0.00858421897710726,
+        "ci95_lo": 0.0051,
+        "ci95_hi": 0.03504
+      },
+      "final_oos": {
+        "spearman_ic": 0.05388,
+        "pvalue": 1.2969358920145169e-10,
+        "ci95_lo": 0.03747,
+        "ci95_hi": 0.07026
+      }
+    },
+    "vol_trend_10v50@5": {
+      "train": {
+        "spearman_ic": -0.01107,
+        "pvalue": 0.03756798831874342,
+        "ci95_lo": -0.0215,
+        "ci95_hi": -0.00064
+      },
+      "validation": {
+        "spearman_ic": 0.01468,
+        "pvalue": 0.09792512880066928,
+        "ci95_lo": -0.00271,
+        "ci95_hi": 0.03206
+      },
+      "final_oos": {
+        "spearman_ic": 0.0615,
+        "pvalue": 9.435210701624897e-08,
+        "ci95_lo": 0.03895,
+        "ci95_hi": 0.084
+      }
+    }
+  },
+  "interpretation": {
+    "sample": "strategies: 109 symbols pooled; alpha: 17,580 OOS panel rows (dev-era 14,307)",
+    "negative_replication": "momentum and multi-factor negative means replicate with matching magnitude in both universes (CIs below zero in both)",
+    "trend_structure": "trend-following positive pooled expectancy is tail-only (top10%=102% of net), median negative, newest OOS window negative -> OVERFIT/FRAGILE in both",
+    "vol_rel20": "validation-window IC inflation recurs; final-OOS IC ~ 0 in both universes; OOS LS +3.3% net (dev +29.9%); randomization p>0.5; boot CI crosses 0",
+    "vol_trend_10v50": "IC sign+significance replicates on independent symbols (p<0.05 both horizons both windows) but decile/quintile spread ~0 (t~0.1); conditional on high-vol/up regimes; not monetizable",
+    "multiple_testing": "5 pre-registered feature-horizon pairs + frozen 6-strategy registry; no post-hoc selection; regime reads descriptive only",
+    "chronological_note": "no bars after 2026-09-04 yet; same-symbol chronological holdout reserved as FUTURE/PAPER"
+  },
+  "final_decision": {
+    "decision": "D. NO EDGE",
+    "secondary_annotation": "B. PROMISING BUT INSUFFICIENT for vol_trend_10v50 IC (unmonetizable; requires future chronological holdout)",
+    "score": {
+      "robust_edge_replicated": false,
+      "no_edge_replicated": true,
+      "previous_findings_failed_to_replicate": false,
+      "data_quality_problem": false,
+      "inconclusive": false
+    },
+    "rationale": "all 6 frozen strategies replicate their DEVELOPMENT verdicts on 60 independent symbols; momentum/multi-factor decisively negative; trend tail-only; vol_rel20 unstable; no candidate is cost-surviving, breadth-positive and non-fragile"
+  },
+  "answers_to_10_questions": {
+    "q1_unseen_data": "YES: 60 new symbols + 2010-13 pre-Development slice; locked manifest 1f5bb43f...",
+    "q2_freeze": "2026-09-06 commit eb05d85 / tag research-freeze-2026-09-06; pipeline 9e70300 unchanged",
+    "q3_candidates": "6 frozen strategies + vol_rel20@{1,3,5} + vol_trend_10v50@{1,3}",
+    "q4_previous_findings_replicate": "YES: negatives and non-executability reproduce",
+    "q5_vol_rel20_replicate": "NO edge: final-OOS IC ~0 (both), OOS LS +3.3% vs +29.9% dev, boot CI crosses 0",
+    "q6_positive_oos_expectancy": "only trend (+5.35%) = pure tail; median negative; newest window negative",
+    "q7_cost_survival": "none robustly; vol_trend_10v50@3 net +3.3% t~0.1 = indistinguishable from 0",
+    "q8_symbol_regime_survival": "vol_trend_10v50 IC pos ~57-67% symbols and high-vol/up regimes; vol_rel20 OOS breadth 40%",
+    "q9_statistically_sufficient": "yes to reject robust edge for momentum/multi-factor/vol_rel20; no to promote vol_trend_10v50",
+    "q10_next": "no strategy conversion; retain freeze; schedule FUTURE chronological holdout; no live/paper trading"
+  },
+  "deliverables": [
+    "reports/RESEARCH_PIPELINE_FREEZE_2026-09.md",
+    "data/holdout/universe.json",
+    "data/holdout/manifest.json",
+    "data/holdout/dataset_lock.json",
+    "reports/holdout_strategy_results.json",
+    "reports/holdout_alpha_results.json",
+    "reports/INDEPENDENT_HOLDOUT_VALIDATION_2026-09.md"
+  ]
+}
