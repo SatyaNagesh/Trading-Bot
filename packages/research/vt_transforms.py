@@ -43,9 +43,14 @@ def load_holdout2_panel() -> pd.DataFrame:
     from packages.research import alpha_dataset as ad
     from packages.research.vt_signal import _load_d1d_volume
 
-    ad.store_root = lambda: Path("data/holdout_2")
-    ho2 = ad.build_panel()
-    ho2 = ho2.join(_load_d1d_volume("data/holdout_2/d1d"), how="left")
+    cache = Path("data/holdout_2/alpha_panel.parquet")
+    if cache.exists():
+        ho2 = pd.read_parquet(cache)
+    else:
+        ad.store_root = lambda: Path("data/holdout_2")
+        ho2 = ad.build_panel()
+        ho2 = ho2.join(_load_d1d_volume("data/holdout_2/d1d"), how="left")
+        ho2.to_parquet(cache)
     return ho2
 
 
@@ -233,10 +238,12 @@ def main() -> None:
     for pname, panel in panels.items():
         po = {}
         for tspec in transforms:
+            po[tspec["id"]] = {}
             for split in spec["evaluation_splits"].get(pname, []):
-                po[tspec["id"]] = eval_transform(panel, split, tspec)
+                po[tspec["id"]][split] = eval_transform(panel, split, tspec)
         results[pname] = po
-        print(f"[{pname}] {len(po)} transform-splits", flush=True)
+        print(f"[{pname}] {sum(len(v) for v in po.values())} transform-split runs",
+              flush=True)
 
     # selection gate: DEVELOPMENT validation (net 25 bps mean > 0, bootstrap
     # CI lower > 0, then BH-FDR q=0.10 across the five pre-registered transforms)
@@ -245,7 +252,7 @@ def main() -> None:
     dev = results["development"]
     pvals, names = [], []
     for t in transforms:
-        r = dev.get(t["id"])
+        r = dev.get(t["id"], {}).get("validation")
         if r and r.get("status") == "OK" and r["net_25bps_ci95_pct"][0] > 0:
             pvals.append(r["net_25bps_p_le0"] + 1e-9)
             names.append(t["id"])

@@ -1,0 +1,86 @@
+{
+  "generated_utc": "2026-09-06T00:00:00+00:00",
+  "feature": "vol_trend_10v50",
+  "definition": "SMA(volume,10)/SMA(volume,50)-1",
+  "classification": "C. EXPOSURE PROXY",
+  "secondary_observation": "B. PREDICTIVE BUT NOT MONETIZABLE",
+  "final_decision_text": "The replicated positive IC of vol_trend_10v50 is essentially fully explained by cross-sectional exposures (vol level, ATR, momentum, trend, beta, size, liquidity): independent-holdout residual IC ~0.003 (residual p 0.65-0.73). The pre-registered monetization transforms all fail the development-validation gate (net-25bps CI upper <= 0), so no holdout_2 confirmation run was valid or performed; the signal is NOT monetizable at any pre-specified construction.",
+  "monetizability": {
+    "pre_registered_transforms": 5,
+    "development_validation_selected": [],
+    "holdout_2_confirmation_run": false,
+    "not_monetizable": true
+  },
+  "evidence": {
+    "ic_replication": {
+      "development_final_oos": {
+        "h1_base_ic": 0.03557,
+        "h3_base_ic": 0.05813
+      },
+      "holdout_final_oos": {
+        "h1_base_ic": 0.01522,
+        "h3_base_ic": 0.02748,
+        "h3_pvalue": 0.000288,
+        "h3_randomization_p": 0.0,
+        "h3_bootstrap_ci95": [-0.016, 0.059]
+      },
+      "source": "reports/INDEPENDENT_HOLDOUT_VALIDATION_2026-09.md"
+    },
+    "residual_ic_after_exposures": {
+      "development": {
+        "validation": {"h1": 0.00321, "h3": 0.0035},
+        "final_oos": {"h1": 0.01363, "h3": 0.02107}
+      },
+      "holdout": {
+        "validation": {"h1": -0.0052, "h3": -0.0098, "h3_residual_pvalue": 0.061},
+        "final_oos": {"h1": 0.0026, "h3": 0.00342, "h3_residual_pvalue": 0.652}
+      }
+    },
+    "signal_exposure_correlations": {
+      "development_final_oos": {"vol": 0.328, "atr": 0.412, "trend": 0.049, "mom": -0.016, "liq": 0.073},
+      "holdout_final_oos": {"vol": 0.306, "atr": 0.363, "trend": 0.136, "mom": 0.101, "liq": 0.062}
+    },
+    "quantile_shape_final_oos": {
+      "development": {"h1": "monotonic_up span +0.138", "h3": "monotonic_up span +0.411"},
+      "holdout": {"h1": "u_shaped span +0.089", "h3": "u_shaped span +0.275"}
+    },
+    "ls_spread_final_oos": {
+      "development": {"h1_ls_mean_pct_per_day": 0.0055, "tstat": 0.1, "long": 0.0134, "short": 0.0079},
+      "holdout": {"h1_ls_mean_pct_per_day": -0.0148, "tstat": -0.21, "long": 0.042, "short": 0.0568}
+    },
+    "regime_final_oos_top": {
+      "development": {"h3": "down|med_vol 0.221; down|low_vol 0.127"},
+      "holdout": {"h3": "up|high_vol 0.143; sideways|high_vol 0.096"}
+    },
+    "temporal": {
+      "train_2014_2023_final_oos": "negligible (median IC ~ -0.006 both universes)",
+      "development_2023_2026_frac_positive": {"h1": 0.67, "h3": 0.67},
+      "holdout_2023_2026_frac_positive": {"h1": 0.67, "h3": 0.6},
+      "best_window_both": "2026-01 (dev h3 +0.117, holdout h3 +0.105)"
+    },
+    "concentration_final_oos": {
+      "development": {"n_symbols": 49, "frac_positive": 0.735, "hhi_ic_abs_share": 0.029, "top5_share": 0.224},
+      "holdout": {"n_symbols": 60, "frac_positive": 0.567, "hhi_ic_abs_share": 0.023, "top5_share": 0.186}
+    },
+    "outlier_robustness": {
+      "development_h3": {"base": 0.0581, "winsor": 0.0581, "drop025": 0.0573},
+      "holdout_h3": {"base": 0.0275, "winsor": 0.0275, "drop025": 0.0279}
+    },
+    "monetization": {
+      "development_validation_gate": "all five transforms failed (net25 CI upper <= 0)",
+      "selected": [],
+      "all_result_runs": 45,
+      "net25_positive_runs": 3,
+      "net25_positive_runs_detail": "post-hoc only, in holdout_2 panel (T1 validation +0.0006, T3 validation +0.0632, T3 final_oos +0.103); none pre-selected or gate eligible; CIs cover 0",
+      "costs": "25 bps/side primary, 15 bps sensitivity; turnover 0.10-0.21/day/leg; dev net15 negative everywhere on dev"
+    }
+  },
+  "deliverables": {
+    "pre_registration": "reports/VOL_TREND_SIGNAL_TO_ALPHA_PRE_REGISTRATION_2026-09.md",
+    "diagnostics": "reports/vt_signal_diagnostics.json",
+    "transform_results": "reports/vt_transforms_results.json",
+    "report": "reports/VOL_TREND_SIGNAL_TO_ALPHA_2026-09.md",
+    "holdout_2_lock": "data/holdout_2/dataset_lock.json",
+    "holdout_2_universe": "data/holdout_2/universe.json"
+  }
+}
