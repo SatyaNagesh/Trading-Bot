@@ -1,0 +1,888 @@
+{
+  "snapshot_utc": "2026-09-06T05:40:30.426819+00:00",
+  "rule": "top-N by Yahoo fast_info['marketCap'] snapshot at selection instant; ties alphabetized; pool predetermined and disjoint from DEVELOPMENT; NO price-history/return information used for selection; failures dropped without substitution",
+  "dev_excluded": [
+    "ADANIENT.NS",
+    "ADANIPORTS.NS",
+    "APOLLOHOSP.NS",
+    "ASIANPAINT.NS",
+    "AXISBANK.NS",
+    "BAJAJFINSV.NS",
+    "BAJAJ_AUTO.NS",
+    "BAJFINANCE.NS",
+    "BEL.NS",
+    "BHARTIARTL.NS",
+    "BPCL.NS",
+    "BRITANNIA.NS",
+    "CIPLA.NS",
+    "COALINDIA.NS",
+    "DIVISLAB.NS",
+    "DRREDDY.NS",
+    "EICHERMOT.NS",
+    "GRASIM.NS",
+    "HCLTECH.NS",
+    "HDFCBANK.NS",
+    "HDFCLIFE.NS",
+    "HEROMOTOCO.NS",
+    "HINDALCO.NS",
+    "HINDUNILVR.NS",
+    "ICICIBANK.NS",
+    "INDUSINDBK.NS",
+    "INFY.NS",
+    "ITC.NS",
+    "JSWSTEEL.NS",
+    "KOTAKBANK.NS",
+    "LT.NS",
+    "M&M.NS",
+    "MARUTI.NS",
+    "NESTLEIND.NS",
+    "NTPC.NS",
+    "ONGC.NS",
+    "POWERGRID.NS",
+    "RELIANCE.NS",
+    "SBILIFE.NS",
+    "SBIN.NS",
+    "SHRIRAMFIN.NS",
+    "SUNPHARMA.NS",
+    "TATASTEEL.NS",
+    "TCS.NS",
+    "TECHM.NS",
+    "TITAN.NS",
+    "TRENT.NS",
+    "ULTRACEMCO.NS",
+    "WIPRO.NS"
+  ],
+  "pool": [
+    "ACC.NS",
+    "ADANIGREEN.NS",
+    "ADANIPOWER.NS",
+    "ALKEM.NS",
+    "AMBUJACEM.NS",
+    "ANGELONE.NS",
+    "APOLLOTYRE.NS",
+    "ASHOKLEY.NS",
+    "AUROPHARMA.NS",
+    "BALKRISIND.NS",
+    "BANKBARODA.NS",
+    "BATAINDIA.NS",
+    "BHARATFORG.NS",
+    "BHEL.NS",
+    "BLUESTARCO.NS",
+    "CANBK.NS",
+    "CDSL.NS",
+    "CEATLTD.NS",
+    "COFORGE.NS",
+    "CONCOR.NS",
+    "CUMMINSIND.NS",
+    "DABUR.NS",
+    "DEVYANI.NS",
+    "DIXON.NS",
+    "DLF.NS",
+    "DMART.NS",
+    "GAIL.NS",
+    "GODREJCP.NS",
+    "GODREJPROP.NS",
+    "HAVELLS.NS",
+    "HINDZINC.NS",
+    "IDFCFIRSTB.NS",
+    "INDIAMART.NS",
+    "INDIANB.NS",
+    "IRCTC.NS",
+    "IRFC.NS",
+    "JINDALSTEL.NS",
+    "JUBLFOOD.NS",
+    "JYOTHYLAB.NS",
+    "KEI.NS",
+    "LTIM.NS",
+    "LUPIN.NS",
+    "MARICO.NS",
+    "MOTHERSON.NS",
+    "MPHASIS.NS",
+    "MRF.NS",
+    "NHPC.NS",
+    "OBEROIRLTY.NS",
+    "PAGEIND.NS",
+    "PERSISTENT.NS",
+    "PFC.NS",
+    "PGHH.NS",
+    "PNB.NS",
+    "POLYCAB.NS",
+    "PRESTIGE.NS",
+    "RAILTEL.NS",
+    "RECLTD.NS",
+    "SAIL.NS",
+    "SIEMENS.NS",
+    "TATACHEM.NS",
+    "TATACOMM.NS",
+    "TATACONSUM.NS",
+    "TATAELXSI.NS",
+    "TATAMOTORS.NS",
+    "TATAMTRDVR.NS",
+    "TATAPOWER.NS",
+    "THERMAX.NS",
+    "TORNTPHARM.NS",
+    "TVSMOTOR.NS",
+    "UNIONBANK.NS",
+    "VBL.NS",
+    "VEDL.NS",
+    "VOLTAS.NS",
+    "YESBANK.NS",
+    "ZOMATO.NS",
+    "ZYDUSLIFE.NS"
+  ],
+  "n_pool": 76,
+  "n_selected": 60,
+  "resolved": 72,
+  "failures": [
+    "TATAMTRDVR.NS",
+    "LTIM.NS",
+    "TATAMOTORS.NS",
+    "ZOMATO.NS"
+  ],
+  "failure_reasons": [
+    {
+      "symbol": "ASHOKLEY.NS",
+      "market_cap_usd": 992681419288.0,
+      "error": null
+    },
+    {
+      "symbol": "ADANIPOWER.NS",
+      "market_cap_usd": 3995788684023.782,
+      "error": null
+    },
+    {
+      "symbol": "ANGELONE.NS",
+      "market_cap_usd": 273923485756.98877,
+      "error": null
+    },
+    {
+      "symbol": "ALKEM.NS",
+      "market_cap_usd": 620542350000.0,
+      "error": null
+    },
+    {
+      "symbol": "ACC.NS",
+      "market_cap_usd": 241081297408.69995,
+      "error": null
+    },
+    {
+      "symbol": "AMBUJACEM.NS",
+      "market_cap_usd": 1006350960330.0,
+      "error": null
+    },
+    {
+      "symbol": "AUROPHARMA.NS",
+      "market_cap_usd": 951157184177.1881,
+      "error": null
+    },
+    {
+      "symbol": "BHARATFORG.NS",
+      "market_cap_usd": 935141364192.0,
+      "error": null
+    },
+    {
+      "symbol": "BANKBARODA.NS",
+      "market_cap_usd": 1235955560781.0,
+      "error": null
+    },
+    {
+      "symbol": "BATAINDIA.NS",
+      "market_cap_usd": 86466902535.0,
+      "error": null
+    },
+    {
+      "symbol": "BALKRISIND.NS",
+      "market_cap_usd": 441652471152.63184,
+      "error": null
+    },
+    {
+      "symbol": "BHEL.NS",
+      "market_cap_usd": 1501117533593.3281,
+      "error": null
+    },
+    {
+      "symbol": "BLUESTARCO.NS",
+      "market_cap_usd": 305099967480.0,
+      "error": null
+    },
+    {
+      "symbol": "CANBK.NS",
+      "market_cap_usd": 1138366733130.0,
+      "error": null
+    },
+    {
+      "symbol": "CEATLTD.NS",
+      "market_cap_usd": 134828244679.29785,
+      "error": null
+    },
+    {
+      "symbol": "COFORGE.NS",
+      "market_cap_usd": 873907197581.7896,
+      "error": null
+    },
+    {
+      "symbol": "CONCOR.NS",
+      "market_cap_usd": 386901910980.0,
+      "error": null
+    },
+    {
+      "symbol": "CDSL.NS",
+      "market_cap_usd": 291471394897.46094,
+      "error": null
+    },
+    {
+      "symbol": "DEVYANI.NS",
+      "market_cap_usd": 171723852585.42654,
+      "error": null
+    },
+    {
+      "symbol": "DMART.NS",
+      "market_cap_usd": 2458967333290.0,
+      "error": null
+    },
+    {
+      "symbol": "DIXON.NS",
+      "market_cap_usd": 865818956320.0,
+      "error": null
+    },
+    {
+      "symbol": "DLF.NS",
+      "market_cap_usd": 1687915112753.8147,
+      "error": null
+    },
+    {
+      "symbol": "CUMMINSIND.NS",
+      "market_cap_usd": 1395702000000.0,
+      "error": null
+    },
+    {
+      "symbol": "DABUR.NS",
+      "market_cap_usd": 675700220376.0256,
+      "error": null
+    },
+    {
+      "symbol": "GAIL.NS",
+      "market_cap_usd": 1140118769965.0986,
+      "error": null
+    },
+    {
+      "symbol": "GODREJCP.NS",
+      "market_cap_usd": 898461748734.0,
+      "error": null
+    },
+    {
+      "symbol": "HAVELLS.NS",
+      "market_cap_usd": 724206146408.0,
+      "error": null
+    },
+    {
+      "symbol": "IDFCFIRSTB.NS",
+      "market_cap_usd": 747588424845.9192,
+      "error": null
+    },
+    {
+      "symbol": "HINDZINC.NS",
+      "market_cap_usd": 2539416719000.0,
+      "error": null
+    },
+    {
+      "symbol": "GODREJPROP.NS",
+      "market_cap_usd": 597030917054.0,
+      "error": null
+    },
+    {
+      "symbol": "INDIAMART.NS",
+      "market_cap_usd": 1038303566766.4761,
+      "error": null
+    },
+    {
+      "symbol": "INDIANB.NS",
+      "market_cap_usd": 1184924230528.1313,
+      "error": null
+    },
+    {
+      "symbol": "IRCTC.NS",
+      "market_cap_usd": 380839990234.375,
+      "error": null
+    },
+    {
+      "symbol": "JINDALSTEL.NS",
+      "market_cap_usd": 1185373633005.0,
+      "error": null
+    },
+    {
+      "symbol": "IRFC.NS",
+      "market_cap_usd": 1089913420340.9576,
+      "error": null
+    },
+    {
+      "symbol": "JUBLFOOD.NS",
+      "market_cap_usd": 317459516692.1539,
+      "error": null
+    },
+    {
+      "symbol": "JYOTHYLAB.NS",
+      "market_cap_usd": 74008410081.51054,
+      "error": null
+    },
+    {
+      "symbol": "APOLLOTYRE.NS",
+      "market_cap_usd": 271725304297.7599,
+      "error": null
+    },
+    {
+      "symbol": "KEI.NS",
+      "market_cap_usd": 463662885750.0,
+      "error": null
+    },
+    {
+      "symbol": "LUPIN.NS",
+      "market_cap_usd": 964830966710.0,
+      "error": null
+    },
+    {
+      "symbol": "MARICO.NS",
+      "market_cap_usd": 1056578269753.333,
+      "error": null
+    },
+    {
+      "symbol": "MOTHERSON.NS",
+      "market_cap_usd": 1692368826682.9329,
+      "error": null
+    },
+    {
+      "symbol": "MRF.NS",
+      "market_cap_usd": 551115327135.0,
+      "error": null
+    },
+    {
+      "symbol": "MPHASIS.NS",
+      "market_cap_usd": 462158895100.0,
+      "error": null
+    },
+    {
+      "symbol": "PAGEIND.NS",
+      "market_cap_usd": 404885626200.0,
+      "error": null
+    },
+    {
+      "symbol": "NHPC.NS",
+      "market_cap_usd": 765933903881.25,
+      "error": null
+    },
+    {
+      "symbol": "PERSISTENT.NS",
+      "market_cap_usd": 881611781292.0,
+      "error": null
+    },
+    {
+      "symbol": "OBEROIRLTY.NS",
+      "market_cap_usd": 681972346840.1923,
+      "error": null
+    },
+    {
+      "symbol": "POLYCAB.NS",
+      "market_cap_usd": 1250270939900.0,
+      "error": null
+    },
+    {
+      "symbol": "PGHH.NS",
+      "market_cap_usd": 248892693280.0,
+      "error": null
+    },
+    {
+      "symbol": "PFC.NS",
+      "market_cap_usd": 1173516205998.2227,
+      "error": null
+    },
+    {
+      "symbol": "RAILTEL.NS",
+      "market_cap_usd": 86990351299.64484,
+      "error": null
+    },
+    {
+      "symbol": "PNB.NS",
+      "market_cap_usd": 1344674362356.0,
+      "error": null
+    },
+    {
+      "symbol": "PRESTIGE.NS",
+      "market_cap_usd": 683568878184.0,
+      "error": null
+    },
+    {
+      "symbol": "RECLTD.NS",
+      "market_cap_usd": 839208520943.8477,
+      "error": null
+    },
+    {
+      "symbol": "SAIL.NS",
+      "market_cap_usd": 812887389480.5629,
+      "error": null
+    },
+    {
+      "symbol": "SIEMENS.NS",
+      "market_cap_usd": 1416291248385.0,
+      "error": null
+    },
+    {
+      "symbol": "TATACHEM.NS",
+      "market_cap_usd": 159248143158.1643,
+      "error": null
+    },
+    {
+      "symbol": "TATACONSUM.NS",
+      "market_cap_usd": 999586912120.0,
+      "error": null
+    },
+    {
+      "symbol": "TATACOMM.NS",
+      "market_cap_usd": 500638890712.2013,
+      "error": null
+    },
+    {
+      "symbol": "TATAELXSI.NS",
+      "market_cap_usd": 221661838038.0,
+      "error": null
+    },
+    {
+      "symbol": "TORNTPHARM.NS",
+      "market_cap_usd": 1847446676592.0,
+      "error": null
+    },
+    {
+      "symbol": "TATAPOWER.NS",
+      "market_cap_usd": 1175884953296.0,
+      "error": null
+    },
+    {
+      "symbol": "TVSMOTOR.NS",
+      "market_cap_usd": 1964157668550.0137,
+      "error": null
+    },
+    {
+      "symbol": "THERMAX.NS",
+      "market_cap_usd": 409770816630.4468,
+      "error": null
+    },
+    {
+      "symbol": "VBL.NS",
+      "market_cap_usd": 1378692711439.3274,
+      "error": null
+    },
+    {
+      "symbol": "UNIONBANK.NS",
+      "market_cap_usd": 1429163651060.9062,
+      "error": null
+    },
+    {
+      "symbol": "TATAMTRDVR.NS",
+      "market_cap_usd": null,
+      "error": "no marketCap"
+    },
+    {
+      "symbol": "VEDL.NS",
+      "market_cap_usd": 1062496575110.2184,
+      "error": null
+    },
+    {
+      "symbol": "VOLTAS.NS",
+      "market_cap_usd": 387135145800.0,
+      "error": null
+    },
+    {
+      "symbol": "LTIM.NS",
+      "market_cap_usd": null,
+      "error": "'currentTradingPeriod'"
+    },
+    {
+      "symbol": "YESBANK.NS",
+      "market_cap_usd": 706225206937.5,
+      "error": null
+    },
+    {
+      "symbol": "ZYDUSLIFE.NS",
+      "market_cap_usd": 1117204291840.0,
+      "error": null
+    },
+    {
+      "symbol": "TATAMOTORS.NS",
+      "market_cap_usd": null,
+      "error": "'currentTradingPeriod'"
+    },
+    {
+      "symbol": "ZOMATO.NS",
+      "market_cap_usd": null,
+      "error": "'currentTradingPeriod'"
+    },
+    {
+      "symbol": "ADANIGREEN.NS",
+      "market_cap_usd": 2143470410930.0232,
+      "error": null
+    }
+  ],
+  "selected": [
+    "ADANIPOWER.NS",
+    "HINDZINC.NS",
+    "DMART.NS",
+    "ADANIGREEN.NS",
+    "TVSMOTOR.NS",
+    "TORNTPHARM.NS",
+    "MOTHERSON.NS",
+    "DLF.NS",
+    "BHEL.NS",
+    "UNIONBANK.NS",
+    "SIEMENS.NS",
+    "CUMMINSIND.NS",
+    "VBL.NS",
+    "PNB.NS",
+    "POLYCAB.NS",
+    "BANKBARODA.NS",
+    "JINDALSTEL.NS",
+    "INDIANB.NS",
+    "TATAPOWER.NS",
+    "PFC.NS",
+    "GAIL.NS",
+    "CANBK.NS",
+    "ZYDUSLIFE.NS",
+    "IRFC.NS",
+    "VEDL.NS",
+    "MARICO.NS",
+    "INDIAMART.NS",
+    "AMBUJACEM.NS",
+    "TATACONSUM.NS",
+    "ASHOKLEY.NS",
+    "LUPIN.NS",
+    "AUROPHARMA.NS",
+    "BHARATFORG.NS",
+    "GODREJCP.NS",
+    "PERSISTENT.NS",
+    "COFORGE.NS",
+    "DIXON.NS",
+    "RECLTD.NS",
+    "SAIL.NS",
+    "NHPC.NS",
+    "IDFCFIRSTB.NS",
+    "HAVELLS.NS",
+    "YESBANK.NS",
+    "PRESTIGE.NS",
+    "OBEROIRLTY.NS",
+    "DABUR.NS",
+    "ALKEM.NS",
+    "GODREJPROP.NS",
+    "MRF.NS",
+    "TATACOMM.NS",
+    "KEI.NS",
+    "MPHASIS.NS",
+    "BALKRISIND.NS",
+    "THERMAX.NS",
+    "PAGEIND.NS",
+    "VOLTAS.NS",
+    "CONCOR.NS",
+    "IRCTC.NS",
+    "JUBLFOOD.NS",
+    "BLUESTARCO.NS"
+  ],
+  "selected_with_caps": [
+    {
+      "symbol": "ADANIPOWER.NS",
+      "market_cap_usd": 3995788684023.782,
+      "error": null
+    },
+    {
+      "symbol": "HINDZINC.NS",
+      "market_cap_usd": 2539416719000.0,
+      "error": null
+    },
+    {
+      "symbol": "DMART.NS",
+      "market_cap_usd": 2458967333290.0,
+      "error": null
+    },
+    {
+      "symbol": "ADANIGREEN.NS",
+      "market_cap_usd": 2143470410930.0232,
+      "error": null
+    },
+    {
+      "symbol": "TVSMOTOR.NS",
+      "market_cap_usd": 1964157668550.0137,
+      "error": null
+    },
+    {
+      "symbol": "TORNTPHARM.NS",
+      "market_cap_usd": 1847446676592.0,
+      "error": null
+    },
+    {
+      "symbol": "MOTHERSON.NS",
+      "market_cap_usd": 1692368826682.9329,
+      "error": null
+    },
+    {
+      "symbol": "DLF.NS",
+      "market_cap_usd": 1687915112753.8147,
+      "error": null
+    },
+    {
+      "symbol": "BHEL.NS",
+      "market_cap_usd": 1501117533593.3281,
+      "error": null
+    },
+    {
+      "symbol": "UNIONBANK.NS",
+      "market_cap_usd": 1429163651060.9062,
+      "error": null
+    },
+    {
+      "symbol": "SIEMENS.NS",
+      "market_cap_usd": 1416291248385.0,
+      "error": null
+    },
+    {
+      "symbol": "CUMMINSIND.NS",
+      "market_cap_usd": 1395702000000.0,
+      "error": null
+    },
+    {
+      "symbol": "VBL.NS",
+      "market_cap_usd": 1378692711439.3274,
+      "error": null
+    },
+    {
+      "symbol": "PNB.NS",
+      "market_cap_usd": 1344674362356.0,
+      "error": null
+    },
+    {
+      "symbol": "POLYCAB.NS",
+      "market_cap_usd": 1250270939900.0,
+      "error": null
+    },
+    {
+      "symbol": "BANKBARODA.NS",
+      "market_cap_usd": 1235955560781.0,
+      "error": null
+    },
+    {
+      "symbol": "JINDALSTEL.NS",
+      "market_cap_usd": 1185373633005.0,
+      "error": null
+    },
+    {
+      "symbol": "INDIANB.NS",
+      "market_cap_usd": 1184924230528.1313,
+      "error": null
+    },
+    {
+      "symbol": "TATAPOWER.NS",
+      "market_cap_usd": 1175884953296.0,
+      "error": null
+    },
+    {
+      "symbol": "PFC.NS",
+      "market_cap_usd": 1173516205998.2227,
+      "error": null
+    },
+    {
+      "symbol": "GAIL.NS",
+      "market_cap_usd": 1140118769965.0986,
+      "error": null
+    },
+    {
+      "symbol": "CANBK.NS",
+      "market_cap_usd": 1138366733130.0,
+      "error": null
+    },
+    {
+      "symbol": "ZYDUSLIFE.NS",
+      "market_cap_usd": 1117204291840.0,
+      "error": null
+    },
+    {
+      "symbol": "IRFC.NS",
+      "market_cap_usd": 1089913420340.9576,
+      "error": null
+    },
+    {
+      "symbol": "VEDL.NS",
+      "market_cap_usd": 1062496575110.2184,
+      "error": null
+    },
+    {
+      "symbol": "MARICO.NS",
+      "market_cap_usd": 1056578269753.333,
+      "error": null
+    },
+    {
+      "symbol": "INDIAMART.NS",
+      "market_cap_usd": 1038303566766.4761,
+      "error": null
+    },
+    {
+      "symbol": "AMBUJACEM.NS",
+      "market_cap_usd": 1006350960330.0,
+      "error": null
+    },
+    {
+      "symbol": "TATACONSUM.NS",
+      "market_cap_usd": 999586912120.0,
+      "error": null
+    },
+    {
+      "symbol": "ASHOKLEY.NS",
+      "market_cap_usd": 992681419288.0,
+      "error": null
+    },
+    {
+      "symbol": "LUPIN.NS",
+      "market_cap_usd": 964830966710.0,
+      "error": null
+    },
+    {
+      "symbol": "AUROPHARMA.NS",
+      "market_cap_usd": 951157184177.1881,
+      "error": null
+    },
+    {
+      "symbol": "BHARATFORG.NS",
+      "market_cap_usd": 935141364192.0,
+      "error": null
+    },
+    {
+      "symbol": "GODREJCP.NS",
+      "market_cap_usd": 898461748734.0,
+      "error": null
+    },
+    {
+      "symbol": "PERSISTENT.NS",
+      "market_cap_usd": 881611781292.0,
+      "error": null
+    },
+    {
+      "symbol": "COFORGE.NS",
+      "market_cap_usd": 873907197581.7896,
+      "error": null
+    },
+    {
+      "symbol": "DIXON.NS",
+      "market_cap_usd": 865818956320.0,
+      "error": null
+    },
+    {
+      "symbol": "RECLTD.NS",
+      "market_cap_usd": 839208520943.8477,
+      "error": null
+    },
+    {
+      "symbol": "SAIL.NS",
+      "market_cap_usd": 812887389480.5629,
+      "error": null
+    },
+    {
+      "symbol": "NHPC.NS",
+      "market_cap_usd": 765933903881.25,
+      "error": null
+    },
+    {
+      "symbol": "IDFCFIRSTB.NS",
+      "market_cap_usd": 747588424845.9192,
+      "error": null
+    },
+    {
+      "symbol": "HAVELLS.NS",
+      "market_cap_usd": 724206146408.0,
+      "error": null
+    },
+    {
+      "symbol": "YESBANK.NS",
+      "market_cap_usd": 706225206937.5,
+      "error": null
+    },
+    {
+      "symbol": "PRESTIGE.NS",
+      "market_cap_usd": 683568878184.0,
+      "error": null
+    },
+    {
+      "symbol": "OBEROIRLTY.NS",
+      "market_cap_usd": 681972346840.1923,
+      "error": null
+    },
+    {
+      "symbol": "DABUR.NS",
+      "market_cap_usd": 675700220376.0256,
+      "error": null
+    },
+    {
+      "symbol": "ALKEM.NS",
+      "market_cap_usd": 620542350000.0,
+      "error": null
+    },
+    {
+      "symbol": "GODREJPROP.NS",
+      "market_cap_usd": 597030917054.0,
+      "error": null
+    },
+    {
+      "symbol": "MRF.NS",
+      "market_cap_usd": 551115327135.0,
+      "error": null
+    },
+    {
+      "symbol": "TATACOMM.NS",
+      "market_cap_usd": 500638890712.2013,
+      "error": null
+    },
+    {
+      "symbol": "KEI.NS",
+      "market_cap_usd": 463662885750.0,
+      "error": null
+    },
+    {
+      "symbol": "MPHASIS.NS",
+      "market_cap_usd": 462158895100.0,
+      "error": null
+    },
+    {
+      "symbol": "BALKRISIND.NS",
+      "market_cap_usd": 441652471152.63184,
+      "error": null
+    },
+    {
+      "symbol": "THERMAX.NS",
+      "market_cap_usd": 409770816630.4468,
+      "error": null
+    },
+    {
+      "symbol": "PAGEIND.NS",
+      "market_cap_usd": 404885626200.0,
+      "error": null
+    },
+    {
+      "symbol": "VOLTAS.NS",
+      "market_cap_usd": 387135145800.0,
+      "error": null
+    },
+    {
+      "symbol": "CONCOR.NS",
+      "market_cap_usd": 386901910980.0,
+      "error": null
+    },
+    {
+      "symbol": "IRCTC.NS",
+      "market_cap_usd": 380839990234.375,
+      "error": null
+    },
+    {
+      "symbol": "JUBLFOOD.NS",
+      "market_cap_usd": 317459516692.1539,
+      "error": null
+    },
+    {
+      "symbol": "BLUESTARCO.NS",
+      "market_cap_usd": 305099967480.0,
+      "error": null
+    }
+  ]
+}
