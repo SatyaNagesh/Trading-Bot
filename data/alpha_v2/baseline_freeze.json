@@ -1,0 +1,57 @@
+{
+  "generated_utc": "2026-09-06T08:11:22.798655+00:00",
+  "phase": "1-freeze",
+  "purpose": "Immutable benchmark for Alpha Research V2; no new hypothesis selection on this data.",
+  "git": {
+    "commit": "773cb52d9002818263469cb9a67069ec09e3b947",
+    "short": "773cb52",
+    "remote": "https://github.com/SatyaNagesh/Trading-Bot.git",
+    "branch": "main"
+  },
+  "previous_decision_records": [
+    "reports/INDEPENDENT_HOLDOUT_VALIDATION_2026-09.md",
+    "reports/VOL_TREND_SIGNAL_TO_ALPHA_PRE_REGISTRATION_2026-09.md",
+    "reports/VOL_TREND_SIGNAL_TO_ALPHA_2026-09.md",
+    "reports/vol_trend_signal_to_alpha.json"
+  ],
+  "corpora": {
+    "development": {
+      "name": "development",
+      "root": "data/historical",
+      "n_parquet": 50,
+      "total_bytes": 42534120,
+      "sha256_tree": "aba724329353a47cb1d92f17ac41897afca46dd90dfe6cb6bca7244e16fe8585"
+    },
+    "frozen_holdout": {
+      "name": "frozen_holdout",
+      "root": "data/holdout",
+      "n_parquet": 61,
+      "total_bytes": 60668001,
+      "sha256_tree": "e24df49775278aa1724a774cd20f6e9a67b5e9891143aaa2e49aa20b8c91746b"
+    },
+    "holdout_2": {
+      "name": "holdout_2",
+      "root": "data/holdout_2/d1d",
+      "n_parquet": 39,
+      "total_bytes": 6671678,
+      "sha256_tree": "11466f7ee81ca47145f0ea15b5d6e72383571acf5b8e65807e6edb85796fcc2f"
+    }
+  },
+  "holdout_2_lock": {
+    "sha256": "11c5eff3c3f314c7f2da68c270fa1c9902ed52625f269baf975b0fc647285149",
+    "n_symbols": 39,
+    "bars_total": 130579,
+    "freeze_ref": "f6e3adc",
+    "locked_utc": "2026-09-06T07:33:16.584151+00:00",
+    "note": "holdout_2 confirmation universe; ANY evaluation must use exactly this corpus"
+  },
+  "frozen_splits": {
+    "train_start": "2014-01-01",
+    "train_end": "2023-01-01",
+    "validation_start": "2023-01-01",
+    "validation_end": "2025-07-01",
+    "final_oos_start": "2025-07-01",
+    "final_oos_end": "2026-09-04"
+  },
+  "immutability_note": "No file under data/ or reports/ from these commits may be modified by the V2 research phase."
+}

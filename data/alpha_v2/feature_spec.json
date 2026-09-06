@@ -1,0 +1,603 @@
+{
+  "phase": "alpha_research_v2",
+  "version": 1,
+  "frozen_utc": "2026-09-06T13:43:41.603398+05:30",
+  "principle": "Hypothesis families pre-registered before any OOS evaluation; definitions immutable after freeze; two-sided tests; no selection on any holdout.",
+  "cost_assumptions": {
+    "primary_cost_per_side_bps": 25.0,
+    "stress_cost_per_side_bps": 50.0,
+    "sensitivity_cost_per_side_bps": 15.0
+  },
+  "selection_gate": {
+    "bh_fdr_q": 0.1,
+    "require_dev_validation_q_le": 0.1,
+    "require_dev_final_oos_sign_replication": true,
+    "require_dev_final_oos_ic_ge_frac_of_validation_ic": 0.4
+  },
+  "confirmation": {
+    "corpus": "ANY future confirmation requires a GENUINELY UNTOUCHED corpus (holdout_3 or later); the frozen 60-symbol holdout is consumed and NOT confirmatory; holdout_2 is reserved for V1 transform confirmation and NOT reused here.",
+    "policy_if_no_new_data": "DO NOT CLAIM CONFIRMATION; classify as PROMISING-NEEDS-NEW-HOLDOUT."
+  },
+  "universe_rules": {
+    "development": "49 symbols (frozen alpha_panel_dev)",
+    "holdout": "60 symbols (frozen alpha_panel_holdout), pre-2014 rows excluded (split=='')",
+    "min_symbols_per_date_cross_section": 20,
+    "min_sector_members": 3
+  },
+  "families": [
+    "A_rel_strength",
+    "B_xs_momentum",
+    "C_reversal",
+    "D_gap",
+    "E_breakout",
+    "F_volume_price",
+    "G_breadth_dispersion",
+    "H_vol_structure"
+  ],
+  "features": [
+    {
+      "family": "A_rel_strength",
+      "key": "A1_rs_mkt_10",
+      "formula": "cumret(10d) - index_cumret(10d)",
+      "lookback": 10,
+      "interpretation": "10-day return of the symbol minus equal-weight universe return; standard relative strength.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "A_rel_strength",
+      "key": "A2_rs_mkt_20",
+      "formula": "cumret(20d) - index_cumret(20d)",
+      "lookback": 20,
+      "interpretation": "20-day relative strength vs market.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "A_rel_strength",
+      "key": "A3_rs_mkt_60",
+      "formula": "cumret(60d) - index_cumret(60d)",
+      "lookback": 60,
+      "interpretation": "60-day (medium-term) relative strength vs market.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "A_rel_strength",
+      "key": "A4_rs_sector_20",
+      "formula": "cumret(20d) - sector_mean_cumret(20d)",
+      "lookback": 20,
+      "interpretation": "20-day return relative to same-sector equal-weight mean (>=3 members).",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "A_rel_strength",
+      "key": "A5_rs_accel_10",
+      "formula": "A1(t) - A1(t-5)",
+      "lookback": 15,
+      "interpretation": "Acceleration of 10-day relative strength (change over prior 5 days).",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "A_rel_strength",
+      "key": "A6_rs_voladj_20",
+      "formula": "(cumret(20d) - index_cumret(20d)) / rv20",
+      "lookback": 20,
+      "interpretation": "Volatility-adjusted relative strength (Sharpe-style RS).",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "B_xs_momentum",
+      "key": "B1_mom_5",
+      "formula": "date_percentile_rank(cumret(5d))",
+      "lookback": 5,
+      "interpretation": "Cross-sectional percentile rank of 5d historical return at date t.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "B_xs_momentum",
+      "key": "B2_mom_10",
+      "formula": "date_percentile_rank(cumret(10d))",
+      "lookback": 10,
+      "interpretation": "Cross-sectional percentile rank of 10d historical return at date t.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "B_xs_momentum",
+      "key": "B3_mom_20",
+      "formula": "date_percentile_rank(cumret(20d))",
+      "lookback": 20,
+      "interpretation": "Cross-sectional percentile rank of 20d historical return at date t.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "B_xs_momentum",
+      "key": "B4_mom_60",
+      "formula": "date_percentile_rank(cumret(60d))",
+      "lookback": 60,
+      "interpretation": "Cross-sectional percentile rank of 60d historical return at date t.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "B_xs_momentum",
+      "key": "B5_mom_voladj_20",
+      "formula": "date_percentile_rank(cumret(20d)/rv20)",
+      "lookback": 20,
+      "interpretation": "Cross-sectional rank of volatility-adjusted 20d momentum.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "C_reversal",
+      "key": "C1_rev_ret1",
+      "formula": "ret(1d) = close_t/close_{t-1} - 1",
+      "lookback": 1,
+      "interpretation": "1-day return; canonical short-term reversal candidate (expected negative).",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "C_reversal",
+      "key": "C2_rev_ret2",
+      "formula": "close_t/close_{t-2} - 1",
+      "lookback": 2,
+      "interpretation": "2-day return; reversal at slightly longer horizon.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "C_reversal",
+      "key": "C3_rev_abn_mkt1",
+      "formula": "ret(1d) - index_ret(1d)",
+      "lookback": 1,
+      "interpretation": "Abnormal 1-day return vs market; idiosyncratic move reversal.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "C_reversal",
+      "key": "C4_rev_dist_mean20",
+      "formula": "close_t/SMA(close,20) - 1",
+      "lookback": 20,
+      "interpretation": "Distance from 20-day mean; mean-reversion distance gauge.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "C_reversal",
+      "key": "C5_rev_volshock",
+      "formula": "ret(1d) x (rv20 / rolling_median(rv20,252))",
+      "lookback": 252,
+      "interpretation": "Overnight/1-day move compounded by a volatility-shock multiplier; does an extreme move on a shock day revert?",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "D_gap",
+      "key": "D1_gap_overnight",
+      "formula": "open_t/close_{t-1} - 1",
+      "lookback": 1,
+      "interpretation": "Overnight return (close->open).",
+      "horizons": [
+        1,
+        3
+      ]
+    },
+    {
+      "family": "D_gap",
+      "key": "D2_gap_intraday",
+      "formula": "close_t/open_t - 1",
+      "lookback": 1,
+      "interpretation": "Intraday return (open->close); isolates where any gap effect lives.",
+      "horizons": [
+        1,
+        3
+      ]
+    },
+    {
+      "family": "D_gap",
+      "key": "D3_gap_mag_atr",
+      "formula": "abs(open_t - close_{t-1}) / ATR(14)",
+      "lookback": 14,
+      "interpretation": "Gap magnitude scaled by recent true-range; big-gap fill hypothesis.",
+      "horizons": [
+        1,
+        3
+      ]
+    },
+    {
+      "family": "D_gap",
+      "key": "D4_gap_dir_trend",
+      "formula": "sign(open_t - close_{t-1}) x sign(close_{t-1}-close_{t-6})",
+      "lookback": 6,
+      "interpretation": "Gap direction vs prior 5-day trend aligned(+1)/against(-1)/zero.",
+      "horizons": [
+        1,
+        3
+      ]
+    },
+    {
+      "family": "D_gap",
+      "key": "D5_gap_vol_conf",
+      "formula": "D1_gap_overnight x volume_t/SMA(volume,20)",
+      "lookback": 20,
+      "interpretation": "Overnight gap with volume confirmation.",
+      "horizons": [
+        1,
+        3
+      ]
+    },
+    {
+      "family": "E_breakout",
+      "key": "E1_dist_high20",
+      "formula": "close_t/rolling_max(high,20) - 1",
+      "lookback": 20,
+      "interpretation": "Distance below recent 20d high (<=0); breakout proximity.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "E_breakout",
+      "key": "E2_dist_low20",
+      "formula": "close_t/rolling_min(low,20) - 1",
+      "lookback": 20,
+      "interpretation": "Distance above recent 20d low (>=0); breakdown proximity.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "E_breakout",
+      "key": "E3_break_mag20",
+      "formula": "rolling_max(high,20)/rolling_max(high,60) - 1",
+      "lookback": 60,
+      "interpretation": "Magnitude of the recent 20d excursion vs prior 60d span.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "E_breakout",
+      "key": "E4_break_vol_exp",
+      "formula": "(close_t >= rolling_max(high,20).shift(1)) x volume_t/SMA(volume,20)",
+      "lookback": 20,
+      "interpretation": "New-20d-high day indicator weighted by relative volume (volume-confirmed breakout).",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "E_breakout",
+      "key": "E5_break_cont5",
+      "formula": "rolling_mean(break_new20, 5)",
+      "lookback": 20,
+      "interpretation": "Fraction of last 5 days that printed a new 20d high (breakout frequency).",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "F_volume_price",
+      "key": "F1_vol_rel20",
+      "formula": "volume_t/SMA(volume,20)",
+      "lookback": 20,
+      "interpretation": "Relative volume; spike/quiet gauge.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "F_volume_price",
+      "key": "F2_vol_accel",
+      "formula": "SMA(volume,5)/SMA(volume,25) - 1",
+      "lookback": 25,
+      "interpretation": "Short volume acceleration (distinct from the failed vol_trend_10v50).",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "F_volume_price",
+      "key": "F3_px_vol_int",
+      "formula": "cumret(20d) x volume_t/SMA(volume,20)",
+      "lookback": 20,
+      "interpretation": "Price x volume interaction at date t (trend x participation).",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "F_volume_price",
+      "key": "F4_abn_vol_ret",
+      "formula": "sign(ret(1d)) x volume_t/SMA(volume,20)",
+      "lookback": 20,
+      "interpretation": "Abnormal volume paired with the sign of today's return.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "F_volume_price",
+      "key": "F5_vol_conf_mom",
+      "formula": "B3_mom_20 x volume_t/SMA(volume,20)",
+      "lookback": 20,
+      "interpretation": "Volume-confirmed cross-sectional momentum (rank x relative volume).",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "G_breadth_dispersion",
+      "key": "G1_breadth_rise",
+      "formula": "fraction(symbols with ret(1d) > 0)",
+      "lookback": 1,
+      "interpretation": "Cross-sectional fraction of risers at date t.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "G_breadth_dispersion",
+      "key": "G2_breadth_ma20",
+      "formula": "fraction(close_t > SMA(close,20))",
+      "lookback": 20,
+      "interpretation": "Fraction of symbols above their 20-day mean.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "G_breadth_dispersion",
+      "key": "G3_breadth_ma50",
+      "formula": "fraction(close_t > SMA(close,50))",
+      "lookback": 50,
+      "interpretation": "Fraction of symbols above their 50-day mean.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "G_breadth_dispersion",
+      "key": "G4_xs_ret_disp",
+      "formula": "cross-sectional std(ret(1d))",
+      "lookback": 1,
+      "interpretation": "Cross-sectional return dispersion (breadth of moves).",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "G_breadth_dispersion",
+      "key": "G5_xs_vol_disp",
+      "formula": "cross-sectional std(log1p(rv20))",
+      "lookback": 20,
+      "interpretation": "Cross-sectional realized-volatility dispersion.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "G_breadth_dispersion",
+      "key": "G6_breadth_mom5",
+      "formula": "G1(t) - G1(t-5)",
+      "lookback": 5,
+      "interpretation": "Breadth momentum: change in the rise-fraction over 5 days.",
+      "horizons": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "family": "H_vol_structure",
+      "key": "H1_vol_exp5",
+      "formula": "rv20_t/rv20_{t-5} - 1",
+      "lookback": 25,
+      "interpretation": "Volatility expansion rate over 5 days.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "H_vol_structure",
+      "key": "H2_vol_cont20",
+      "formula": "rv20_t/rv20_{t-20} - 1",
+      "lookback": 40,
+      "interpretation": "Volatility change over 20 days (negative = contraction).",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "H_vol_structure",
+      "key": "H3_rv_ratio_10_60",
+      "formula": "rv10/rv60 - 1",
+      "lookback": 60,
+      "interpretation": "Short/long realized-vol ratio (vol term-structure tilt).",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "H_vol_structure",
+      "key": "H4_vol_shock",
+      "formula": "rv20/rolling_median(rv20,252) - 1",
+      "lookback": 252,
+      "interpretation": "Realized-vol shock vs trailing median.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "H_vol_structure",
+      "key": "H5_vol_vs_mkt",
+      "formula": "log1p(rv20) - date_mean(log1p(rv20))",
+      "lookback": 20,
+      "interpretation": "Idiosyncratic (market-demeaned) log volatility level.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    },
+    {
+      "family": "H_vol_structure",
+      "key": "H6_xs_vol_rank",
+      "formula": "date_percentile_rank(rv20)",
+      "lookback": 20,
+      "interpretation": "Cross-sectional rank of realized volatility.",
+      "horizons": [
+        1,
+        3,
+        5,
+        10,
+        20
+      ]
+    }
+  ],
+  "exclusion_rules": [
+    "warm-up NaNs (lookback not yet satisfied) are excluded per feature",
+    "cross-sectional ranks are computed only on dates with >= MIN_CS valid symbols",
+    "sector-relative features require >= MIN_SECTOR same-sector members at t",
+    "forward labels are the frozen fwd_ret_{h} (strictly future) fields",
+    "split filters are applied AFTER feature computation (full-history lookbacks)"
+  ],
+  "n_features": 43,
+  "n_hypotheses": 168
+}
