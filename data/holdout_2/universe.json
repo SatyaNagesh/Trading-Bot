@@ -1,0 +1,721 @@
+{
+  "snapshot_utc": "2026-09-06T07:26:37.225452+00:00",
+  "rule": "top-40 by Yahoo fast_info['marketCap'] snapshot at selection instant; ties alphabetized; candidate pool predetermined (remaining frozen holdout pool + static supplement) and disjoint from DEVELOPMENT and HOLDOUT; NO price-history/return information used for selection; failures dropped without substitution",
+  "n_select": 40,
+  "n_candidates": 76,
+  "resolved": 70,
+  "remaining_frozen_pool": [
+    "ACC.NS",
+    "ANGELONE.NS",
+    "APOLLOTYRE.NS",
+    "BATAINDIA.NS",
+    "CDSL.NS",
+    "CEATLTD.NS",
+    "DEVYANI.NS",
+    "JYOTHYLAB.NS",
+    "PGHH.NS",
+    "RAILTEL.NS",
+    "TATACHEM.NS",
+    "TATAELXSI.NS"
+  ],
+  "supplement": [
+    "ABB.NS",
+    "AARTIIND.NS",
+    "ABCAPITAL.NS",
+    "ABFRL.NS",
+    "ABBOTINDIA.NS",
+    "AMBER.NS",
+    "APLAPOLLO.NS",
+    "APTUS.NS",
+    "ASTRAL.NS",
+    "ATGL.NS",
+    "ATUL.NS",
+    "AUTHUM.NS",
+    "AVENTUS.NS",
+    "BAJAJELEC.NS",
+    "BALRAMCHIN.NS",
+    "BANDHANBNK.NS",
+    "BANKINDIA.NS",
+    "BERGEPAINT.NS",
+    "BSE.NS",
+    "CANFINHOME.NS",
+    "CHAMBLFERT.NS",
+    "CHOLAFIN.NS",
+    "CROMPTON.NS",
+    "EXIDEIND.NS",
+    "FEDERALBNK.NS",
+    "GLENMARK.NS",
+    "GODFRYPHLP.NS",
+    "GUJGASLTD.NS",
+    "HONAUT.NS",
+    "HUDCO.NS",
+    "IDBI.NS",
+    "IDFC.NS",
+    "IEX.NS",
+    "INDIGO.NS",
+    "IOC.NS",
+    "IPCA.NS",
+    "JSWENERGY.NS",
+    "KAJARIACER.NS",
+    "KALYANKJIL.NS",
+    "LICHSGFIN.NS",
+    "LICI.NS",
+    "LODHA.NS",
+    "MAXHEALTH.NS",
+    "METROPOLIS.NS",
+    "MOTILALOFS.NS",
+    "NAMINDIA.NS",
+    "NATCOPHARM.NS",
+    "NAVINFLUOR.NS",
+    "NMDC.NS",
+    "OIL.NS",
+    "PCBL.NS",
+    "PETRONET.NS",
+    "PIIND.NS",
+    "RAMCOCEM.NS",
+    "SBICARD.NS",
+    "SRF.NS",
+    "SUNDARMFIN.NS",
+    "SYNGENE.NS",
+    "TIINDIA.NS",
+    "TORNTPOWER.NS",
+    "UBL.NS",
+    "UPL.NS",
+    "WHIRLPOOL.NS",
+    "ZENTEC.NS"
+  ],
+  "failures": [
+    "AUTHUM.NS",
+    "AVENTUS.NS",
+    "IDFC.NS",
+    "IPCA.NS",
+    "GUJGASLTD.NS",
+    "NAMINDIA.NS"
+  ],
+  "failure_reasons": [
+    {
+      "symbol": "CEATLTD.NS",
+      "market_cap_usd": 134828244679.29785,
+      "error": null
+    },
+    {
+      "symbol": "DEVYANI.NS",
+      "market_cap_usd": 171723852585.42654,
+      "error": null
+    },
+    {
+      "symbol": "JYOTHYLAB.NS",
+      "market_cap_usd": 74008410081.51054,
+      "error": null
+    },
+    {
+      "symbol": "APOLLOTYRE.NS",
+      "market_cap_usd": 271725304297.7599,
+      "error": null
+    },
+    {
+      "symbol": "ACC.NS",
+      "market_cap_usd": 241081297408.69995,
+      "error": null
+    },
+    {
+      "symbol": "CDSL.NS",
+      "market_cap_usd": 291471394897.46094,
+      "error": null
+    },
+    {
+      "symbol": "ANGELONE.NS",
+      "market_cap_usd": 273923485756.98877,
+      "error": null
+    },
+    {
+      "symbol": "BATAINDIA.NS",
+      "market_cap_usd": 86466902535.0,
+      "error": null
+    },
+    {
+      "symbol": "PGHH.NS",
+      "market_cap_usd": 248892693280.0,
+      "error": null
+    },
+    {
+      "symbol": "RAILTEL.NS",
+      "market_cap_usd": 86990351299.64484,
+      "error": null
+    },
+    {
+      "symbol": "TATAELXSI.NS",
+      "market_cap_usd": 221661838038.0,
+      "error": null
+    },
+    {
+      "symbol": "TATACHEM.NS",
+      "market_cap_usd": 159248143158.1643,
+      "error": null
+    },
+    {
+      "symbol": "ABFRL.NS",
+      "market_cap_usd": 64452691941.09378,
+      "error": null
+    },
+    {
+      "symbol": "ABB.NS",
+      "market_cap_usd": 1570241058750.0,
+      "error": null
+    },
+    {
+      "symbol": "AARTIIND.NS",
+      "market_cap_usd": 178479665846.9339,
+      "error": null
+    },
+    {
+      "symbol": "ABCAPITAL.NS",
+      "market_cap_usd": 1108433323163.1306,
+      "error": null
+    },
+    {
+      "symbol": "ABBOTINDIA.NS",
+      "market_cap_usd": 553863056630.0,
+      "error": null
+    },
+    {
+      "symbol": "AMBER.NS",
+      "market_cap_usd": 263591290558.0,
+      "error": null
+    },
+    {
+      "symbol": "APLAPOLLO.NS",
+      "market_cap_usd": 624731411250.0,
+      "error": null
+    },
+    {
+      "symbol": "ATGL.NS",
+      "market_cap_usd": 673468677474.2179,
+      "error": null
+    },
+    {
+      "symbol": "APTUS.NS",
+      "market_cap_usd": 129636674020.34888,
+      "error": null
+    },
+    {
+      "symbol": "ASTRAL.NS",
+      "market_cap_usd": 401067834901.5419,
+      "error": null
+    },
+    {
+      "symbol": "ATUL.NS",
+      "market_cap_usd": 188015047430.0,
+      "error": null
+    },
+    {
+      "symbol": "BANDHANBNK.NS",
+      "market_cap_usd": 265752850204.27765,
+      "error": null
+    },
+    {
+      "symbol": "BERGEPAINT.NS",
+      "market_cap_usd": 565861150430.1672,
+      "error": null
+    },
+    {
+      "symbol": "BALRAMCHIN.NS",
+      "market_cap_usd": 146129225571.6455,
+      "error": null
+    },
+    {
+      "symbol": "BANKINDIA.NS",
+      "market_cap_usd": 660136840570.0,
+      "error": null
+    },
+    {
+      "symbol": "BSE.NS",
+      "market_cap_usd": 1384818946585.1213,
+      "error": null
+    },
+    {
+      "symbol": "BAJAJELEC.NS",
+      "market_cap_usd": 38222536356.910034,
+      "error": null
+    },
+    {
+      "symbol": "AUTHUM.NS",
+      "market_cap_usd": null,
+      "error": "no marketCap"
+    },
+    {
+      "symbol": "AVENTUS.NS",
+      "market_cap_usd": null,
+      "error": "no marketCap"
+    },
+    {
+      "symbol": "CANFINHOME.NS",
+      "market_cap_usd": 107509020024.2445,
+      "error": null
+    },
+    {
+      "symbol": "CHOLAFIN.NS",
+      "market_cap_usd": 1570529973204.0,
+      "error": null
+    },
+    {
+      "symbol": "FEDERALBNK.NS",
+      "market_cap_usd": 847073994326.0,
+      "error": null
+    },
+    {
+      "symbol": "CHAMBLFERT.NS",
+      "market_cap_usd": 167893340167.0749,
+      "error": null
+    },
+    {
+      "symbol": "CROMPTON.NS",
+      "market_cap_usd": 149645813019.8555,
+      "error": null
+    },
+    {
+      "symbol": "EXIDEIND.NS",
+      "market_cap_usd": 360697505187.9883,
+      "error": null
+    },
+    {
+      "symbol": "GLENMARK.NS",
+      "market_cap_usd": 687837956817.8984,
+      "error": null
+    },
+    {
+      "symbol": "GODFRYPHLP.NS",
+      "market_cap_usd": 319918589760.0,
+      "error": null
+    },
+    {
+      "symbol": "HONAUT.NS",
+      "market_cap_usd": 315452585145.0,
+      "error": null
+    },
+    {
+      "symbol": "INDIGO.NS",
+      "market_cap_usd": 1924439653269.0,
+      "error": null
+    },
+    {
+      "symbol": "IDBI.NS",
+      "market_cap_usd": 974490179587.8954,
+      "error": null
+    },
+    {
+      "symbol": "IEX.NS",
+      "market_cap_usd": 105797463302.26828,
+      "error": null
+    },
+    {
+      "symbol": "HUDCO.NS",
+      "market_cap_usd": 361382996553.03955,
+      "error": null
+    },
+    {
+      "symbol": "IOC.NS",
+      "market_cap_usd": 1943082487689.999,
+      "error": null
+    },
+    {
+      "symbol": "IDFC.NS",
+      "market_cap_usd": null,
+      "error": "no marketCap"
+    },
+    {
+      "symbol": "JSWENERGY.NS",
+      "market_cap_usd": 989206489082.7324,
+      "error": null
+    },
+    {
+      "symbol": "KALYANKJIL.NS",
+      "market_cap_usd": 618411269426.7766,
+      "error": null
+    },
+    {
+      "symbol": "KAJARIACER.NS",
+      "market_cap_usd": 194794520943.49976,
+      "error": null
+    },
+    {
+      "symbol": "LICHSGFIN.NS",
+      "market_cap_usd": 309162902435.3638,
+      "error": null
+    },
+    {
+      "symbol": "LICI.NS",
+      "market_cap_usd": 2627087833715.0723,
+      "error": null
+    },
+    {
+      "symbol": "IPCA.NS",
+      "market_cap_usd": null,
+      "error": "no marketCap"
+    },
+    {
+      "symbol": "LODHA.NS",
+      "market_cap_usd": 1220688825772.0,
+      "error": null
+    },
+    {
+      "symbol": "MAXHEALTH.NS",
+      "market_cap_usd": 958515923303.5713,
+      "error": null
+    },
+    {
+      "symbol": "METROPOLIS.NS",
+      "market_cap_usd": 122089063813.18652,
+      "error": null
+    },
+    {
+      "symbol": "GUJGASLTD.NS",
+      "market_cap_usd": null,
+      "error": "'currentTradingPeriod'"
+    },
+    {
+      "symbol": "NATCOPHARM.NS",
+      "market_cap_usd": 151129191452.63672,
+      "error": null
+    },
+    {
+      "symbol": "NAVINFLUOR.NS",
+      "market_cap_usd": 439069185555.0,
+      "error": null
+    },
+    {
+      "symbol": "NMDC.NS",
+      "market_cap_usd": 744666919654.5021,
+      "error": null
+    },
+    {
+      "symbol": "PCBL.NS",
+      "market_cap_usd": 124727645468.0,
+      "error": null
+    },
+    {
+      "symbol": "MOTILALOFS.NS",
+      "market_cap_usd": 624609192621.0,
+      "error": null
+    },
+    {
+      "symbol": "PETRONET.NS",
+      "market_cap_usd": 432150034508.074,
+      "error": null
+    },
+    {
+      "symbol": "OIL.NS",
+      "market_cap_usd": 794272564489.2478,
+      "error": null
+    },
+    {
+      "symbol": "SBICARD.NS",
+      "market_cap_usd": 626419069258.5,
+      "error": null
+    },
+    {
+      "symbol": "SUNDARMFIN.NS",
+      "market_cap_usd": 512368443834.56934,
+      "error": null
+    },
+    {
+      "symbol": "SRF.NS",
+      "market_cap_usd": 754946145675.0,
+      "error": null
+    },
+    {
+      "symbol": "RAMCOCEM.NS",
+      "market_cap_usd": 209000610110.0,
+      "error": null
+    },
+    {
+      "symbol": "PIIND.NS",
+      "market_cap_usd": 373955630170.0,
+      "error": null
+    },
+    {
+      "symbol": "TIINDIA.NS",
+      "market_cap_usd": 522258119360.0,
+      "error": null
+    },
+    {
+      "symbol": "SYNGENE.NS",
+      "market_cap_usd": 159230251761.4843,
+      "error": null
+    },
+    {
+      "symbol": "TORNTPOWER.NS",
+      "market_cap_usd": 654621080408.9674,
+      "error": null
+    },
+    {
+      "symbol": "ZENTEC.NS",
+      "market_cap_usd": 162021765986.25293,
+      "error": null
+    },
+    {
+      "symbol": "WHIRLPOOL.NS",
+      "market_cap_usd": 103560653788.27057,
+      "error": null
+    },
+    {
+      "symbol": "NAMINDIA.NS",
+      "market_cap_usd": null,
+      "error": "no marketCap"
+    },
+    {
+      "symbol": "UPL.NS",
+      "market_cap_usd": 492082196127.2704,
+      "error": null
+    },
+    {
+      "symbol": "UBL.NS",
+      "market_cap_usd": 338279954085.80383,
+      "error": null
+    }
+  ],
+  "selected": [
+    "LICI.NS",
+    "IOC.NS",
+    "INDIGO.NS",
+    "CHOLAFIN.NS",
+    "ABB.NS",
+    "BSE.NS",
+    "LODHA.NS",
+    "ABCAPITAL.NS",
+    "JSWENERGY.NS",
+    "IDBI.NS",
+    "MAXHEALTH.NS",
+    "FEDERALBNK.NS",
+    "OIL.NS",
+    "SRF.NS",
+    "NMDC.NS",
+    "GLENMARK.NS",
+    "ATGL.NS",
+    "BANKINDIA.NS",
+    "TORNTPOWER.NS",
+    "SBICARD.NS",
+    "APLAPOLLO.NS",
+    "MOTILALOFS.NS",
+    "KALYANKJIL.NS",
+    "BERGEPAINT.NS",
+    "ABBOTINDIA.NS",
+    "TIINDIA.NS",
+    "SUNDARMFIN.NS",
+    "UPL.NS",
+    "NAVINFLUOR.NS",
+    "PETRONET.NS",
+    "ASTRAL.NS",
+    "PIIND.NS",
+    "HUDCO.NS",
+    "EXIDEIND.NS",
+    "UBL.NS",
+    "GODFRYPHLP.NS",
+    "HONAUT.NS",
+    "LICHSGFIN.NS",
+    "CDSL.NS",
+    "ANGELONE.NS"
+  ],
+  "selected_with_caps": [
+    {
+      "symbol": "LICI.NS",
+      "market_cap_usd": 2627087833715.0723,
+      "error": null
+    },
+    {
+      "symbol": "IOC.NS",
+      "market_cap_usd": 1943082487689.999,
+      "error": null
+    },
+    {
+      "symbol": "INDIGO.NS",
+      "market_cap_usd": 1924439653269.0,
+      "error": null
+    },
+    {
+      "symbol": "CHOLAFIN.NS",
+      "market_cap_usd": 1570529973204.0,
+      "error": null
+    },
+    {
+      "symbol": "ABB.NS",
+      "market_cap_usd": 1570241058750.0,
+      "error": null
+    },
+    {
+      "symbol": "BSE.NS",
+      "market_cap_usd": 1384818946585.1213,
+      "error": null
+    },
+    {
+      "symbol": "LODHA.NS",
+      "market_cap_usd": 1220688825772.0,
+      "error": null
+    },
+    {
+      "symbol": "ABCAPITAL.NS",
+      "market_cap_usd": 1108433323163.1306,
+      "error": null
+    },
+    {
+      "symbol": "JSWENERGY.NS",
+      "market_cap_usd": 989206489082.7324,
+      "error": null
+    },
+    {
+      "symbol": "IDBI.NS",
+      "market_cap_usd": 974490179587.8954,
+      "error": null
+    },
+    {
+      "symbol": "MAXHEALTH.NS",
+      "market_cap_usd": 958515923303.5713,
+      "error": null
+    },
+    {
+      "symbol": "FEDERALBNK.NS",
+      "market_cap_usd": 847073994326.0,
+      "error": null
+    },
+    {
+      "symbol": "OIL.NS",
+      "market_cap_usd": 794272564489.2478,
+      "error": null
+    },
+    {
+      "symbol": "SRF.NS",
+      "market_cap_usd": 754946145675.0,
+      "error": null
+    },
+    {
+      "symbol": "NMDC.NS",
+      "market_cap_usd": 744666919654.5021,
+      "error": null
+    },
+    {
+      "symbol": "GLENMARK.NS",
+      "market_cap_usd": 687837956817.8984,
+      "error": null
+    },
+    {
+      "symbol": "ATGL.NS",
+      "market_cap_usd": 673468677474.2179,
+      "error": null
+    },
+    {
+      "symbol": "BANKINDIA.NS",
+      "market_cap_usd": 660136840570.0,
+      "error": null
+    },
+    {
+      "symbol": "TORNTPOWER.NS",
+      "market_cap_usd": 654621080408.9674,
+      "error": null
+    },
+    {
+      "symbol": "SBICARD.NS",
+      "market_cap_usd": 626419069258.5,
+      "error": null
+    },
+    {
+      "symbol": "APLAPOLLO.NS",
+      "market_cap_usd": 624731411250.0,
+      "error": null
+    },
+    {
+      "symbol": "MOTILALOFS.NS",
+      "market_cap_usd": 624609192621.0,
+      "error": null
+    },
+    {
+      "symbol": "KALYANKJIL.NS",
+      "market_cap_usd": 618411269426.7766,
+      "error": null
+    },
+    {
+      "symbol": "BERGEPAINT.NS",
+      "market_cap_usd": 565861150430.1672,
+      "error": null
+    },
+    {
+      "symbol": "ABBOTINDIA.NS",
+      "market_cap_usd": 553863056630.0,
+      "error": null
+    },
+    {
+      "symbol": "TIINDIA.NS",
+      "market_cap_usd": 522258119360.0,
+      "error": null
+    },
+    {
+      "symbol": "SUNDARMFIN.NS",
+      "market_cap_usd": 512368443834.56934,
+      "error": null
+    },
+    {
+      "symbol": "UPL.NS",
+      "market_cap_usd": 492082196127.2704,
+      "error": null
+    },
+    {
+      "symbol": "NAVINFLUOR.NS",
+      "market_cap_usd": 439069185555.0,
+      "error": null
+    },
+    {
+      "symbol": "PETRONET.NS",
+      "market_cap_usd": 432150034508.074,
+      "error": null
+    },
+    {
+      "symbol": "ASTRAL.NS",
+      "market_cap_usd": 401067834901.5419,
+      "error": null
+    },
+    {
+      "symbol": "PIIND.NS",
+      "market_cap_usd": 373955630170.0,
+      "error": null
+    },
+    {
+      "symbol": "HUDCO.NS",
+      "market_cap_usd": 361382996553.03955,
+      "error": null
+    },
+    {
+      "symbol": "EXIDEIND.NS",
+      "market_cap_usd": 360697505187.9883,
+      "error": null
+    },
+    {
+      "symbol": "UBL.NS",
+      "market_cap_usd": 338279954085.80383,
+      "error": null
+    },
+    {
+      "symbol": "GODFRYPHLP.NS",
+      "market_cap_usd": 319918589760.0,
+      "error": null
+    },
+    {
+      "symbol": "HONAUT.NS",
+      "market_cap_usd": 315452585145.0,
+      "error": null
+    },
+    {
+      "symbol": "LICHSGFIN.NS",
+      "market_cap_usd": 309162902435.3638,
+      "error": null
+    },
+    {
+      "symbol": "CDSL.NS",
+      "market_cap_usd": 291471394897.46094,
+      "error": null
+    },
+    {
+      "symbol": "ANGELONE.NS",
+      "market_cap_usd": 273923485756.98877,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "sha256": "11c5eff3c3f314c7f2da68c270fa1c9902ed52625f269baf975b0fc647285149",
+  "n_symbols": 39,
+  "bars_total": 130579,
+  "freeze_ref": "f6e3adc",
+  "locked_utc": "2026-09-06T07:33:16.584151+00:00",
+  "note": "holdout_2 confirmation universe; ANY evaluation must use exactly this corpus"
+}
