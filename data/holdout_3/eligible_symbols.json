@@ -1,0 +1,48 @@
+{
+  "kept": [
+    "3MINDIA.NS",
+    "ASAHIINDIA.NS",
+    "ASTRAZEN.NS",
+    "ATUL.NS",
+    "AUBANK.NS",
+    "BAYERCROP.NS",
+    "BDL.NS",
+    "BEML.NS",
+    "CASTROLIND.NS",
+    "CHENNPETRO.NS",
+    "COCHINSHIP.NS",
+    "COROMANDEL.NS",
+    "DEEPAKNTR.NS",
+    "ENDURANCE.NS",
+    "ESCORTS.NS",
+    "GESHIP.NS",
+    "GRANULES.NS",
+    "IIFL.NS",
+    "INDHOTEL.NS",
+    "JINDALSAW.NS",
+    "JKCEMENT.NS",
+    "KAYNES.NS",
+    "KIMS.NS",
+    "KPRMILL.NS",
+    "MANAPPURAM.NS",
+    "MAZDOCK.NS",
+    "METROBRAND.NS",
+    "NEULANDLAB.NS",
+    "NUVAMA.NS",
+    "OFSS.NS",
+    "POLYMED.NS",
+    "RBLBANK.NS",
+    "REDINGTON.NS",
+    "SCHAEFFLER.NS",
+    "SONACOMS.NS",
+    "SUMICHEM.NS",
+    "SUPREMEIND.NS",
+    "WELCORP.NS"
+  ],
+  "dropped": [
+    {
+      "symbol": "EMCURE.NS",
+      "bars": 538
+    }
+  ]
+}

@@ -1,0 +1,2214 @@
+{
+  "generated_utc": "2026-09-06T12:35:55.876345+00:00",
+  "source": "yfinance (auto_adjust=True)",
+  "datasets_expected": 39,
+  "datasets_validated": 39,
+  "rejected": [],
+  "failed_ingestion": [],
+  "quality_summary": {
+    "overall": {
+      "WARN": 39
+    },
+    "by_timeframe": {
+      "d1d": {
+        "WARN": 39
+      }
+    }
+  },
+  "datasets": [
+    {
+      "symbol": "OFSS.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "WARN",
+          "detail": "1 single-day |return|>20% (possible corp-action artifact)"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "INDHOTEL.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "MAZDOCK.NS",
+      "timeframe": "d1d",
+      "bars": 1458,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "82 missing business days (5.3%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "2 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2020-10-12 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "AUBANK.NS",
+      "timeframe": "d1d",
+      "bars": 2261,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "128 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2017-07-11 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "WELCORP.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "WARN",
+          "detail": "2 single-day |return|>20% (possible corp-action artifact)"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "RBLBANK.NS",
+      "timeframe": "d1d",
+      "bars": 2472,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "141 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "WARN",
+          "detail": "2 single-day |return|>20% (possible corp-action artifact)"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2016-08-31 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "SCHAEFFLER.NS",
+      "timeframe": "d1d",
+      "bars": 4112,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "238 missing business days (5.5%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "COROMANDEL.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "SONACOMS.NS",
+      "timeframe": "d1d",
+      "bars": 1282,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "75 missing business days (5.5%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "1 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2021-06-24 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "BDL.NS",
+      "timeframe": "d1d",
+      "bars": 2086,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "120 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2018-03-23 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "SUPREMEIND.NS",
+      "timeframe": "d1d",
+      "bars": 4112,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "238 missing business days (5.5%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "KPRMILL.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "COCHINSHIP.NS",
+      "timeframe": "d1d",
+      "bars": 2238,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "128 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2017-08-11 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "JKCEMENT.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "ENDURANCE.NS",
+      "timeframe": "d1d",
+      "bars": 2441,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "137 missing business days (5.3%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2016-10-19 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "3MINDIA.NS",
+      "timeframe": "d1d",
+      "bars": 4112,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "238 missing business days (5.5%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "EMCURE.NS",
+      "timeframe": "d1d",
+      "bars": 533,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "30 missing business days (5.3%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "PASS",
+          "detail": "no weekend bars"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2024-07-10 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "NUVAMA.NS",
+      "timeframe": "d1d",
+      "bars": 724,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "45 missing business days (5.9%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "1 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2023-09-26 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "ESCORTS.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "MANAPPURAM.NS",
+      "timeframe": "d1d",
+      "bars": 3991,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "232 missing business days (5.5%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "WARN",
+          "detail": "2 single-day |return|>20% (possible corp-action artifact)"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-06-30 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "KIMS.NS",
+      "timeframe": "d1d",
+      "bars": 1282,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "73 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "1 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2021-06-28 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "NEULANDLAB.NS",
+      "timeframe": "d1d",
+      "bars": 4102,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "248 missing business days (5.7%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "WARN",
+          "detail": "2 single-day |return|>20% (possible corp-action artifact)"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "REDINGTON.NS",
+      "timeframe": "d1d",
+      "bars": 4108,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "242 missing business days (5.6%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "IIFL.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "WARN",
+          "detail": "1 single-day |return|>20% (possible corp-action artifact)"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "METROBRAND.NS",
+      "timeframe": "d1d",
+      "bars": 1161,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "67 missing business days (5.5%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "1 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2021-12-22 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "SUMICHEM.NS",
+      "timeframe": "d1d",
+      "bars": 1635,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "90 missing business days (5.2%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "2 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2020-01-27 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "ASAHIINDIA.NS",
+      "timeframe": "d1d",
+      "bars": 4116,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "234 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "7 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "KAYNES.NS",
+      "timeframe": "d1d",
+      "bars": 934,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "55 missing business days (5.6%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "1 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "WARN",
+          "detail": "1 single-day |return|>20% (possible corp-action artifact)"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2022-11-22 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "DEEPAKNTR.NS",
+      "timeframe": "d1d",
+      "bars": 3824,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "334 missing business days (8.0%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-09-29 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "CHENNPETRO.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "WARN",
+          "detail": "1 single-day |return|>20% (possible corp-action artifact)"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "GRANULES.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "GESHIP.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "JINDALSAW.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "CASTROLIND.NS",
+      "timeframe": "d1d",
+      "bars": 4103,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "247 missing business days (5.7%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "ATUL.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "BAYERCROP.NS",
+      "timeframe": "d1d",
+      "bars": 4109,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.5%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "4 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-08 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "ASTRAZEN.NS",
+      "timeframe": "d1d",
+      "bars": 4110,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "240 missing business days (5.5%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "POLYMED.NS",
+      "timeframe": "d1d",
+      "bars": 3633,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "215 missing business days (5.6%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "PASS",
+          "detail": "no >20% single-day price moves"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2011-12-07 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    },
+    {
+      "symbol": "BEML.NS",
+      "timeframe": "d1d",
+      "bars": 4113,
+      "overall": "WARN",
+      "checks": [
+        {
+          "check": "monotonic",
+          "status": "PASS",
+          "detail": "index strictly/NON-monotonic increasing"
+        },
+        {
+          "check": "duplicates",
+          "status": "PASS",
+          "detail": "no duplicate timestamps"
+        },
+        {
+          "check": "missing",
+          "status": "WARN",
+          "detail": "237 missing business days (5.4%; NSE holidays expected)"
+        },
+        {
+          "check": "ohlc_relationship",
+          "status": "PASS",
+          "detail": "high>=max(o,c), low<=min(o,c), low<=high"
+        },
+        {
+          "check": "prices_positive",
+          "status": "PASS",
+          "detail": "all OHLC prices positive"
+        },
+        {
+          "check": "volume",
+          "status": "PASS",
+          "detail": "volume>0"
+        },
+        {
+          "check": "timezone",
+          "status": "PASS",
+          "detail": "tz=Asia/Kolkata"
+        },
+        {
+          "check": "session_alignment",
+          "status": "WARN",
+          "detail": "3 weekend bars (documented NSE special sessions; kept if volume>0)"
+        },
+        {
+          "check": "corporate_action_spikes",
+          "status": "WARN",
+          "detail": "1 single-day |return|>20% (possible corp-action artifact)"
+        }
+      ],
+      "sha256_ok": true,
+      "actual_start": "2010-01-04 00:00:00+05:30",
+      "actual_end": "2026-09-04 00:00:00+05:30"
+    }
+  ],
+  "deficiencies": {
+    "intraday_depth": "yfinance serves only last ~5-7 sessions (1m) and ~55 days (15m) for NSE; no 6-12 month intraday history available.",
+    "daily_holidays": "missing business days in daily series are expected NSE holidays (flagged WARN, not FAIL)."
+  },
+  "purged_empty": [
+    {
+      "symbol": "JBCHEPHARM.NS",
+      "reason": "empty after cleanse"
+    }
+  ]
+}

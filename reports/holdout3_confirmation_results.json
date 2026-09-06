@@ -1,0 +1,145 @@
+{
+ "phase": "composite_alpha_v3_holdout3",
+ "corpus": "holdout_3 (38 eligible symbols, 101710 retained 2014+ rows)",
+ "freeze_version": 2,
+ "evaluated_once_utc": "2026-09-06",
+ "dev_val_ic_reference": {
+  "COMP1_REVERSAL_BREADTH": 0.03725,
+  "COMP3_REVERSAL_BREADTH_DISP": 0.02894
+ },
+ "strict_threshold_0_8x": {
+  "COMP1_REVERSAL_BREADTH": 0.0298,
+  "COMP3_REVERSAL_BREADTH_DISP": 0.0232
+ },
+ "composites": {
+  "C0_BASELINE": {
+   "ic": {
+    "train": 0.02631,
+    "validation": 0.02663,
+    "final_oos": 0.03095
+   },
+   "p": {
+    "train": 9.82347536648831e-12,
+    "validation": 4.719122789986763e-05,
+    "final_oos": 0.0009563694881418172
+   },
+   "net25bp_pct": {
+    "train": -67.929,
+    "validation": -36.7885,
+    "final_oos": 52.7403
+   },
+   "temporal_bands": {
+    "n": 25,
+    "frac_pos": 0.96,
+    "median_ic": 0.0297
+   },
+   "permutation_p": 0.0
+  },
+  "COMP1_REVERSAL_BREADTH": {
+   "ic": {
+    "train": 0.02965,
+    "validation": 0.02047,
+    "final_oos": 0.04717
+   },
+   "p": {
+    "train": 2.60603104118573e-06,
+    "validation": 0.06559366229933983,
+    "final_oos": 0.0015775976176861661
+   },
+   "net25bp_pct": {
+    "train": -4.6707,
+    "validation": 19.6099,
+    "final_oos": 45.4521
+   },
+   "temporal_bands": {
+    "n": 10,
+    "frac_pos": 1.0,
+    "median_ic": 0.0304
+   },
+   "permutation_p": 0.0
+  },
+  "COMP3_REVERSAL_BREADTH_DISP": {
+   "ic": {
+    "train": 0.02848,
+    "validation": 0.01967,
+    "final_oos": 0.05827
+   },
+   "p": {
+    "train": 3.464187179158529e-05,
+    "validation": 0.09562651655581833,
+    "final_oos": 0.0008452792631321593
+   },
+   "net25bp_pct": {
+    "train": -20.7751,
+    "validation": 18.0769,
+    "final_oos": 38.32
+   },
+   "temporal_bands": {
+    "n": 8,
+    "frac_pos": 1.0,
+    "median_ic": 0.0263
+   },
+   "permutation_p": 0.0
+  },
+  "COMP2_REVERSAL_DISP": {
+   "ic": {
+    "train": 0.02725,
+    "validation": 0.0285,
+    "final_oos": 0.03271
+   },
+   "p": {
+    "train": 6.576850175576965e-11,
+    "validation": 4.320028406801235e-05,
+    "final_oos": 0.002440719314656059
+   },
+   "net25bp_pct": {
+    "train": -69.863,
+    "validation": -24.1512,
+    "final_oos": 51.7456
+   },
+   "temporal_bands": {
+    "n": 22,
+    "frac_pos": 0.9545,
+    "median_ic": 0.0275
+   },
+   "permutation_p": 0.0
+  }
+ },
+ "verdicts": {
+  "COMP1_REVERSAL_BREADTH": {
+   "overall_ic_h1": 0.0295,
+   "threshold_0_8x_dev_val": 0.0296,
+   "net25bps_pct": 67.4907,
+   "net25_rebalances": 1162,
+   "bands_frac_positive": 1.0,
+   "pass_ic": false,
+   "pass_net": true,
+   "pass_band": true,
+   "verdict": "FAIL"
+  },
+  "COMP3_REVERSAL_BREADTH_DISP": {
+   "overall_ic_h1": 0.0291,
+   "threshold_0_8x_dev_val": 0.023200000000000002,
+   "net25bps_pct": 30.6739,
+   "net25_rebalances": 973,
+   "bands_frac_positive": 1.0,
+   "pass_ic": true,
+   "pass_net": true,
+   "pass_band": true,
+   "verdict": "PASS"
+  }
+ },
+ "classification": {
+  "COMP3_REVERSAL_BREADTH_DISP": "A (CONFIRMED on holdout-3) - research result; no strategy/paper/live without explicit Phase-15 decision",
+  "COMP1_REVERSAL_BREADTH": "B - replicated (pooled IC 0.0295, permutation 0/200, 10/10 bands, net +67%) but strict 0.8x rule missed by 0.0003; NOT upgraded",
+  "COMP2_REVERSAL_DISP": "D (redundant)"
+ },
+ "caveats": [
+  "mid/small-cap universe tilt favors mean reversion",
+  "38-symbol cross-section; 10% deciles = ~3-4 names per leg (idiosyncratic)",
+  "validation windows individually ns; significance from 12.5y pooling + 2025-26 final window",
+  "raw C3 decile economics remain fragile (C0 net -69%); gate drives economics",
+  "gate lift over baseline compressed on this universe (confirm 0.0295 vs base 0.0270)",
+  "one-shot; no re-runs"
+ ]
+}

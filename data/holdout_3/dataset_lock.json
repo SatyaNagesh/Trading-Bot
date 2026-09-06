@@ -1,0 +1,8 @@
+{
+  "sha256": "98fb2f578e7c9d7f267ef19f4d35facd7bac3e29f0f095d0d54c8885b3a09d01",
+  "n_symbols": 38,
+  "bars_total": 126910,
+  "universe_ref": "data/holdout_3/universe.json (BEFORE any download)",
+  "locked_utc": "2026-09-06T12:35:55.880769+00:00",
+  "note": "holdout_3 confirmation universe for Composite V3; ANY evaluation must use exactly this corpus"
+}
