@@ -1,0 +1,14 @@
+{
+  "dataset_lock_sha256": "1f5bb43f75b4d34e193d815d7eeb19dd651bba6dc58d6984b1a23893dee316bc",
+  "n_symbols": 60,
+  "range": {
+    "start": "2010-01-01",
+    "end": "2026-09-05"
+  },
+  "freeze_ref": {
+    "commit": "eb05d85",
+    "tag": "research-freeze-2026-09-06"
+  },
+  "bars_total": 226559,
+  "requested_vs_actual_note": "daily only (d1d); no intraday in holdout store"
+}
