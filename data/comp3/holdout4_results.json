@@ -1,0 +1,284 @@
+{
+ "freeze_version": 2,
+ "corpus": "holdout_4 (untouched)",
+ "corpus_lock": "OK locked=8154a050868f15e4f336520c3e2c49c89f0a781412cb9c0a1b2ad43bff673e11 actual=8154a050868f15e4f336520c3e2c49c89f0a781412cb9c0a1b2ad43bff673e11",
+ "score": "COMP3_REVERSAL_BREADTH_DISP",
+ "constructions": {
+  "quintile_eq": {
+   "25bps": {
+    "status": "OK",
+    "active_days": 931,
+    "avg_turnover": 0.0021,
+    "gross_cum_pct": 116.2352,
+    "net_cum_pct": 115.1408,
+    "avg_net_bps": 9.1482,
+    "median_net_bps": 7.5523,
+    "expectancy_bps": 9.1482,
+    "win_rate": 0.5209,
+    "profit_factor": 1.1906,
+    "max_drawdown_pct": -20.4711,
+    "sharpe": 1.072,
+    "sortino": 1.7422,
+    "worst_day_bps": -472.7803,
+    "best_day_bps": 479.3673
+   },
+   "50bps": {
+    "status": "OK",
+    "active_days": 931,
+    "avg_turnover": 0.0021,
+    "gross_cum_pct": 116.2352,
+    "net_cum_pct": 114.0464,
+    "avg_net_bps": 9.0945,
+    "median_net_bps": 7.5523,
+    "expectancy_bps": 9.0945,
+    "win_rate": 0.5209,
+    "profit_factor": 1.1893,
+    "max_drawdown_pct": -20.4711,
+    "sharpe": 1.065,
+    "sortino": 1.7293,
+    "worst_day_bps": -472.7803,
+    "best_day_bps": 479.3673
+   },
+   "100bps": {
+    "status": "OK",
+    "active_days": 931,
+    "avg_turnover": 0.0021,
+    "gross_cum_pct": 116.2352,
+    "net_cum_pct": 111.8576,
+    "avg_net_bps": 8.9871,
+    "median_net_bps": 7.5523,
+    "expectancy_bps": 8.9871,
+    "win_rate": 0.5209,
+    "profit_factor": 1.1866,
+    "max_drawdown_pct": -20.4711,
+    "sharpe": 1.0507,
+    "sortino": 1.6996,
+    "worst_day_bps": -472.7803,
+    "best_day_bps": 479.3673
+   }
+  },
+  "decile_eq": {
+   "25bps": {
+    "status": "OK",
+    "active_days": 931,
+    "avg_turnover": 0.0021,
+    "gross_cum_pct": 364.714,
+    "net_cum_pct": 362.3797,
+    "avg_net_bps": 18.5234,
+    "median_net_bps": 15.6398,
+    "expectancy_bps": 18.5234,
+    "win_rate": 0.5424,
+    "profit_factor": 1.2671,
+    "max_drawdown_pct": -22.7608,
+    "sharpe": 1.4449,
+    "sortino": 2.4281,
+    "worst_day_bps": -917.4973,
+    "best_day_bps": 803.19
+   },
+   "50bps": {
+    "status": "OK",
+    "active_days": 931,
+    "avg_turnover": 0.0021,
+    "gross_cum_pct": 364.714,
+    "net_cum_pct": 360.0454,
+    "avg_net_bps": 18.4697,
+    "median_net_bps": 15.6398,
+    "expectancy_bps": 18.4697,
+    "win_rate": 0.5424,
+    "profit_factor": 1.2662,
+    "max_drawdown_pct": -22.7608,
+    "sharpe": 1.4405,
+    "sortino": 2.4217,
+    "worst_day_bps": -917.4973,
+    "best_day_bps": 803.19
+   },
+   "100bps": {
+    "status": "OK",
+    "active_days": 931,
+    "avg_turnover": 0.0021,
+    "gross_cum_pct": 364.714,
+    "net_cum_pct": 355.3769,
+    "avg_net_bps": 18.3623,
+    "median_net_bps": 15.6398,
+    "expectancy_bps": 18.3623,
+    "win_rate": 0.5424,
+    "profit_factor": 1.2642,
+    "max_drawdown_pct": -22.7608,
+    "sharpe": 1.4313,
+    "sortino": 2.4059,
+    "worst_day_bps": -917.4973,
+    "best_day_bps": 803.19
+   }
+  }
+ },
+ "robustness": {
+  "half_year_tiles": [
+   {
+    "tile": 1,
+    "n": 156,
+    "mean_bps": 11.0879,
+    "net_cum_pct": 17.2757
+   },
+   {
+    "tile": 2,
+    "n": 155,
+    "mean_bps": -5.6903,
+    "net_cum_pct": -9.5985
+   },
+   {
+    "tile": 3,
+    "n": 155,
+    "mean_bps": 7.4109,
+    "net_cum_pct": 10.3445
+   },
+   {
+    "tile": 4,
+    "n": 155,
+    "mean_bps": 10.876,
+    "net_cum_pct": 16.1922
+   },
+   {
+    "tile": 5,
+    "n": 155,
+    "mean_bps": 8.7297,
+    "net_cum_pct": 12.9319
+   },
+   {
+    "tile": 6,
+    "n": 155,
+    "mean_bps": 22.4628,
+    "net_cum_pct": 40.1505
+   }
+  ],
+  "positive_tile_frac": 0.8333333333333334,
+  "regime_breakdown": {
+   "down|high_vol": {
+    "active_days": 126,
+    "net_cum_pct": 44.3676
+   },
+   "down|low_vol": {
+    "active_days": 32,
+    "net_cum_pct": 9.5088
+   },
+   "down|med_vol": {
+    "active_days": 61,
+    "net_cum_pct": 26.3915
+   },
+   "sideways|high_vol": {
+    "active_days": 74,
+    "net_cum_pct": 8.0739
+   },
+   "sideways|low_vol": {
+    "active_days": 72,
+    "net_cum_pct": -10.4836
+   },
+   "sideways|med_vol": {
+    "active_days": 106,
+    "net_cum_pct": -0.2641
+   },
+   "up|high_vol": {
+    "active_days": 99,
+    "net_cum_pct": 27.9357
+   },
+   "up|low_vol": {
+    "active_days": 175,
+    "net_cum_pct": 12.4433
+   },
+   "up|med_vol": {
+    "active_days": 186,
+    "net_cum_pct": -22.4313
+   }
+  }
+ },
+ "concentration": {
+  "base_net_cum_pct": 115.1408,
+  "top5_share_abs": 5.0284,
+  "top5": {
+   "ADANIENSOL_NS": 0.86903,
+   "CHOLAHLDNG_NS": 0.8577,
+   "FORTIS_NS": 0.85258,
+   "AARTIIND_NS": 0.8517,
+   "ACC_NS": 0.8517
+  },
+  "top10": {
+   "ADANIENSOL_NS": 0.86903,
+   "CHOLAHLDNG_NS": 0.8577,
+   "FORTIS_NS": 0.85258,
+   "AARTIIND_NS": 0.8517,
+   "ACC_NS": 0.8517,
+   "AJANTPHARM_NS": 0.8517,
+   "APOLLOTYRE_NS": 0.8517,
+   "ARE&M_NS": 0.8517,
+   "BASF_NS": 0.8517,
+   "BIOCON_NS": 0.8517
+  },
+  "leave_one_out_sign_flips": [
+   "CHOLAHLDNG_NS",
+   "ADANIENSOL_NS",
+   "SYNGENE_NS"
+  ],
+  "leave_one_out": {
+   "CHOLAHLDNG_NS": -0.0062,
+   "ADANIENSOL_NS": -0.0272,
+   "SYNGENE_NS": -0.0055,
+   "LTTS_NS": 0.083,
+   "AMBER_NS": 0.0537,
+   "HAL_NS": 0.0666,
+   "DALBHARAT_NS": 0.127,
+   "POWERINDIA_NS": 0.1142,
+   "POLICYBZR_NS": 0.3678,
+   "STARHEALTH_NS": 0.3709,
+   "JIOFIN_NS": 0.3733
+  },
+  "concentration_fragile": true
+ },
+ "tail": {
+  "full": {
+   "n": 931,
+   "net_cum_pct": 115.1408,
+   "worst_day_bps": -472.7803,
+   "share_of_full": 10000.0
+  },
+  "winsorized_1pct": {
+   "n": 931,
+   "net_cum_pct": 118.5965,
+   "worst_day_bps": -307.6607,
+   "share_of_full": 10300.1
+  },
+  "drop_1pct": {
+   "n": 911,
+   "net_cum_pct": 113.1696,
+   "worst_day_bps": -299.2467,
+   "share_of_full": 9828.8
+  },
+  "drop_5pct": {
+   "n": 837,
+   "net_cum_pct": 103.1409,
+   "worst_day_bps": -214.6789,
+   "share_of_full": 8957.8
+  }
+ },
+ "uncertainty": {
+  "n_days": 931,
+  "autocorr_lag1": -0.050741292493878834,
+  "n_eff": 1030,
+  "block_size": 47,
+  "sims": 5000,
+  "ci95_expectancy_bps": [
+   0.6482,
+   17.6061
+  ]
+ },
+ "ic_diagnostics": {
+  "n": 33374,
+  "n_eff": 33374.0,
+  "spearman_ic": 0.01864,
+  "pvalue": 0.0006610925507104515,
+  "sign": 1
+ },
+ "classification": {
+  "grade": "E CONCENTRATION-FRAGILE",
+  "reason": "top-5 share>=50% or sign flip on leave-one-out"
+ },
+ "locked": "File written before holdout_4 acquisition; single evaluation; no reruns."
+}
