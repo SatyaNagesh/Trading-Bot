@@ -1,0 +1,7 @@
+{
+  "window": {
+    "start": "2014-01-01",
+    "end": "2026-09-08"
+  },
+  "note": "holdout_4 strategy confirmation \u2014 evaluated as a single window, not split; dev train/validation/final_oos boundaries do not apply"
+}
