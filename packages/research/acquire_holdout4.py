@@ -150,10 +150,9 @@ def main() -> None:
 
     # Pre-registered strategy window (freeze doc). Evaluated as ONE undivided
     # strategy sample (confirmation window), not split by dev boundaries.
+    # Schema matches alpha_dataset.load_splits: {split_name: {start, end}}.
     (HOLD4 / "splits.json").write_text(json.dumps({
-        "window": {"start": args.start, "end": args.end},
-        "note": "holdout_4 strategy confirmation — evaluated as a single window, "
-                "not split; dev train/validation/final_oos boundaries do not apply",
+        "holdout4": {"start": args.start, "end": args.end},
     }, indent=2))
 
     lock_dataset(di)

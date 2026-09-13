@@ -85,17 +85,13 @@ def build(self) -> None:
     # true session returns close[t+1] / open[t+1] - 1, aligned to signal date t
     frames = []
     for f in sorted(D1D.glob("*.parquet")):
-        d1 = pd.read_parquet(f)
-        d1 = d1[(d1["volume"] > 0)]
-        d1["symbol"] = f.stem.replace(".", "_")
-        sess = d1.groupby("symbol", group_keys=False).apply(
-            lambda g: pd.Series((g["close"].shift(-1) / g["open"] - 1).values,
-                                index=g.index, name="session_ret"))
-        frames.append(sess)
-    sess = pd.concat(frames).rename("session_ret").to_frame()
-    sess.index = sess.index.rename(["ts"])
-    sess["symbol"] = sess.index.get_level_values(0)
-    sess = sess.set_index("symbol", append=True).swaplevel("symbol", "ts")
+        d1 = pd.read_parquet(f, columns=["open", "close", "volume"])
+        d1 = d1[d1["volume"] > 0]
+        ratio = (d1["close"] / d1["open"] - 1).shift(-1).rename("session_ret")
+        df = ratio.to_frame()
+        df["symbol"] = f.stem                       # SYMBOL_NS (panel convention)
+        frames.append(df.set_index("symbol", append=True).swaplevel("symbol", "ts"))
+    sess = pd.concat(frames).sort_index()
     sess.to_parquet(SESS_PANEL)
     print(f"wrote {PANEL}, {V2PANEL}, {SESS_PANEL}")
 
@@ -112,7 +108,8 @@ def load() -> tuple[pd.DataFrame, dict]:
     for name, (score, _lbl) in cols.items():
         p[name] = score
     sess = pd.read_parquet(SESS_PANEL)
-    s = sess["session_ret"]
+    s = sess["session_ret"].copy()
+    s.index = s.index.rename(["symbol", "date"])
     p = p.join(s, how="left")
     return p, frz
 
@@ -152,7 +149,7 @@ def metrics(rows):
     gp, gl = float(net[net > 0].sum()), abs(float(net[net <= 0].sum()))
     return {"status": "OK", "active_days": len(rows),
             "avg_turnover": round(float(np.mean([r["turnover"] for r in rows])), 4),
-            "gross_cum_pct": round(float(np.prod(1 + [r["gross"] for r in rows]) - 1) * 100, 4),
+            "gross_cum_pct": round(float(np.prod(1 + np.array([r["gross"] for r in rows])) - 1) * 100, 4),
             "net_cum_pct": round(float(np.prod(1 + net) - 1) * 100, 4),
             "avg_net_bps": round(float(net.mean() * 1e4), 4),
             "median_net_bps": round(float(np.median(net) * 1e4), 4),
@@ -251,22 +248,32 @@ def uncertainty(panel, cost_bp=25, n_sims=5000):
 # ---------------------------------------------------------------------------
 def robustness(panel, cost_bp=25):
     rows = ls_active(panel, Q5, cost_bp)
-    net_by = {}
-    for r in rows:
-        net_by[r["date"]] = r["net"]
-    s = pd.Series(net_by)
-    tiles = s.groupby(pd.cut(s.index, bins=6)).agg(["mean", "count", "sum"])
+    s = pd.Series({r["date"]: r["net"] for r in rows}).sort_index()
+    vals = s.to_numpy()
+    parts = np.array_split(vals, 6) if len(vals) >= 6 else [vals]
+    tiles = []
+    for i, p in enumerate(parts, 1):
+        if len(p) == 0:
+            continue
+        tiles.append({"tile": i, "n": int(len(p)),
+                      "mean_bps": round(float(np.mean(p) * 1e4), 4),
+                      "net_cum_pct": round(float(np.prod(1 + p) - 1) * 100, 4)})
+    pos_frac = float(np.mean([t["mean_bps"] > 0 for t in tiles])) if tiles else None
     regime = {}
     sub = panel.dropna(subset=[SCORE, "session_ret"])
     if "regime_bucket" in panel.columns:
         sub = sub.copy()
         sub["dt"] = sub.index.get_level_values("date")
+        active = set(s.index)
         for b, g in sub.groupby("regime_bucket"):
-            rws = [x for x in rows if x["date"] in set(g["dt"].astype(str).str[:10])]
+            dates_b = set(g["dt"].astype(str).str[:10]) & active
+            rws = [x for x in rows if x["date"] in dates_b]
             if rws:
                 net = np.array([x["net"] for x in rws])
-                regime[b] = {"active_days": len(net), "net_cum_pct": round(float(np.prod(1 + net) - 1) * 100, 4)}
-    return {"half_year_tiles": tiles, "regime_breakdown": regime}
+                regime[str(b)] = {"active_days": len(net),
+                                  "net_cum_pct": round(float(np.prod(1 + net) - 1) * 100, 4)}
+    return {"half_year_tiles": tiles, "positive_tile_frac": pos_frac,
+            "regime_breakdown": regime}
 
 
 # ---------------------------------------------------------------------------
@@ -297,7 +304,7 @@ def classify(res):
         grade, reason = "D COST-FRAGILE", "does not survive 100bps stress"
     elif not mdd_ok:
         grade, reason = "F UNSTABLE", "drawdown>=50%"
-    elif exp_pos and ci_lo > 0 and res["robustness"].get("positive_tile_frac", None):
+    elif exp_pos and ci_lo > 0 and (res["robustness"].get("positive_tile_frac") or 0) > 0.5:
         grade, reason = "A CONFIRMED", "positive expectancy, CI>0, positive majority tiles"
     elif exp_pos:
         grade, reason = "B PROMISING", "positive expectancy but CI includes 0 or limited robustness"
@@ -349,9 +356,9 @@ def report(res):
         "",
     ]
     body = [f"### quintile_eq (primary)",
-            "```", json.dumps({k: res['constructions']['quintile_eq'][f'{b}bps'] for b in COSTS_BPS}, indent=1)[:3000], "```"]
+            "```", json.dumps({b: res['constructions']['quintile_eq'][f'{b}bps'] for b in COSTS_BPS}, indent=1)[:3000], "```"]
     body += [f"### decile_eq (comparison)",
-             "```", json.dumps({k: res['constructions']['decile_eq'][f'{b}bps'] for b in COSTS_BPS}, indent=1)[:3000], "```"]
+             "```", json.dumps({b: res['constructions']['decile_eq'][f'{b}bps'] for b in COSTS_BPS}, indent=1)[:3000], "```"]
     body += [f"### concentration / tail / uncertainty",
              "```", json.dumps({k: res[k] for k in ('concentration', 'tail', 'uncertainty')}, indent=1)[:3000], "```"]
     body += ["", "Single locked evaluation. Negative results are reported as-is; no reruns."]
