@@ -1,0 +1,14 @@
+{
+ "grade": "D STILL CONCENTRATION-FRAGILE",
+ "reason": "top-5 share>=30% or sign flip on leave-one-out",
+ "paper_trade": false,
+ "gates": {
+  "positive_net_expectancy": true,
+  "sufficient_sample": true,
+  "acceptable_drawdown": true,
+  "acceptable_concentration": false,
+  "positive_under_realistic_costs": true,
+  "temporal_robustness": true,
+  "no_leakage": true
+ }
+}

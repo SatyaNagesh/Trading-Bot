@@ -81,17 +81,34 @@ def verify_lock() -> str:
 
 
 def build() -> None:
-    ad.store_root = lambda: HOLD5
+    # evaluation corpus = EXACTLY the locked eligible set (audit-PASS symbols).
+    # Build from a symlink-only d1d view (ineligible acquisitions e.g. FSL.NS
+    # are excluded) so the LOCKED corpus + manifest remain byte-identical.
+    eligible = sorted(json.loads((HOLD5 / "eligible_symbols.json").read_text())["kept"])
+    builddir = HOLD5 / "_build"
+    buildd1d = builddir / "d1d"
+    buildd1d.mkdir(parents=True, exist_ok=True)
+    for e in [(builddir / "d1d" / p.name) for p in D1D.glob("*.parquet")]:
+        e.unlink(missing_ok=True)
+    for sym in eligible:
+        src = D1D / f"{sym.replace('.', '_')}.parquet"
+        dst = buildd1d / f"{sym.replace('.', '_')}.parquet"
+        if src.exists() and not dst.exists():
+            dst.symlink_to(src.resolve())
+
+    ad.store_root = lambda: builddir
+    (builddir / "splits.json").write_text(json.dumps(
+        {"holdout5": json.loads((HOLD5 / "splits.json").read_text())["holdout5"]}, indent=2))
     p = ad.build_panel(verbose=True)
     p.to_parquet(PANEL)
-    fv.PANELS["holdout5"] = (str(PANEL), str(D1D))
+    fv.PANELS["holdout5"] = (str(PANEL), str(buildd1d))
     comp = fv.build_v2_panel("holdout5")
     p2 = fv.compute_v2_features(comp)
     p2.sort_index().to_parquet(V2PANEL)
 
     # true session returns close[t+1] / open[t+1] - 1, aligned to signal date t
     frames = []
-    for f in sorted(D1D.glob("*.parquet")):
+    for f in sorted(buildd1d.glob("*.parquet")):
         d1 = pd.read_parquet(f, columns=["open", "close", "volume"])
         d1 = d1[d1["volume"] > 0]
         ratio = (d1["close"] / d1["open"] - 1).shift(-1).rename("session_ret")
@@ -100,7 +117,7 @@ def build() -> None:
         frames.append(df.set_index("symbol", append=True).swaplevel("symbol", "ts"))
     sess = pd.concat(frames).sort_index()
     sess.to_parquet(SESS_PANEL)
-    print(f"wrote {PANEL}, {V2PANEL}, {SESS_PANEL}")
+    print(f"wrote {PANEL}, {V2PANEL}, {SESS_PANEL} (eligible={len(eligible)} symbols)")
 
 
 # ---------------------------------------------------------------------------
