@@ -76,29 +76,31 @@ def load():
 
 
 def run_construction(dev, m, cost_bp):
-    """Daily-rebalanced L/S over active dates; per-side top-m equal weight 1/m."""
-    sub = dev.dropna(subset=[SCORE, "fwd_ret_1", "dt"])
+    """Daily-rebalanced L/S; per-side top-m equal weight 1/m.
+
+    Uses the LOCKED holdout-4 execution conventions: pandas-aligned
+    `|w - prev_w|.sum()` turnover (NaN-skip) and fwd_ret_1 forward label.
+    """
+    sub = dev.dropna(subset=[SCORE, "fwd_ret_1", "dt"]).copy()
     rows, prev_w = [], None
     for t in pd.Index(np.unique(sub["dt"])).sort_values():
         day = sub[sub["dt"] == t]
-        syms = day.index.get_level_values("symbol").astype(str).to_numpy()
-        vals = day[SCORE].to_numpy(float)
-        rets = day["fwd_ret_1"].to_numpy(float)
-        k = min(m, len(syms) // 2)
+        k = min(m, len(day) // 2)
         if k < 1:
             continue
-        order = np.argsort(vals, kind="mergesort")
-        shorts = order[:k]
-        longs = order[-k:]
-        w = np.zeros(len(syms))
-        w[longs] = 1.0 / k
-        w[shorts] = -1.0 / k
-        gross = float((w * rets).sum())
+        day = day.sort_values(SCORE)
+        w = pd.Series(0.0, index=day.index)
+        w.loc[day.iloc[-k:].index] = 1.0 / k
+        w.loc[day.iloc[:k].index] = -1.0 / k
+        rets = day["fwd_ret_1"].to_numpy()
+        gross = float((w.to_numpy() * rets).sum())
         turnover = float(np.abs(w - prev_w).sum()) if prev_w is not None else 2.0
-        pnl = {s: float(wi * r) for s, wi, r in zip(syms, w, rets)}
+        pnl = dict(zip(day.index.get_level_values("symbol").astype(str),
+                       np.around(w.to_numpy() * rets, 12)))
         rows.append({"date": str(t)[:10], "gross": gross,
                      "net": gross - turnover * cost_bp / 1e4, "turnover": turnover,
-                     "symbols": syms.tolist(), "w": w.tolist(), "pnl": pnl})
+                     "symbols": sorted(day.index.get_level_values("symbol").astype(str)),
+                     "w": sorted(np.round(w.to_numpy(), 6).tolist()), "pnl": pnl})
         prev_w = w
     return rows
 
@@ -131,36 +133,37 @@ def concentration(rows):
         for s, c in r["pnl"].items():
             contrib[s] = contrib.get(s, 0.0) + c
     ranked = sorted(contrib.items(), key=lambda kv: -abs(kv[1]))
-    tot_abs = abs(sum(contrib.values()))
+    net_sum = float(sum(r["net"] for r in rows))
+    denom = max(abs(net_sum), 1e-9)
     shares = {}
     for t in (1, 3, 5, 10):
-        s = sum(abs(v) for _, v in ranked[:t])
-        shares[f"top{t}_share"] = round(s / tot_abs, 4) if tot_abs else None
+        shares[f"top{t}_share"] = round(abs(sum(v for _, v in ranked[:t])) / denom, 4)
     herf = float(np.sum([v * v for v in contrib.values()]))
     maxw = max(max(np.abs(r["w"])) for r in rows)
-    m = len([x for x in rows[0]["w"] if x != 0]) // 2
-    conc_days = float(np.mean([max(np.abs(r["w"])) > 1.5 / m for r in rows]))
+    conc_days = float(np.mean([max(np.abs(r["w"])) > 1.5 / m for r in rows
+                               for m in (len(r["w"]) // 2,)]))
     loso = {}
     for s in list(contrib):
         dropped = [r for r in rows if s not in r["symbols"]]
         if len(dropped) < 5:
             continue
-        co = pd.Series(np.array([r["gross"] for r in dropped]))
         loso[s] = round(float(np.prod(1 + np.array([r["net"] for r in dropped])) - 1), 4)
-    base = float(np.prod(1 + np.array([r["net"] for r in rows])) - 1)
-    flips = [s for s, v in loso.items() if (v >= 0) != (base >= 0)]
+    base_cum = float(np.prod(1 + np.array([r["net"] for r in rows])) - 1)
+    flips = [s for s, v in loso.items() if (v >= 0) != (base_cum >= 0)]
+    fragile = float(shares["top5_share"]) >= 0.5 or any(loso.get(s, base_cum) * base_cum < 0
+                                                        for s in flips)
     return {"top1_share": shares["top1_share"], "top3_share": shares["top3_share"],
             "top5_share": shares["top5_share"], "top10_share": shares["top10_share"],
             "herfindahl_gross": round(herf, 4), "max_single_weight": round(maxw, 4),
             "pct_days_concentrated": round(conc_days, 4),
-            "avg_active_positions_side": round(float(np.mean([int(np.count_nonzero(r["w"])) // 2 for r in rows])), 2),
+            "avg_active_positions_side": round(float(np.mean([len(r["w"]) // 2 for r in rows])), 2),
             "leave_one_out_sign_flips": flips, "leave_one_out": loso,
-            "concentration_fragile": bool(flips)}
+            "concentration_fragile": bool(fragile)}
 
 
 def regimes(dev, rows):
-    daily = dev[["G1_breadth_rise", "G6_breadth_mom5", "G4_xs_ret_disp", "mkt_vol_20",
-                 "regime_bucket"]].groupby("date_str").first()
+    daily = dev[["date_str", "G1_breadth_rise", "G6_breadth_mom5", "G4_xs_ret_disp",
+                 "mkt_vol_20", "regime_bucket"]].groupby("date_str").first()
     acc = {r["date"]: r["net"] for r in rows}
     med_g4 = daily["G4_xs_ret_disp"].median()
     q67, q33 = daily["mkt_vol_20"].quantile(0.67), daily["mkt_vol_20"].quantile(0.33)
