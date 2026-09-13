@@ -1,0 +1,1 @@
+"""Webhook ingestion — external signal sources (TradingView) for PAPER trading only."""
