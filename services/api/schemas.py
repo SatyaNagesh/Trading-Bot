@@ -28,10 +28,6 @@ class ReadinessResponse(BaseModel):
 
 # ── Trading ──────────────────────────────────────────────────────────────
 
-class TradingStartRequest(BaseModel):
-    pass
-
-
 class TradingStopRequest(BaseModel):
     reason: str = "API request"
 

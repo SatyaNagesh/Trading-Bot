@@ -3,6 +3,7 @@
 from datetime import date
 
 from packages.broker.gateway import BaseBroker, BrokerConfig
+from packages.core.exceptions import BrokerError
 from packages.core.logging import get_logger
 from packages.domain.models import Order, OrderStatus, Bar
 
@@ -10,6 +11,8 @@ logger = get_logger("zerodha_broker")
 
 
 class ZerodhaBroker(BaseBroker):
+    live_capable = True
+
     def __init__(self, config: BrokerConfig):
         super().__init__(config)
         self.api_key = config.api_key
@@ -46,9 +49,10 @@ class ZerodhaBroker(BaseBroker):
                     return OrderStatus.SUBMITTED
                 logger.error("zerodha_order_failed", status=resp.status_code, body=resp.text)
                 return OrderStatus.REJECTED
-        except ImportError:
-            logger.warning("httpx not available, simulating zerodha order")
-            return OrderStatus.FILLED
+        except ImportError as e:
+            raise BrokerError(
+                "httpx is not available; refusing to place a real order with Zerodha"
+            ) from e
         except Exception as e:
             logger.error("zerodha_order_error", error=str(e))
             return OrderStatus.REJECTED

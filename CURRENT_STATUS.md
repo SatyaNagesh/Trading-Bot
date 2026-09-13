@@ -1,8 +1,31 @@
 # Current Status — QuantLab AI
 
+> **SUPERSEDED for the QuantLab Trader release.** The claims below reflect the
+> 0.1.0-rc1+api snapshot (2026-08-15). They are **not** accurate for the
+> 2026-09-13 QuantLab Trader final audit. See the header box below and the
+> authoritative reports in `reports/QUANTLAB_TRADER_FINAL_AUDIT_2026-09.md` and
+> `reports/QUANTLAB_TRADER_TODO_CLOSEOUT_2026-09.md`, plus `docs/`.
+
+---
+
+## QuantLab Trader release status — 2026-09-13
+
+| Area | Status | Details |
+|------|--------|---------|
+| Baseline tests | ⚠️ | **594 passed / 7 failed** (7 pre-existing: test_candidates x3, test_data_quality::test_outlier_detection, test_indicators::{test_ema,test_rsi,test_bb}) |
+| New release test suites | ✅ | Session timezone, strategy registry, trading loop E2E, live guard: **52 passed** |
+| Session gate | ✅ | Exchange-local Asia/Kolkata evaluation (timezone bug QLT-001 fixed) |
+| Strategy status | ✅ | Authoritative registry; autonomous_momentum & candidates RESEARCH; COMP3 V1/V2 RETIRED |
+| Live trading | ✅ | Fail-closed (`QUANTLAB_LIVE_TRADING_ENABLED`); no real broker unless explicitly enabled |
+| Controlled paper E2E | ✅ | 180 fills / 0 errors / integrity verified; 2000-cycle soak clean |
+| COMP3 program | ✅ | CLOSED; holdout-5 reproduced byte-identical; paper gate CLOSED |
+| Lint cleanliness claim | ⚠️ | "0 lint errors" below is stale (repo-wide ruff baseline ~2465 pre-existing); new release files are clean |
+
+---
+
+## Earlier status (0.1.0-rc1+api, 2026-08-15) — superseded
+
 **Version:** 0.1.0-rc1+api
-**Date:** 2026-08-15
-**Phase:** 4 complete (hardened for RC1) + Phase 5 (REST API + Discord bot) complete
 
 ---
 

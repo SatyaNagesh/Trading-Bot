@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "authoritative": true,
+  "note": "Single source of truth for strategy status. Legacy statuses ('active'/'candidate'/'watchlist' in data/strategies.json) are NOT authoritative; they map to RESEARCH unless this registry says otherwise.",
+  "updated_at": "2026-09-13T06:28:48.928061+00:00",
+  "strategies": [
+    {
+      "id": "COMP3_STRATEGY_V1",
+      "name": "COMP3 V1 (rank-weighted long-biased)",
+      "state": "RETIRED",
+      "evidence": [],
+      "created_at": "2026-09-13T06:28:48.927997+00:00",
+      "updated_at": "2026-09-13T06:28:48.928023+00:00",
+      "notes": "Program closed, rejected in review."
+    },
+    {
+      "id": "COMP3_STRATEGY_V2",
+      "name": "COMP3 V2 (D1_CAP8 + D2_QUINTILE + V1_DECILE)",
+      "state": "RETIRED",
+      "evidence": [],
+      "created_at": "2026-09-13T06:28:48.928002+00:00",
+      "updated_at": "2026-09-13T06:28:48.928029+00:00",
+      "notes": "Program closed, paper gate CLOSED."
+    },
+    {
+      "id": "autonomous_momentum",
+      "name": "Autonomous Momentum (round-trip)",
+      "state": "RESEARCH",
+      "evidence": [],
+      "created_at": "2026-09-13T06:28:48.927956+00:00",
+      "updated_at": "2026-09-13T06:28:48.927970+00:00",
+      "notes": "Reconstructed decision path only (packages/research/baseline.py); no independent gate approval recorded. Unproven -> RESEARCH."
+    },
+    {
+      "id": "default",
+      "name": "IntegratedBot simulation fixture",
+      "state": "RESEARCH",
+      "evidence": [],
+      "created_at": "2026-09-13T06:28:48.928013+00:00",
+      "updated_at": "2026-09-13T06:28:48.928016+00:00",
+      "notes": "Coin-flip/LONG-SHORT simulation signal used by run_cycle/run_simulation; not an investment strategy."
+    },
+    {
+      "id": "ema_trend",
+      "name": "EMA Trend",
+      "state": "RESEARCH",
+      "evidence": [],
+      "created_at": "2026-09-13T06:28:48.927985+00:00",
+      "updated_at": "2026-09-13T06:28:48.927988+00:00",
+      "notes": "stdlib candidate, never validated."
+    },
+    {
+      "id": "paper-reversal",
+      "name": "Paper reversal simulation fixture",
+      "state": "RESEARCH",
+      "evidence": [],
+      "created_at": "2026-09-13T06:28:48.928008+00:00",
+      "updated_at": "2026-09-13T06:28:48.928010+00:00",
+      "notes": "Fixture used by paper_trading_run.py to exercise round-trip fills; not an investment strategy."
+    },
+    {
+      "id": "rsi_mean_reversion",
+      "name": "RSI Mean Reversion",
+      "state": "RESEARCH",
+      "evidence": [],
+      "created_at": "2026-09-13T06:28:48.927991+00:00",
+      "updated_at": "2026-09-13T06:28:48.927993+00:00",
+      "notes": "stdlib candidate, never validated."
+    },
+    {
+      "id": "sma_crossover",
+      "name": "SMA Crossover",
+      "state": "RESEARCH",
+      "evidence": [],
+      "created_at": "2026-09-13T06:28:48.927977+00:00",
+      "updated_at": "2026-09-13T06:28:48.927980+00:00",
+      "notes": "stdlib candidate, never validated."
+    }
+  ]
+}

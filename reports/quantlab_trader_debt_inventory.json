@@ -1,0 +1,188 @@
+{
+  "inventory": "quantlab_trader_debt_inventory",
+  "generated": "2026-09-13",
+  "classification": {
+    "A": "production-blocking (live trading safety)",
+    "B": "paper-trading-blocking (correctness in the active trading path)",
+    "C": "research-only / non-trading-path",
+    "D": "docs-only",
+    "E": "obsolete / stale / deferred",
+    "F": "external / environmental"
+  },
+  "items": [
+    {
+      "id": "QLT-001",
+      "class": "B",
+      "file": "packages/session/manager.py",
+      "location": "check_session / time_to_close / time_to_open / next_session_start",
+      "description": "Session gate compares naive/UTC clock times directly against Asia/Kolkata (IST) market hours. PaperTradingLoop.process_signal gates on this check, so real NSE-hours paper trading would be classified CLOSED during much of the trading day. calendar.timezone_name is never applied.",
+      "status": "FIX",
+      "resolution": "Evaluate all session logic in the calendar timezone (zoneinfo Asia/Kolkata, UTC+5:30 fallback).",
+      "external": false
+    },
+    {
+      "id": "QLT-002",
+      "class": "B",
+      "file": "packages/broker/gateway.py + packages/broker/zerodha.py + packages/broker/angel.py",
+      "location": "create_broker(); ZerodhaBroker.place_order; AngelOneBroker.place_order",
+      "description": "No deployment guard for live broker modes: ZerodhaBroker / AngelOneBroker / AlpacaBroker are instantiable and can place real orders whenever credentials are configured. Additionally, the `except ImportError: return OrderStatus.FILLED` fallback wrongly reports success if httpx is missing, and the fallback for mode=\"live\" silently routes to SimulatedBroker instead of failing. Live trading must remain CLOSED and fail-closed.",
+      "status": "FIX",
+      "resolution": "Add QUANTLAB_LIVE_TRADING_ENABLED gate (default off) enforced in create_broker and ExecutionEngine for live-able modes; fail closed.",
+      "external": false
+    },
+    {
+      "id": "QLT-003",
+      "class": "C",
+      "file": "packages/broker/gateway.py",
+      "location": "AlpacaBroker.get_historical_data (line 169)",
+      "description": "Raises NotImplementedError('Use the market data pipeline'). Abstract method exists for interface completeness; market data flows through the data pipeline instead. Acceptable for research/paper; document.",
+      "status": "DOCUMENT",
+      "resolution": "Documented as interface stub; historical data comes from the market data pipeline."
+    },
+    {
+      "id": "QLT-004",
+      "class": "C",
+      "file": "packages/broker/zerodha.py / packages/broker/angel.py",
+      "location": "get_historical_data",
+      "description": "Raises NotImplementedError('Use the market data pipeline'). Same rationale as QLT-003.",
+      "status": "DOCUMENT",
+      "resolution": "Documented as interface stub."
+    },
+    {
+      "id": "QLT-005",
+      "class": "C",
+      "file": "packages/broker/gateway.py",
+      "location": "BaseBroker.get_open_orders (line 47)",
+      "description": "Base default returns []. Only PaperBroker implements a real book. SimulatedBroker returns []. Acceptable for paper; document that reconciliation relies on OMS OrderManager.get_open_orders as source of truth.",
+      "status": "DOCUMENT",
+      "resolution": "Documented; OMS is the reconciliation source of truth in paper mode."
+    },
+    {
+      "id": "QLT-006",
+      "class": "E",
+      "file": "packages/oms/manager.py",
+      "location": "OrderManager.transition (lines 108-111)",
+      "description": "Empty `pass` branches for FILLED/PARTIALLY_FILLED and REJECTED/CANCELLED — dead code, no behavior.",
+      "status": "FIX",
+      "resolution": "Remove dead branches, keep explicit lifecycle comments."
+    },
+    {
+      "id": "QLT-007",
+      "class": "E",
+      "file": "services/api/schemas.py",
+      "location": "TradingStartRequest (class body: pass)",
+      "description": "Empty schema; /trading/start endpoint accepts no body so the class is unused. Stale scaffolding.",
+      "status": "FIX",
+      "resolution": "Remove unused empty schema (or replace with meaningful fields if a body exists). Cleanup, no behavior change."
+    },
+    {
+      "id": "QLT-008",
+      "class": "E",
+      "file": "paper_trading_run.py",
+      "location": "line 33 StdoutFilter.NOISE",
+      "description": "Stale NOISE string 'check_stops_not_implemented' references a feature that no longer emits that message; filter is a no-op.",
+      "status": "FIX",
+      "resolution": "Remove the no-op filter or make it target a real noisy prefix."
+    },
+    {
+      "id": "QLT-009",
+      "class": "E",
+      "file": "README.md (top level)",
+      "location": "claims about docs/ directory, 35 spec documents, shared packages from apps/",
+      "description": "README (and several top-level reports) reference a docs/ directory that does not exist and usage patterns that are no longer accurate.",
+      "status": "FIX",
+      "resolution": "Rewrite README to reflect actual layout; create docs/ with real runbooks; correct stale claims."
+    },
+    {
+      "id": "QLT-010",
+      "class": "E",
+      "file": "<repo root>",
+      "location": "zero-byte files: analytics, autonomous, backtesting, broker, candidates, core, domain, execution, health, integration, journal, oms, optimization, portfolio, risk, session, strategies, trading",
+      "description": "18 orphan 0-byte files at repo root — artifacts of an earlier scaffold, no content.",
+      "status": "FIX",
+      "resolution": "Delete via git rm (tracked) to stop confusion.",
+      "external": false
+    },
+    {
+      "id": "QLT-011",
+      "class": "C",
+      "file": "packages/agents/base.py",
+      "location": "BaseAgent.think / BaseAgent.act (lines 45-51)",
+      "description": "No-op default implementations returning '' / None. Scaffold for the agent framework, not part of the trading path.",
+      "status": "DOCUMENT",
+      "resolution": "Documented as framework scaffold; not in the trading path."
+    },
+    {
+      "id": "QLT-012",
+      "class": "C",
+      "file": "packages/market/data_pipeline.py",
+      "location": "lines 145-146 hardcoded nifty50 list",
+      "description": "Hardcoded symbol list with '# TODO: load from config/API in V1'. Affects the market-data fetch path only; the trading loop is driven by externally supplied bars, so no paper-trading impact.",
+      "status": "DOCUMENT",
+      "resolution": "Documented as a data-fetch convenience list, config loading deferred."
+    },
+    {
+      "id": "QLT-013",
+      "class": "C",
+      "file": "packages/integration/pipeline.py",
+      "location": "IntegratedBot.run_cycle default signal (close parity coin-flip: LONG if close%2==0 else SHORT)",
+      "description": "Default integration signal is an explicitly simulated/demo signal (also used inside run_simulation). It is a research sandbox toggle, not an approved strategy. COMP3 gate is closed so no real promotion occurs via this path.",
+      "status": "DOCUMENT",
+      "resolution": "Documented: IntegratedBot is the autonomous RESEARCH module; its default signal is a simulation fixture, kept for reproducibility, and must never be treated as an approved strategy."
+    },
+    {
+      "id": "QLT-014",
+      "class": "C",
+      "file": "packages/portfolio/engine.py",
+      "location": "PortfolioEngine.apply_fill BUY cash-shortfall clamp (line 42-46)",
+      "description": "On cash shortfall the engine silently reduces order.quantity to the max affordable and proceeds. Safe (cash never goes negative) but mutates an order that already passed risk. Paper-path modeling choice.",
+      "status": "FIX",
+      "resolution": "Keep the clamp as a fail-safe but log a warning and report adjusted quantity; document as an accounting fail-safe."
+    },
+    {
+      "id": "QLT-015",
+      "class": "D",
+      "file": "packages/production/config.py",
+      "location": "RiskConfig (percent values) vs packages/domain/models.py RiskBudget (fractions)",
+      "description": "RiskConfig fields are expressed as percentages (e.g. max_position_size_pct: 20.0) while RiskBudget stores fractions (0.10). No code currently wires ProductionConfig.risk into RiskEngine, so the mismatch is latent, but it is a footgun for any future wiring.",
+      "status": "DOCUMENT",
+      "resolution": "Document the unit divergence; recommend explicit fraction values at wiring time (no automatic wiring added)."
+    },
+    {
+      "id": "QLT-016",
+      "class": "D",
+      "file": "packages/session/manager.py",
+      "location": "SessionStatus.AFTERNOON never assigned; dead lunch-start/lunch-end branch",
+      "description": "Vestigial status and dead branch from a lunch-break exchange model; NSE is continuous 09:15-15:30 with no lunch gap.",
+      "status": "FIX",
+      "resolution": "Simplified to a continuous-session rule during the session fix; AFTERNOON enum retained for compatibility."
+    },
+    {
+      "id": "QLT-017",
+      "class": "F",
+      "file": "packages/market/data_pipeline.py + paper_trading_run.py",
+      "location": "yfinance / external market data",
+      "description": "Real NSE session validation and live data fetch depend on external providers and exchange-live conditions; not verifiable in an offline controlled run.",
+      "status": "DOCUMENT",
+      "resolution": "REAL NSE SESSION NOT VERIFIED IN THIS RUN; labeled synthetic/controlled verification used instead."
+    },
+    {
+      "id": "QLT-018",
+      "class": "D",
+      "file": "services/api/main.py",
+      "location": "CORS allow_origins=['*']",
+      "description": "Wildcard CORS. For a paper/research control plane this is tolerable, but it must not be exposed to the public internet without auth + origin scoping.",
+      "status": "DOCUMENT",
+      "resolution": "Documented in SAFETY_AND_LIVE_TRADING.md; live mode MUST tighten CORS."
+    },
+    {
+      "id": "QLT-019",
+      "class": "C",
+      "file": "packages/trading/loop.py",
+      "location": "PaperTradingLoop.process_signal partial-fill path",
+      "description": "In paper mode the SimulatedBroker/PaperBroker always fill fully, so the PARTIALLY_FILLED branch is exercised only theoretically. Code path is complete.",
+      "status": "DOCUMENT",
+      "resolution": "Documented; partial-fill exercised via controlled unit tests."
+    }
+  ]
+}

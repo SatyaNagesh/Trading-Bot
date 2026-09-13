@@ -1,0 +1,44 @@
+{
+  "mode": "CONTROLLED_PAPER_E2E",
+  "generated": "2026-09-13T06:37:35.271636+00:00",
+  "broker": "PaperBroker",
+  "symbols": [
+    "RELIANCE.NS",
+    "TCS.NS",
+    "HDFCBANK.NS"
+  ],
+  "bars_per_symbol": 60,
+  "total_bars": 180,
+  "elapsed_sec": 0.83,
+  "stats": {
+    "processed": 180,
+    "filled": 180,
+    "rejected": 0,
+    "skipped": 0,
+    "errors": 0
+  },
+  "portfolio": {
+    "cash": 966194.45,
+    "equity": 1005653.99,
+    "realized_pnl": 5646.960000000004,
+    "unrealized_pnl": 7.03,
+    "open_positions": 3,
+    "closed_trades": 106,
+    "integrity_verified": true,
+    "nav_diff": 0.0
+  },
+  "journal_entries": 106,
+  "health_healthy": true,
+  "risk_summary": {
+    "kill_switch_active": false,
+    "daily_loss": 4013.08,
+    "daily_trades": 180,
+    "total_rejected": 0,
+    "max_drawdown": 20.0,
+    "max_daily_loss": 2.0,
+    "max_positions": 10,
+    "max_exposure_pct": 40.0,
+    "max_leverage": 1.0,
+    "max_position_size_pct": 10.0
+  }
+}

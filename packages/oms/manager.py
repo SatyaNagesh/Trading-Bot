@@ -105,11 +105,9 @@ class OrderManager:
             )
 
         old_status = order.status
-        if new_status in (OrderStatus.FILLED, OrderStatus.PARTIALLY_FILLED):
-            pass
-        elif new_status in (OrderStatus.REJECTED, OrderStatus.CANCELLED):
-            pass
-
+        # Fill bookkeeping for FILLED / PARTIALLY_FILLED is owned by
+        # update_fill(); REJECTED / CANCELLED terminal states carry no
+        # additional bookkeeping here.
         order.status = new_status
         order.updated_at = datetime.now(timezone.utc)
         self._log_transition(order_id, old_status, new_status, reason)

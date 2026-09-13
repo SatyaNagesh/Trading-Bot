@@ -42,6 +42,14 @@ class PortfolioEngine:
                 max_qty = int(float(self.portfolio.cash) / float(fill_price))
                 if max_qty <= 0:
                     raise RiskError(f"Insufficient cash for {order.symbol}")
+                logger.warning(
+                    "cash_shortfall_clamp",
+                    order_id=order.id,
+                    symbol=order.symbol,
+                    requested_qty=order.quantity,
+                    filled_qty=max_qty,
+                    reason="Insufficient cash: quantity clamped to affordable max",
+                )
                 order.quantity = max_qty
                 cost = fill_price * Decimal(str(order.quantity))
 

@@ -10,6 +10,7 @@ import asyncio
 import io
 import os
 import pickle
+import re
 import sys
 import time
 from datetime import datetime, timezone
@@ -28,17 +29,30 @@ SYMBOLS = ["RELIANCE.NS", "TCS.NS", "HDFCBANK.NS", "INFY.NS", "SBIN.NS"]
 
 
 class StdoutFilter(io.TextIOBase):
-    """Drops structlog's noisy per-bar debug flood; keeps normal output."""
-
-    NOISE = "check_stops_not_implemented"
+    """Drops structlog's noisy per-bar DEBUG lines; keeps normal output."""
 
     def __init__(self, wrapped):
         self._w = wrapped
 
+    @staticmethod
+    def _is_debug(s: str) -> bool:
+        plain = re.sub(r"\x1b\[[0-9;]*m", "", s)
+        return "[debug" in plain
+
     def write(self, s):
-        if self.NOISE in s:
+        if self._is_debug(s):
             return len(s)
         return self._w.write(s)
+
+    def flush(self):
+        return self._w.flush()
+
+    def isatty(self):
+        return self._w.isatty()
+
+    @property
+    def encoding(self):
+        return getattr(self._w, "encoding", "utf-8")
 
     def flush(self):
         return self._w.flush()

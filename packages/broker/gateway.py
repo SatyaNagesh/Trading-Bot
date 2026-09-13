@@ -1,13 +1,34 @@
 """Broker Gateway — abstraction layer for pluggable brokers."""
 
+import os
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from datetime import date, datetime, timezone
 
+from packages.core.exceptions import ConfigurationError
 from packages.core.logging import get_logger
 from packages.domain.models import Order, OrderStatus, Bar
 
 logger = get_logger("broker_gateway")
+
+LIVE_TRADING_ENV_VAR = "QUANTLAB_LIVE_TRADING_ENABLED"
+
+
+def live_trading_enabled() -> bool:
+    """Whether real-broker (live) trading is permitted.
+
+    Defaults to CLOSED. Live modes fail closed unless the operator explicitly
+    sets ``QUANTLAB_LIVE_TRADING_ENABLED=1``.
+    """
+    return os.environ.get(LIVE_TRADING_ENV_VAR, "").strip().lower() in ("1", "true", "yes", "on")
+
+
+def require_live_trading_allowed() -> None:
+    if not live_trading_enabled():
+        raise ConfigurationError(
+            "Live trading is CLOSED. Set QUANTLAB_LIVE_TRADING_ENABLED=1 to permit "
+            "connections to real brokers. Paper/simulated modes are unaffected."
+        )
 
 
 @dataclass
@@ -20,6 +41,8 @@ class BrokerConfig:
 
 
 class BaseBroker(ABC):
+    live_capable: bool = False
+
     def __init__(self, config: BrokerConfig):
         self.config = config
 
@@ -128,6 +151,8 @@ class PaperBroker(BaseBroker):
 
 
 class AlpacaBroker(BaseBroker):
+    live_capable = True
+
     async def place_order(self, order: Order) -> OrderStatus:
         logger.info("alpaca_place_order", symbol=order.symbol, side=order.side.value)
         try:
@@ -170,17 +195,28 @@ class AlpacaBroker(BaseBroker):
 
 
 def create_broker(config: BrokerConfig) -> BaseBroker:
-    if config.mode == "paper":
-        return PaperBroker(config)
+    if config.mode in ("paper", "simulated"):
+        return SimulatedBroker(config) if config.mode == "simulated" else PaperBroker(config)
     elif config.mode == "zerodha":
+        require_live_trading_allowed()
         from packages.broker.zerodha import ZerodhaBroker
 
         return ZerodhaBroker(config)
     elif config.mode == "alpaca":
+        require_live_trading_allowed()
         return AlpacaBroker(config)
     elif config.mode == "angel":
+        require_live_trading_allowed()
         from packages.broker.angel import AngelOneBroker
 
         return AngelOneBroker(config)
+    elif config.mode == "live":
+        raise ConfigurationError(
+            "mode='live' is ambiguous. Use an explicit broker mode "
+            "('zerodha' | 'alpaca' | 'angel') and set QUANTLAB_LIVE_TRADING_ENABLED=1."
+        )
     else:
-        return SimulatedBroker(config)
+        raise ConfigurationError(
+            f"Unknown broker mode '{config.mode}'. Use 'paper', 'simulated', "
+            "'zerodha', 'alpaca', or 'angel'."
+        )

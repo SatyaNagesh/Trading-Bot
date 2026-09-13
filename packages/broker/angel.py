@@ -3,6 +3,7 @@
 from datetime import date
 
 from packages.broker.gateway import BaseBroker, BrokerConfig
+from packages.core.exceptions import BrokerError
 from packages.core.logging import get_logger
 from packages.domain.models import Order, OrderStatus, Bar
 
@@ -10,6 +11,8 @@ logger = get_logger("angel_broker")
 
 
 class AngelOneBroker(BaseBroker):
+    live_capable = True
+
     def __init__(self, config: BrokerConfig):
         super().__init__(config)
         self.base_url = config.base_url or "https://apiconnect.angelbroking.com"
@@ -47,9 +50,10 @@ class AngelOneBroker(BaseBroker):
                     return OrderStatus.SUBMITTED
                 logger.error("angel_order_failed", status=resp.status_code)
                 return OrderStatus.REJECTED
-        except ImportError:
-            logger.warning("httpx not available, simulating angel order")
-            return OrderStatus.FILLED
+        except ImportError as e:
+            raise BrokerError(
+                "httpx is not available; refusing to place a real order with Angel One"
+            ) from e
         except Exception as e:
             logger.error("angel_order_error", error=str(e))
             return OrderStatus.REJECTED

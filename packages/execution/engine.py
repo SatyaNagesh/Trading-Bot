@@ -6,6 +6,7 @@ from decimal import Decimal
 from uuid import uuid4
 
 from packages.broker.gateway import BaseBroker
+from packages.broker.gateway import require_live_trading_allowed
 from packages.core.exceptions import ExecutionError, BrokerError, OrderRejectedError
 from packages.core.logging import get_logger
 from packages.domain.models import Order, OrderStatus, OrderType, Side, Trade
@@ -38,6 +39,8 @@ class ExecutionEngine:
 
     async def execute(self, order: Order) -> Order:
         self._check_duplicate(order)
+        if getattr(self.broker, "live_capable", False):
+            require_live_trading_allowed()
         current = self.oms.get_order(order.id)
         if current and current.status == OrderStatus.CREATED:
             self.oms.validate(order.id)
