@@ -133,7 +133,7 @@ def _backtest(panel, score, coverage, voladj=False):
             "active_days": len(rows),
             "avg_positions": float(np.mean([r["n_positions"] for r in rows if r["n_positions"]])),
             "avg_turnover": float(np.mean([r["turnover"] for r in rows])),
-            "gross_cum_pct": round(float(np.prod(1 + [r["gross"] for r in rows]) - 1) * 100, 4),
+            "gross_cum_pct": round(float(np.prod(1 + np.array([r["gross"] for r in rows])) - 1) * 100, 4),
             "net_cum_pct": round(float(np.prod(1 + net) - 1) * 100, 4),
             "avg_net_bps": round(expiry_bps, 4),
             "median_net_bps": round(float(np.median(net) * 1e4), 4),
@@ -161,6 +161,11 @@ def f02(dev, frz, score=SCORE, c3=C3):
     fwd_mean_inact = float(dev.loc[~active, "fwd_ret_1"].mean())
     ic_act = _pooled_ic(dev, score)
     ic_gate = dev.loc[active, [c3, "fwd_ret_1"]].dropna()
+    c3_ic = {"spearman_ic": None, "pvalue": None, "n": 0}
+    if len(ic_gate) >= aa.MIN_OBS_PER_IC:
+        st = aa.ic_stats(ic_gate[c3].to_numpy(float), ic_gate["fwd_ret_1"].to_numpy(float),
+                         ic_gate.index.get_level_values("symbol").to_numpy())
+        c3_ic = {k: st[k] for k in ("spearman_ic", "pvalue", "n")}
     return {
         "signal": score,
         "gate": frz["composites"][score if False else "COMP3_REVERSAL_BREADTH_DISP"]["condition"],
@@ -170,8 +175,7 @@ def f02(dev, frz, score=SCORE, c3=C3):
         "mean_fwd_active_pct": round(fwd_mean_act * 100, 4),
         "mean_fwd_inactive_pct": round(fwd_mean_inact * 100, 4),
         "pooled_ic_active": ic_act,
-        "c3_ic_within_active": {k: ic_gate[k] for k in ("spearman_ic", "pvalue", "n")}
-                               if len(ic_gate) > aa.MIN_OBS_PER_IC else "INSUFFICIENT",
+        "c3_ic_within_active": c3_ic,
     }
 
 

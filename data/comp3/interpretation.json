@@ -1,0 +1,24 @@
+{
+ "signal": "COMP3_REVERSAL_BREADTH_DISP",
+ "gate": "breadth_stress AND disp_high",
+ "active_rows": 22621,
+ "total_rows": 151542,
+ "active_dates": 468,
+ "date_coverage": 0.1495,
+ "mean_fwd_active_pct": 0.0676,
+ "mean_fwd_inactive_pct": 0.0845,
+ "pooled_ic_active": {
+  "n": 22621,
+  "n_eff": 22621.0,
+  "spearman_ic": 0.04109,
+  "pvalue": 6.288747300686737e-10,
+  "ci95_lo": 0.02807,
+  "ci95_hi": 0.05409,
+  "sign": 1
+ },
+ "c3_ic_within_active": {
+  "spearman_ic": -0.04109,
+  "pvalue": 6.288747300686737e-10,
+  "n": 22621
+ }
+}

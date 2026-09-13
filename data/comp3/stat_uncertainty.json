@@ -1,0 +1,12 @@
+{
+ "n_days": 468,
+ "autocorr_lag1": -0.08050884228863117,
+ "block_size": 38,
+ "n_eff": 549,
+ "sims": 5000,
+ "ci95_expectancy_bps": [
+  -5.6736,
+  25.7267
+ ],
+ "bootstrap_mean_bps": 10.4729
+}

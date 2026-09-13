@@ -1,0 +1,43 @@
+{
+ "windows": {
+  "W1": {
+   "window": [
+    "2014-01-01",
+    "2017-12-31"
+   ],
+   "active_days": 159,
+   "net_cum_pct": 15.667,
+   "sharpe": 1.0662
+  },
+  "W2": {
+   "window": [
+    "2018-01-01",
+    "2020-12-31"
+   ],
+   "active_days": 151,
+   "net_cum_pct": 18.2994,
+   "sharpe": 1.0693
+  },
+  "W3": {
+   "window": [
+    "2021-01-01",
+    "2023-12-31"
+   ],
+   "active_days": 95,
+   "net_cum_pct": 0.1751,
+   "sharpe": 0.1625
+  },
+  "W4": {
+   "window": [
+    "2024-01-01",
+    "2026-09-04"
+   ],
+   "active_days": 63,
+   "net_cum_pct": 8.7103,
+   "sharpe": 1.4695
+  }
+ },
+ "n_positive": 4,
+ "n_windows": 4,
+ "median_net_pct": 12.188649999999999
+}

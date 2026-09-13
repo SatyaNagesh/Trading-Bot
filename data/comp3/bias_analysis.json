@@ -1,0 +1,168 @@
+{
+ "sector_ic": {
+  "Automobile": {
+   "n": 1872,
+   "ic": -0.00051,
+   "p": 0.9823851008043654
+  },
+  "Banks": {
+   "n": 2808,
+   "ic": 0.07476,
+   "p": 7.285108929666606e-05
+  },
+  "Cement": {
+   "n": 936,
+   "ic": 0.00298,
+   "p": 0.9289570896429757
+  },
+  "Construction & Infra": {
+   "n": 1404,
+   "ic": 0.07496,
+   "p": 0.004937314235762491
+  },
+  "Consumer Durables & Retail": {
+   "n": 936,
+   "ic": 0.05326,
+   "p": 0.14751860363382785
+  },
+  "Defence": {
+   "n": 468,
+   "ic": -0.01556,
+   "p": 0.7371486651656478
+  },
+  "FMCG": {
+   "n": 1872,
+   "ic": 0.00803,
+   "p": 0.7283666774001794
+  },
+  "Financial Services": {
+   "n": 1561,
+   "ic": 0.0539,
+   "p": 0.033214305528738386
+  },
+  "Healthcare": {
+   "n": 468,
+   "ic": 0.00493,
+   "p": 0.9304010267483418
+  },
+  "Information Technology": {
+   "n": 2340,
+   "ic": 0.02018,
+   "p": 0.32930604590956003
+  },
+  "Metals & Mining": {
+   "n": 1404,
+   "ic": 0.0848,
+   "p": 0.0014643827661897646
+  },
+  "Oil & Gas": {
+   "n": 1404,
+   "ic": 0.0349,
+   "p": 0.1912158901963834
+  },
+  "Other": {
+   "n": 1872,
+   "ic": 0.04965,
+   "p": 0.03169510340771331
+  },
+  "Pharmaceuticals": {
+   "n": 1872,
+   "ic": 0.03957,
+   "p": 0.08695284613340082
+  },
+  "Power & Utilities": {
+   "n": 936,
+   "ic": 0.04463,
+   "p": 0.17255492556739593
+  },
+  "Telecom": {
+   "n": 468,
+   "ic": 0.04531,
+   "p": 0.4060340582258588
+  }
+ },
+ "top_sectors_by_abs_ic": [
+  {
+   "sector": "Metals & Mining",
+   "n": 1404,
+   "ic": 0.0848,
+   "p": 0.0014643827661897646
+  },
+  {
+   "sector": "Construction & Infra",
+   "n": 1404,
+   "ic": 0.07496,
+   "p": 0.004937314235762491
+  },
+  {
+   "sector": "Banks",
+   "n": 2808,
+   "ic": 0.07476,
+   "p": 7.285108929666606e-05
+  },
+  {
+   "sector": "Financial Services",
+   "n": 1561,
+   "ic": 0.0539,
+   "p": 0.033214305528738386
+  },
+  {
+   "sector": "Consumer Durables & Retail",
+   "n": 936,
+   "ic": 0.05326,
+   "p": 0.14751860363382785
+  }
+ ],
+ "symbol_ic": {
+  "ADANIENT_NS": 0.07,
+  "ADANIPORTS_NS": 0.04622,
+  "APOLLOHOSP_NS": 0.00493,
+  "ASIANPAINT_NS": 0.07528,
+  "AXISBANK_NS": 0.13397,
+  "BAJAJFINSV_NS": 0.01261,
+  "BAJAJ_AUTO_NS": 0.00861,
+  "BAJFINANCE_NS": 0.11,
+  "BEL_NS": -0.01556,
+  "BHARTIARTL_NS": 0.04531,
+  "BPCL_NS": 0.07873,
+  "BRITANNIA_NS": -0.08905,
+  "CIPLA_NS": 0.09048,
+  "COALINDIA_NS": 0.07858,
+  "DIVISLAB_NS": 0.03069,
+  "DRREDDY_NS": -0.02278,
+  "EICHERMOT_NS": -0.01259,
+  "GRASIM_NS": 0.02227,
+  "HCLTECH_NS": 0.03763,
+  "HDFCBANK_NS": 0.09601,
+  "HDFCLIFE_NS": 0.01262,
+  "HEROMOTOCO_NS": -0.00146,
+  "HINDALCO_NS": 0.08906,
+  "HINDUNILVR_NS": 0.0655,
+  "ICICIBANK_NS": 0.06803,
+  "INDUSINDBK_NS": -0.04475,
+  "INFY_NS": 0.03627,
+  "ITC_NS": 0.00486,
+  "JSWSTEEL_NS": 0.11167,
+  "KOTAKBANK_NS": 0.16026,
+  "LT_NS": 0.09097,
+  "M&M_NS": 0.03018,
+  "MARUTI_NS": -0.03669,
+  "NESTLEIND_NS": 0.05298,
+  "NTPC_NS": 0.05414,
+  "ONGC_NS": 0.02135,
+  "POWERGRID_NS": 0.02885,
+  "RELIANCE_NS": -0.00107,
+  "SBILIFE_NS": 0.04201,
+  "SBIN_NS": 0.07153,
+  "SHRIRAMFIN_NS": 0.04579,
+  "SUNPHARMA_NS": 0.05038,
+  "TATASTEEL_NS": 0.05948,
+  "TCS_NS": -0.0212,
+  "TECHM_NS": 0.04142,
+  "TITAN_NS": 0.06104,
+  "TRENT_NS": 0.03941,
+  "ULTRACEMCO_NS": -0.01648,
+  "WIPRO_NS": -0.00464
+ },
+ "liquidity_ln_adv_ic_corr": {}
+}
