@@ -2,7 +2,7 @@
 
 Pre-registered in `reports/COMP3_DIVERSIFICATION_PREREG_2026-09.md`.
 
-### D1 cap selection (dev-TRAIN): **C = 12%** — top5<30% AND expectancy>0
+### D1 cap selection (dev-TRAIN): **C = 8%** — top5<30% AND expectancy>0 (12.5% endpoint excluded). C=12.5% endpoint (=D2 quintile) is reported but excluded from selection (Amendment 1).
 
 | Cap | m/side | train exp bps | train top5 | train net% | val exp bps | val top5 | val net% |
 |---|---|---|---|---|---|---|---|
@@ -10,7 +10,7 @@ Pre-registered in `reports/COMP3_DIVERSIFICATION_PREREG_2026-09.md`.
 | 6% | 17 | 9.3588 | 0.5936 | 41.3094 | 11.1733 | 1.4074 | 6.1914 |
 | 8% | 13 | 8.6601 | 0.103 | 36.6876 | 16.4837 | 0.9403 | 9.2632 |
 | 10% | 10 | 5.1534 | 0.3915 | 18.5047 | 19.9786 | 0.9392 | 11.2464 |
-| 12% | 8 | 5.37 | 0.2766 | 18.7336 | 27.1206 | 0.6186 | 15.4361 |
+| 12% (excluded) | 8 | 5.37 | 0.2766 | 18.7336 | 27.1206 | 0.6186 | 15.4361 |
 
 ### Constructions @25bp (full dev)
 

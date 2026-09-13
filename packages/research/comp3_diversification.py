@@ -44,6 +44,9 @@ D1_BASE = "D1_CAP"
 
 # pre-registered candidate caps (feasible on a 40-symbol universe: 2*m_C <= N)
 CAPS = {0.05: 20, 0.06: 17, 0.08: 13, 0.10: 10, 0.125: 8}
+# C=12.5% endpoint (== D2 quintile) reported but EXCLUDED from selection
+# (Amendment 1, 2026-09-13, before holdout-5 sight)
+SEL_CAPS = [c for c in CAPS if c < 0.125]
 
 CONSTRUCTIONS = {
     "V1_DECILE_EQ": {"m": 4, "label": "V1 decile equal weight (concentrated baseline)"},
@@ -241,14 +244,18 @@ def tail(rows):
 
 
 def select_cap(train_res):
-    """Deterministic dev-TRAIN rule: largest cap with top5_share<0.30 and expectancy>0."""
+    """Deterministic dev-TRAIN rule (Amended): largest cap in {5,6,8,10}% with
+    top5_share<0.30 and expectancy>0 (12.5% endpoint excluded)."""
     rows = []
-    for cap, m in CAPS.items():
-        r = train_res[f"D1_CAP{int(cap * 100)}"]
+    for cap in SEL_CAPS:
+        dname = f"D1_CAP{int(cap * 100)}"
+        if dname not in train_res:
+            continue
+        r = train_res[dname]
         rows.append((cap, r["top5_share"], r["expectancy_bps"]))
     both = [c for c, t, e in rows if t < TOP5_BAR and e > 0]
     if both:
-        return max(both), "top5<30% AND expectancy>0"
+        return max(both), "top5<30% AND expectancy>0 (12.5% endpoint excluded)"
     conc = [c for c, t, e in rows if t < TOP5_BAR]
     if conc:
         return max(conc), "top5<30% only (economic result may be <=0)"
@@ -299,7 +306,8 @@ def main() -> None:
                                                "validation_report": val_tab[f"D1_CAP{int(c*100)}"]}
                            for c, m in CAPS.items()},
         "selection_split": "train", "validation": "report only, no re-selection",
-        "rule": f"largest cap with top5_share<{TOP5_BAR} AND expectancy>0 on dev-TRAIN",
+        "rule": (f"largest cap in {{5,6,8,10}}% with top5_share<{TOP5_BAR} AND expectancy>0 "
+                 f"on dev-TRAIN (12.5% endpoint == D2 excluded by Amendment 1)"),
         "chosen_cap": chosen, "reason": reason,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -311,13 +319,15 @@ def main() -> None:
 def md(res, chosen, reason):
     L = ["# COMP3 Diversification Research — Development Study (Phases 4-11)",
          "", "Pre-registered in `reports/COMP3_DIVERSIFICATION_PREREG_2026-09.md`.",
-         f"\n### D1 cap selection (dev-TRAIN): **C = {int(chosen*100)}%** — {reason}",
+         f"\n### D1 cap selection (dev-TRAIN): **C = {int(chosen*100)}%** — {reason}. "
+         "C=12.5% endpoint (=D2 quintile) is reported but excluded from selection (Amendment 1).",
          "\n| Cap | m/side | train exp bps | train top5 | train net% | val exp bps | val top5 | val net% |",
          "|---|---|---|---|---|---|---|---|"]
     for cap, m in CAPS.items():
         t = res["selection"]["candidate_caps"][f"{int(cap*100)}%"]["train"]
         v = res["selection"]["candidate_caps"][f"{int(cap*100)}%"]["validation_report"]
-        L.append(f"| {int(cap*100)}% | {m} | {t['expectancy_bps']} | {t['top5_share']} | "
+        excl = " (excluded)" if cap == 0.125 else ""
+        L.append(f"| {int(cap*100)}%{excl} | {m} | {t['expectancy_bps']} | {t['top5_share']} | "
                  f"{t['net_cum_pct']} | {v['expectancy_bps']} | {v['top5_share']} | {v['net_cum_pct']} |")
     L += ["", "### Constructions @25bp (full dev)", "",
           "| Name | net% | exp bps | PF | MDD% | Sharpe | top5 | HHI | sign flips |",

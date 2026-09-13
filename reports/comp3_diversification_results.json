@@ -2162,9 +2162,9 @@
   },
   "selection_split": "train",
   "validation": "report only, no re-selection",
-  "rule": "largest cap with top5_share<0.3 AND expectancy>0 on dev-TRAIN",
-  "chosen_cap": 0.125,
-  "reason": "top5<30% AND expectancy>0"
+  "rule": "largest cap in {5,6,8,10}% with top5_share<0.3 AND expectancy>0 on dev-TRAIN (12.5% endpoint == D2 excluded by Amendment 1)",
+  "chosen_cap": 0.08,
+  "reason": "top5<30% AND expectancy>0 (12.5% endpoint excluded)"
  },
  "walk_forward": {},
  "report": "reports/COMP3_DIVERSIFICATION_RESEARCH_2026-09.md"

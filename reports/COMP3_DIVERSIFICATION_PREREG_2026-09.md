@@ -33,19 +33,32 @@ each side equal weight `1/m_C`. Then `max |w| = 1/m_C ≤ C` with
 
 - Candidate caps (pre-registered, determined by feasibility on a 40-symbol
   universe): `C ∈ {5%, 6%, 8%, 10%, 12.5%}` → `m_C ∈ {20, 17, 13, 10, 8}`.
-- `C = 12.5%` collapses to quintile (D2) — an endpoint diagnostic.
+- `C = 12.5%` collapses to quintile (D2) — an endpoint diagnostic, EXCLUDED
+  from selection so that the chosen D1 is a genuine cap test (amended
+  pre-holdout-5, see Amendment 1 below). It is still reported as a construction.
 
 ### Deterministic cap selection (DEVELOPMENT ONLY — train then validation report)
 For each candidate C, compute on dev-TRAIN (gate-active days, 25 bps):
 `net_expectancy_bps` and `top5_share` (|top-5 gross symbol P&L| / |total gross|).
 
 - **TRAIN rule:** a cap QUALIFIES iff `top5_share < 0.30` AND
-  `net_expectancy_bps > 0`. Select the **largest** qualifying C (least dilution).
+  `net_expectancy_bps > 0`. Select the **largest** qualifying C (least dilution),
+  from the set `{5%, 6%, 8%, 10%}` (12.5% endpoint excluded).
 - If no C qualifies on both: select the largest C with `top5_share < 0.30`
   (diversification priority; economic result reported, may be ≤ 0).
 - If none at all: D1 = C=5% used regardless, flagged.
 - **VALIDATION is REPORT ONLY — no re-selection. Holdout-4 is never used for
   selection.**
+
+> **Amendment 1 (2026-09-13, BEFORE any holdout-5 sight):** the original rule
+> selected the largest qualifying cap across ALL candidates including the
+> C=12.5% endpoint, which is weight-identical to D2 (quintile). Selecting it
+> would make D1 ≡ D2 and the holdout-5 test vacuous as a diversified-vs-
+> concentrated test. Amendment: drop the 12.5% endpoint from the choice set
+> (it remains reported as a diagnostic construction). Dev-TRAIN outcome under
+> the amended rule: qualifiers = C=8% (top5_share 0.103, exp +8.66 bps) and
+> C=12.5% (excluded); largest remaining = **C=8% → m=13**. Frozen D1 for
+> holdout-5. Nothing else in the protocol changes.
 
 ## Phase 3 — D2 control
 
