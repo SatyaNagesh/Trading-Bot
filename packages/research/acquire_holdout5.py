@@ -136,14 +136,20 @@ def main() -> None:
     print("audit overall:", audit["quality_summary"]["overall"])
 
     kept, dropped = [], []
+    fail_syms = {d.get("symbol") for d in audit.get("datasets", [])
+                 if d.get("overall") == "FAIL"}
     for entry in di.load_manifest():
-        if entry.get("bars", 0) >= 700:
-            kept.append(entry["symbol"])
+        sym = entry["symbol"]
+        if sym in fail_syms:
+            dropped.append({"symbol": sym, "reason": "audit FAIL (data-quality); "
+                            "no substitution per protocol"})
+        elif entry.get("bars", 0) >= 700:
+            kept.append(sym)
         else:
-            dropped.append({"symbol": entry["symbol"], "bars": entry.get("bars")})
+            dropped.append({"symbol": sym, "bars": entry.get("bars")})
     (HOLD5 / "eligible_symbols.json").write_text(
         json.dumps({"kept": sorted(kept), "dropped": dropped}, indent=2))
-    print(f"eligible (bars>=700): {len(kept)}  dropped: {len(dropped)}")
+    print(f"eligible (bars>=700, audit PASS/WARN): {len(kept)}  dropped: {len(dropped)}")
 
     # Pre-registered holdout-5 confirmation window (freeze doc). Evaluated as ONE
     # undivided strategy sample, not split by dev boundaries. Schema matches

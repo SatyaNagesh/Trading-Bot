@@ -1,0 +1,49 @@
+{
+  "kept": [
+    "APARINDS.NS",
+    "ASTERDM.NS",
+    "ASTRAL.NS",
+    "BANDHANBNK.NS",
+    "BRIGADE.NS",
+    "CENTRALBK.NS",
+    "CESC.NS",
+    "CRAFTSMAN.NS",
+    "CREDITACC.NS",
+    "CUB.NS",
+    "DELHIVERY.NS",
+    "DEVYANI.NS",
+    "EIDPARRY.NS",
+    "ENGINERSIN.NS",
+    "FINEORG.NS",
+    "GILLETTE.NS",
+    "GODREJAGRO.NS",
+    "GRAPHITE.NS",
+    "HATSUN.NS",
+    "HOMEFIRST.NS",
+    "IOB.NS",
+    "IRB.NS",
+    "KANSAINER.NS",
+    "KARURVYSYA.NS",
+    "KPITTECH.NS",
+    "LAURUSLABS.NS",
+    "LTF.NS",
+    "NATCOPHARM.NS",
+    "NBCC.NS",
+    "NIACL.NS",
+    "NLCINDIA.NS",
+    "RVNL.NS",
+    "SOUTHBANK.NS",
+    "SUZLON.NS",
+    "TRIDENT.NS",
+    "UCOBANK.NS",
+    "VGUARD.NS",
+    "VINATIORGA.NS",
+    "WELSPUNLIV.NS"
+  ],
+  "dropped": [
+    {
+      "symbol": "FSL.NS",
+      "reason": "audit FAIL (data-quality); no substitution per protocol"
+    }
+  ]
+}

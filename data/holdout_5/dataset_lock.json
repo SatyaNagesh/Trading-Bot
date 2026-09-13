@@ -1,0 +1,8 @@
+{
+  "sha256": "13a1eeb11cac628b711b146efff1c0b89548c695ef8884c63790e12dbcba7833",
+  "n_symbols": 39,
+  "bars_total": 108300,
+  "universe_ref": "data/holdout_5/universe.json (BEFORE any download)",
+  "locked_utc": "2026-09-13T04:53:48.142145+00:00",
+  "note": "holdout_5 COMP3 V2 strategy-confirmation universe (D1 C=8% m=13, D2 quintile m=8); ANY strategy evaluation must use exactly this corpus, locked BEFORE evaluation"
+}
