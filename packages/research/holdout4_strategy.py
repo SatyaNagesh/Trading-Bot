@@ -134,9 +134,12 @@ def ls_active(panel, coverage, cost_bp):
         net = day["session_ret"].to_numpy()
         gross = float((w.to_numpy() * net).sum())
         turnover = float(np.abs(w - prev_w).sum()) if prev_w is not None else 2.0
+        pnl = dict(zip(day.index.get_level_values("symbol").astype(str),
+                       np.around(w.to_numpy() * net, 12)))
         rows.append({"date": str(t)[:10], "gross": gross,
                      "net": gross - turnover * cost_bp / 1e4, "turnover": turnover,
-                     "symbols": sorted(day.index.get_level_values("symbol"))})
+                     "symbols": sorted(day.index.get_level_values("symbol")),
+                     "pnl": pnl})
         prev_w = w
     return rows
 
@@ -176,8 +179,8 @@ def concentration(panel, primary="quintile_eq", cost_bp=25):
     base_cum = float(np.prod(1 + base) - 1)
     contrib = {}
     for r in base_rows:
-        for s in r["symbols"]:
-            contrib[s] = contrib.get(s, 0.0) + r["net"]
+        for s, c in r["pnl"].items():
+            contrib[s] = contrib.get(s, 0.0) + c
     ranked = sorted(contrib.items(), key=lambda kv: -abs(kv[1]))
     top5 = {s: round(v, 5) for s, v in ranked[:5]}
     top10 = {s: round(v, 5) for s, v in ranked[:10]}

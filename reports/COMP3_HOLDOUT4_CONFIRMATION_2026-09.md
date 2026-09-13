@@ -121,25 +121,25 @@
 {
  "concentration": {
   "base_net_cum_pct": 115.1408,
-  "top5_share_abs": 5.0284,
+  "top5_share_abs": 0.3864,
   "top5": {
-   "ADANIENSOL_NS": 0.86903,
-   "CHOLAHLDNG_NS": 0.8577,
-   "FORTIS_NS": 0.85258,
-   "AARTIIND_NS": 0.8517,
-   "ACC_NS": 0.8517
+   "IDEA_NS": 0.24468,
+   "NATIONALUM_NS": 0.19287,
+   "APOLLOTYRE_NS": 0.15118,
+   "BASF_NS": -0.14607,
+   "HINDCOPPER_NS": -0.11355
   },
   "top10": {
-   "ADANIENSOL_NS": 0.86903,
-   "CHOLAHLDNG_NS": 0.8577,
-   "FORTIS_NS": 0.85258,
-   "AARTIIND_NS": 0.8517,
-   "ACC_NS": 0.8517,
-   "AJANTPHARM_NS": 0.8517,
-   "APOLLOTYRE_NS": 0.8517,
-   "ARE&M_NS": 0.8517,
-   "BASF_NS": 0.8517,
-   "BIOCON_NS": 0.8517
+   "IDEA_NS": 0.24468,
+   "NATIONALUM_NS": 0.19287,
+   "APOLLOTYRE_NS": 0.15118,
+   "BASF_NS": -0.14607,
+   "HINDCOPPER_NS": -0.11355,
+   "MFSL_NS": 0.10615,
+   "CHAMBLFERT_NS": 0.10599,
+   "SUNTV_NS": 0.10091,
+   "LTTS_NS": -0.09698,
+   "IPCALAB_NS": 0.09642
   },
   "leave_one_out_sign_flips": [
    "CHOLAHLDNG_NS",
