@@ -39,6 +39,7 @@ from typing import Any
 from packages.core.exceptions import ConfigurationError
 from packages.core.logging import get_logger
 from packages.domain.models import Bar, Signal, SignalDirection
+from packages.notifications.discord import DiscordNotifier
 from packages.session.manager import SessionManager, SessionStatus
 from packages.trading.loop import PaperTradingLoop
 
@@ -523,6 +524,21 @@ class TradingViewEventGateway:
         action = loop_result.get("action")
         if action in ("filled", "partial"):
             status = "FILLED" if action == "filled" else "PARTIAL"
+            # Fire-and-forget paper notification. Never awaited, never raises,
+            # never blocks the paper loop; the notifier is env-gated and
+            # fail-closed, so with no webhook URL configured this is a no-op.
+            notifier = DiscordNotifier.from_env()
+            if notifier.enabled:
+                asyncio.create_task(
+                    notifier.notify(
+                        symbol=event.symbol,
+                        direction=event.direction.value,
+                        action=status,
+                        reason=f"paper order {'filled' if action == 'filled' else 'partially filled'}",
+                        event_id=event.event_id,
+                        meta={"timeframe": event.timeframe, "alert_price": str(price)},
+                    )
+                )
             return {
                 "status": status,
                 "result": loop_result,
