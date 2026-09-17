@@ -26,8 +26,8 @@ logger = get_logger("discord_bot")
 def main():
     cfg = DiscordBotConfig()
 
-    if not cfg.token:
-        logger.error("discord_token_missing", message="Set QUANTLAB_DISCORD_TOKEN in .env")
+    if not cfg.bot_token:
+        logger.error("discord_token_missing", message="Set QUANTLAB_DISCORD_BOT_TOKEN in .env")
         return
 
     client = QuantLabAPIClient(base_url=cfg.api_base_url, api_secret=cfg.api_secret)
@@ -43,7 +43,7 @@ def main():
         await bot.add_cog(AdviceCog(bot, client, cfg))
         await bot.tree.sync()
 
-    bot.run(cfg.token)
+    bot.run(cfg.bot_token)
 
 
 if __name__ == "__main__":

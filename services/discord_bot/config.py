@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings
 
 
 class DiscordBotConfig(BaseSettings):
-    token: str = ""
+    bot_token: str = ""
     api_base_url: str = "http://localhost:8000"
     api_secret: str = "dev-secret-change-in-production"
     command_prefix: str = "!quantlab"
