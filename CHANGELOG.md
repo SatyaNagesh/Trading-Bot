@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file.
 
+## [tradingview-discord-paper] — 2026-09-17
+
+TradingView webhook → paper pipeline with Discord notifications. Paper-only,
+fail-closed; live trading remains hard-blocked.
+
+### Added
+- **TradingView webhook endpoint** (`services/api/router_webhook.py`,
+  `packages/webhook/tradingview.py`): `POST /webhook/tradingview`, secret-gated
+  (`QUANTLAB_TV_WEBHOOK_SECRET` via `X-QuantLab-Webhook-Token`), tradingview-only
+  source, direction mapping (long/buy→LONG, short/sell→SHORT, neutral→NEUTRAL),
+  IST session 09:15–15:30 gate, event-id dedupe, `/webhook/status` +
+  `/webhook/events` journal. No secret set ⇒ 503 NOT_CONFIGURED (refuses, does not
+  silently accept).
+- **Discord notification leg** (`packages/notifications/discord.py`): Discord
+  **Bot HTTP (REST) API** transport (`QUANTLAB_DISCORD_BOT_TOKEN` +
+  `QUANTLAB_DISCORD_CHANNEL_ID`, gated by `QUANTLAB_DISCORD_ENABLED`). Fail-closed:
+  disabled/missing/blank ⇒ no-op; never raises out of `notify`; notification-only,
+  cannot place/fill/modify orders; never blocks the paper loop.
+- **Webhook → Discord wiring**: paper fills produced from a TradingView alert are
+  reported to Discord with symbol/direction/action/reason/event-id metadata.
+- **Deploy config** (`.env.example`, `render.yaml`): env-NAME-only checklist;
+  values live in the Render secret store, never in git.
+- **Tests**: `test_tradingview_webhook.py` (32), `test_discord_notifier.py` (9),
+  `test_discord_probe.py` — webhook contract, fail-closed gates, token never
+  leaks into records/stats.
+
+### Changed
+- **Discord transport migrated** (commits `0ad4c8d`→`5fe8e6a`): legacy
+  `QUANTLAB_DISCORD_WEBHOOK_URL` webhook leg retained byte-identical in source
+  for rollback only; production path uses the Bot API. `.env.example` /
+  `render.yaml` updated to declare the new env names (`87c9298`).
+- **E2E report** (`reports/TRADINGVIEW_DISCORD_PAPER_E2E_2026-09-14.md`)
+  updated to the migrated transport; classification remains **B** — infra ready,
+  real TradingView alert pending (operator-gated). Nothing claimed as A without a
+  genuine event.
+
+### Security
+- Webhook secret, Discord bot token, channel ID never committed; env-NAME-only
+  config; fail-closed at every gate (webhook 503 without secret, live broker
+  hard-blocked, notifier no-op without token/channel).
+
+---
+
 ## [quantlab-trader-final] — 2026-09-13
 
 QuantLab Trader release candidate: engineering-complete, paper-engine-ready,
