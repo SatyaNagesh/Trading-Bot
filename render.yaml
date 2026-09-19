@@ -43,6 +43,13 @@ services:
       # --- Discord (name only; value via Render secret store) ---
       - key: QUANTLAB_DISCORD_ENABLED
         value: "true"
+      # Discord Bot HTTP (REST) API transport — migrated from legacy webhook
+      # (commit 5fe8e6a). Token + channel ID must be set in the secret store;
+      # without them the notifier is a harmless no-op (fail-closed).
+      - key: QUANTLAB_DISCORD_BOT_TOKEN
+        sync: false
+      - key: QUANTLAB_DISCORD_CHANNEL_ID
+        sync: false
       # --- TradingView secret (name only; value via Render secret store) ---
       - key: QUANTLAB_TV_WEBHOOK_SECRET
         sync: false
